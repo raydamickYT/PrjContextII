@@ -46,7 +46,9 @@ Shader "Custom/FisheyeShader"
                 float2 uv = i.uv * 2.0 - 1.0; // Normalize UV to [-1, 1]
                 float theta = atan2(uv.y, uv.x);
                 float radius = length(uv);
+
                 radius = pow(radius, _BulgeAmount);
+
                 uv.x = radius * cos(theta);
                 uv.y = radius * sin(theta);
                 uv = uv * 0.5 + 0.5; // Revert UV to [0, 1]
