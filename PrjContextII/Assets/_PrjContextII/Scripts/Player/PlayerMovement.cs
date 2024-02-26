@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public class PlayerMovement : State
@@ -120,6 +121,10 @@ public class PlayerMovementFree : State
         if (hit)
         {
             Debug.Log("hij ziet de computer");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+            PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
+            }
         }
 
     }
@@ -152,7 +157,6 @@ public class PlayerMovementFree : State
         right.Normalize();
 
         Vector3 movement = (forward * moveVertical + right * moveHorizontal) * speed;
-        // Debug.Log(movement * speed);
 
         // Pas de snelheid van de Rigidbody aan op basis van de berekende richting
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); // Behoud de huidige verticale snelheid (bijvoorbeeld voor zwaartekracht)
