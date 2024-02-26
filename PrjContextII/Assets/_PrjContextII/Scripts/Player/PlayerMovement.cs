@@ -68,6 +68,7 @@ public class PlayerMovementFree : State
     public Rigidbody rb;
     public Animator anim;
     private Camera MainCam;
+    private LayerMask computerLayermask;
     private PlayerStateHandler PlayerFSM;
     private float speed = 2f;
 
@@ -77,6 +78,7 @@ public class PlayerMovementFree : State
 
     public PlayerMovementFree(Rigidbody _rb, Animator _anim, PlayerStateHandler _fsm, Camera _mainCam)
     {
+        computerLayermask = LayerMask.GetMask("Computer");
         anim = _anim;
         rb = _rb;
         PlayerFSM = _fsm;
@@ -97,11 +99,29 @@ public class PlayerMovementFree : State
 
         //look
         ReadMouseInput();
+
+        CheckSurroundsingsWithSphereCast();
     }
     public override void OnExit()
     {
         base.OnExit();
         anim.enabled = true;
+    }
+
+    public void CheckSurroundsingsWithSphereCast()
+    {
+        float radius = 1f;
+        float maxDist = .5f;
+        Vector3 direction = rb.transform.forward;
+
+        RaycastHit hitInfo;
+        bool hit = Physics.SphereCast(rb.transform.position, radius, direction, out hitInfo, maxDist, computerLayermask);
+
+        if (hit)
+        {
+            Debug.Log("hij ziet de computer");
+        }
+
     }
 
     public void ReadMouseInput()
@@ -171,7 +191,7 @@ public class ComputerInteract : State
                 PlayerFSM.SwitchPlayerState(typeof(PlayerMovementFree));
             }
             // Print de huidige tijd van de animatie naar de console
-            Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
+            // Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
         }
     }
     public override void OnExit()

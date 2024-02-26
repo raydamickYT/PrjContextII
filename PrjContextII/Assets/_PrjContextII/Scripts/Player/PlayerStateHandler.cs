@@ -9,6 +9,7 @@ public class PlayerStateHandler : MonoBehaviour
     public Rigidbody rb;
     public Animator anim;
     public Camera mainCam;
+    public LayerMask computerLayermask;
     private readonly FSM<PlayerStateHandler> fsm = new();
 
     void Awake()
