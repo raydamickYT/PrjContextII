@@ -18,6 +18,11 @@ public class FSM<T>
         currentState?.OnUpdate();
     }
 
+    public void OnLateUpdate()
+    {
+        currentState?.OnLateUpdate();
+    }
+
     public void SwitchState(System.Type _type)
     {
         if (allStates.ContainsKey(_type))

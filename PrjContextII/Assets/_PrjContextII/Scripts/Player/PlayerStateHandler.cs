@@ -12,28 +12,44 @@ public class PlayerStateHandler : MonoBehaviour
     public LayerMask computerLayermask;
     private readonly FSM<PlayerStateHandler> fsm = new();
 
+    public PlayerSettings PS;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         mainCam = GetComponentInChildren<Camera>();
-        if(mainCam == null){
+        FillScripteableObject();
+        if (mainCam == null)
+        {
             Debug.LogWarning("camera is niet gevonden in speler");
         }
 
         SetupStates();
     }
 
+    void FillScripteableObject(){
+        PS.rb = rb;
+        PS.MainCam = mainCam;
+        PS.anim = anim;
+    }
+
     void Update()
     {
+
         fsm.OnUpdate();
+    }
+
+    void LateUpdate()
+    {
+        fsm.OnLateUpdate();
     }
 
     void SetupStates()
     {
-        fsm.AddState(new PlayerMovement(rb, anim, this));
-        fsm.AddState(new PlayerMovementFree(rb, anim, this, mainCam));
-        fsm.AddState(new ComputerInteract(rb, anim, this));
+        fsm.AddState(new PlayerMovement(PS, this));
+        fsm.AddState(new PlayerMovementFree(this, PS));
+        fsm.AddState(new ComputerInteract(PS, this));
         fsm.SwitchState(typeof(PlayerMovement));
     }
 
