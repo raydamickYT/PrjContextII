@@ -30,6 +30,7 @@ public class PlayerMovement : State
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // anim.SetTrigger("AwayFromComp");
             PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
         }
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
@@ -99,8 +100,11 @@ public class PlayerMovementFree : State
         movement();
 
         //look
-        ReadMouseInput();
+        // ReadMouseInput();
 
+    }
+    public override void OnLateUpdate()
+    {
         CheckSurroundsingsWithSphereCast();
     }
     public override void OnExit()
@@ -113,20 +117,24 @@ public class PlayerMovementFree : State
     {
         float radius = 1f;
         float maxDist = .5f;
-        Vector3 direction = rb.transform.forward;
+        Vector3 direction = Vector3.forward;
 
         RaycastHit hitInfo;
         bool hit = Physics.SphereCast(rb.transform.position, radius, direction, out hitInfo, maxDist, computerLayermask);
+        Debug.Log("hit: " + hit);
 
         if (hit)
         {
             Debug.Log("hij ziet de computer");
             if (Input.GetKeyDown(KeyCode.E))
             {
-            PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
+                Debug.Log("e werkt");
+                anim.enabled = true;
+                anim.SetTrigger("AwayFromComp");
+
+                PlayerFSM.SwitchPlayerState(typeof(PlayerMovement));
             }
         }
-
     }
 
     public void ReadMouseInput()
@@ -169,7 +177,7 @@ public class ComputerInteract : State
     public Rigidbody rb;
     public Animator anim;
     private PlayerStateHandler PlayerFSM;
-    private string stateName = "AwayFromComp";
+    private string stateName = "Sit";
 
 
     public ComputerInteract(Rigidbody _rb, Animator _anim, PlayerStateHandler _fsm)
@@ -195,7 +203,7 @@ public class ComputerInteract : State
                 PlayerFSM.SwitchPlayerState(typeof(PlayerMovementFree));
             }
             // Print de huidige tijd van de animatie naar de console
-            // Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
+            Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
         }
     }
     public override void OnExit()

@@ -17,7 +17,8 @@ public class PlayerStateHandler : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         mainCam = GetComponentInChildren<Camera>();
-        if(mainCam == null){
+        if (mainCam == null)
+        {
             Debug.LogWarning("camera is niet gevonden in speler");
         }
 
@@ -26,7 +27,13 @@ public class PlayerStateHandler : MonoBehaviour
 
     void Update()
     {
+
         fsm.OnUpdate();
+    }
+
+    void LateUpdate()
+    {
+        fsm.OnLateUpdate();
     }
 
     void SetupStates()
