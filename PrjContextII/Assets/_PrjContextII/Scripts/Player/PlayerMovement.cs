@@ -1,20 +1,21 @@
+using Unity.VisualScripting;
 using UnityEngine;
-
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : State
 {
-    public Camera mainCamera;
     public Rigidbody rb;
     public Animator anim;
+    private PlayerStateHandler PlayerFSM;
     private string stateName = "LookLeft";
 
-    void Awake()
+    public PlayerMovement(Rigidbody _rb, Animator _anim, PlayerStateHandler _fsm)
     {
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        anim = _anim;
+        rb = _rb;
+        PlayerFSM = _fsm;
     }
+
     // Update is called once per frame
-    void Update()
+    public override void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -23,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             PlayForwards();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
         }
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
@@ -55,3 +61,83 @@ public class PlayerMovement : MonoBehaviour
         anim.SetTrigger("StartAnimation");
     }
 }
+
+public class PlayerMovementFree : State
+{
+    public Rigidbody rb;
+    public Animator anim;
+    private PlayerStateHandler PlayerFSM;
+    private float speed = 10f;
+
+    public PlayerMovementFree(Rigidbody _rb, Animator _anim, PlayerStateHandler _fsm)
+    {
+        anim = _anim;
+        rb = _rb;
+        PlayerFSM = _fsm;
+    }
+
+    public override void OnEnter()
+    {
+        // Debug.Log("test");
+        anim.enabled = false;
+    }
+    public override void OnUpdate()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Debug.Log(moveHorizontal);
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+        Debug.Log(movement * speed);
+
+        // rb.AddForce(movement * speed);
+        rb.velocity = movement * speed;
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+        anim.enabled = true;
+    }
+}
+
+public class ComputerInteract : State
+{
+
+    public Rigidbody rb;
+    public Animator anim;
+    private PlayerStateHandler PlayerFSM;
+    private string stateName = "AwayFromComp";
+
+
+    public ComputerInteract(Rigidbody _rb, Animator _anim, PlayerStateHandler _fsm)
+    {
+        anim = _anim;
+        rb = _rb;
+        PlayerFSM = _fsm;
+    }
+
+    public override void OnEnter()
+    {
+        Debug.Log("test");
+        anim.SetTrigger("AwayFromComp");
+    }
+    public override void OnUpdate()
+    {
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
+
+        if (stateInfo.IsName(stateName))
+        {
+            if (stateInfo.normalizedTime > 1)
+            {
+                PlayerFSM.SwitchPlayerState(typeof(PlayerMovementFree));
+            }
+            // Print de huidige tijd van de animatie naar de console
+            Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
+        }
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+    }
+}
+
