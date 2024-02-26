@@ -1380,6 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1244257125}
   anim: {fileID: 1244257126}
+  mainCam: {fileID: 0}
 --- !u!1 &1367935177
 GameObject:
   m_ObjectHideFlags: 0

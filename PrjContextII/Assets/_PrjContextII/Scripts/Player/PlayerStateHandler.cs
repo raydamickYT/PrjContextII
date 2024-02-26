@@ -8,12 +8,17 @@ public class PlayerStateHandler : MonoBehaviour
 {
     public Rigidbody rb;
     public Animator anim;
+    public Camera mainCam;
     private readonly FSM<PlayerStateHandler> fsm = new();
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        mainCam = GetComponentInChildren<Camera>();
+        if(mainCam == null){
+            Debug.LogWarning("camera is niet gevonden in speler");
+        }
 
         SetupStates();
     }
@@ -26,7 +31,7 @@ public class PlayerStateHandler : MonoBehaviour
     void SetupStates()
     {
         fsm.AddState(new PlayerMovement(rb, anim, this));
-        fsm.AddState(new PlayerMovementFree(rb, anim, this));
+        fsm.AddState(new PlayerMovementFree(rb, anim, this, mainCam));
         fsm.AddState(new ComputerInteract(rb, anim, this));
         fsm.SwitchState(typeof(PlayerMovement));
     }
