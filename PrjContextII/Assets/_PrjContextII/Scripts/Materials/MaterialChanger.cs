@@ -7,9 +7,10 @@ public class MaterialChanger : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            // ChangeMaterial(Random(0,2));
+            ChangeMaterial(Random.Range(0,2));
+            Debug.Log("test");
         }
     }
 
@@ -21,6 +22,7 @@ public class MaterialChanger : MonoBehaviour
         {
             // Verandert het materiaal van het GameObject.
             GetComponent<Renderer>().material = materials[materialIndex];
+            Debug.Log(materialIndex);
         }
         else
         {
