@@ -3,15 +3,16 @@ using UnityEngine.UI; // Zorg ervoor dat je de UI namespace gebruikt voor toegan
 using System.Collections.Generic;
 using System;
 using Unity.VisualScripting;
+using Unity.Mathematics;
 
 public class ChoiceManager : MonoBehaviour
 {
+    private MaterialChanger materialChanger = new();
     public List<Day> Days; // Een lijst met alle dagen en hun keuzes
-    private int currentDayIndex = 0, choicesMade = 0; // Houdt bij welke dag het is
+    private int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
 
     public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
-
     // UI Buttons voor Ja en Nee keuzes
     public Button YesButton;
     public Button NoButton;
@@ -44,36 +45,76 @@ public class ChoiceManager : MonoBehaviour
         // Bijvoorbeeld, controleer of choiceMade overeenkomt met isCorrectChoice van de huidige keuze
 
         // Voor nu, simpelweg loggen of de juiste keuze gemaakt is
-        Debug.Log("Juiste keuze gemaakt: " + choiceMade);
-        if (choiceMade)
+        if (Days[currentDayIndex].choices.Count > currentDayIndex)//als de aantal totale keuzes van vandaag nog meer is dan het aantal keuzes gemaakt.
         {
-            GoodOrBadMeter += GoodBadIncrement;
-        }
-        else
-        {
-            GoodOrBadMeter -= GoodBadIncrement;
-        }
+            // Debug.Log("Juiste keuze gemaakt: " + choiceMade);
+            if (choiceMade)
+            {
+                GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter + GoodBadIncrement, -1f, 1f);
+            }
+            else
+            {
+                GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter - GoodBadIncrement, -1f, 1f);
+            }
 
-        FloatRange range = DetermineRange(GoodOrBadMeter);
+            FloatRange range = DetermineRange(GoodOrBadMeter);
+            Choice currentChoice;
+            Debug.Log(CurrentChoiceIndex );
+            if (currentDayIndex < Days.Count && CurrentChoiceIndex < Days[currentDayIndex].choices.Count)
+            {
+                currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
+                CurrentChoiceIndex++;
+            }
+            else
+            {
+                Debug.LogWarning("currentchoice is NULL");
+                currentChoice = null;
+            }
 
-        switch (range)
+            switch (range)
+            {
+                case FloatRange.BetweenZeroAndOne:
+                    Debug.Log("De waarde ligt tussen 0.2 en 1.");
+                    // materialChanger.ChangeMaterial(1, Building.GetComponent<Renderer>());
+                    ApplyChoice(currentChoice);
+                    break;
+                case FloatRange.BetweenZeroAndMinusOne:
+                    Debug.Log("De waarde ligt tussen 0 en -1.");
+                    break;
+                case FloatRange.Other:
+                    Debug.Log("De waarde ligt niet binnen de gespecificeerde bereiken.");
+                    break;
+                case FloatRange.Neutral:
+                    Debug.Log("De waarde is neutraal");
+                    break;
+            }
+        }
+        else //anders is de dag voorbij en eindigen we de turn.
         {
-            case FloatRange.BetweenZeroAndOne:
-                Debug.Log("De waarde ligt tussen 0 en 1.");
-                break;
-            case FloatRange.BetweenZeroAndMinusOne:
-                Debug.Log("De waarde ligt tussen 0 en -1.");
-                break;
-            case FloatRange.Other:
-                Debug.Log("De waarde ligt niet binnen de gespecificeerde bereiken.");
-                break;
-            case FloatRange.Neutral:
-                Debug.Log("De waarde is neutraal");
-                break;
+            currentDayIndex++;
+            CurrentChoiceIndex = 0;
         }
 
         // Ga naar de volgende vraag of dag, afhankelijk van je spellogica
     }
+    public void ApplyChoice(Choice choice)
+    {
+        // Loop door elk GameObject in de Buildings array van de keuze
+        foreach (GameObject building in choice.Buildings)
+        {
+            // Verkrijg de Renderer component van het GameObject
+            Renderer renderer = building.GetComponent<Renderer>();
+
+            // Controleer of de Renderer component bestaat
+            if (renderer != null)
+            
+            {
+                // Wijzig het materiaal van de Renderer naar het materiaal gedefinieerd in de keuze
+                renderer.material = choice.changeMaterial;
+            }
+        }
+    }
+
     // Methode om te bepalen in welk bereik de float valt
     FloatRange DetermineRange(float value)
     {
