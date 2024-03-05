@@ -11,5 +11,6 @@ public class PlayerSettings : ScriptableObject
     public Camera MainCam;
     public Rigidbody rb;
     public Animator anim;
-    public string stateNameLeft;
+    public Texture2D cursorArrow, cursorHand;
+
 }
