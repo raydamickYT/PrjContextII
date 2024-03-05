@@ -9,7 +9,7 @@ public class ComputerInteract : State
     private PlayerSettings PS;
 
 
-    public ComputerInteract(PlayerSettings _ps, PlayerStateHandler _fsm)
+    public ComputerInteract(PlayerSettings _ps, PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
     {
         PS = _ps;
         PlayerFSM = _fsm;
@@ -21,6 +21,7 @@ public class ComputerInteract : State
     }
     public override void OnUpdate()
     {
+        //voor als de speler wilt opstaan.
         AnimatorStateInfo stateInfo = PS.anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
         if (stateInfo.IsName(stateName))

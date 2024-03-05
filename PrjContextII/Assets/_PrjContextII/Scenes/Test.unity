@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1512272909332112037, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7da3e059a85b95543afc39c1f25a6d5c, type: 2}
     - target: {fileID: 6127423735557083346, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
       propertyPath: m_Name
       value: House_Small
@@ -178,10 +182,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6127423735557083346, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 897713516}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
 --- !u!1 &478312487
 GameObject:
@@ -509,21 +510,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6127423735557083346, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
   m_PrefabInstance: {fileID: 464948087}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &897713516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897713515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827a4024362f1d0438cd8cf1fa46e9a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 7da3e059a85b95543afc39c1f25a6d5c, type: 2}
-  - {fileID: 2100000, guid: 2c2df9e585d0c5e4b9780d6d5bb03781, type: 2}
 --- !u!1 &1205518434
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,64 +678,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1291251731
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1291251733}
-  - component: {fileID: 1291251732}
-  m_Layer: 0
-  m_Name: ChoiceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1291251732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291251731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9afcd9ba77b04954ea9fe00ea2959c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Days:
-  - choices:
-    - choiceText: test
-      Buildings:
-      - {fileID: 6127423735557083346, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
-      changeMaterial: {fileID: 2100000, guid: 2c2df9e585d0c5e4b9780d6d5bb03781, type: 2}
-      IsCorrectChoice: 0
-  - choices: []
-  ChoiceText: {fileID: 1564402184}
-  GoodOrBadMeter: 0
-  GoodBadBorder: 0.2
-  GoodBadIncrement: 0.2
-  YesButton: {fileID: 2125274929}
-  NoButton: {fileID: 1727477080}
---- !u!4 &1291251733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291251731}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.350395, y: 3.8249297, z: -8.325569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1236,6 +1164,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125274927}
   m_CullTransparentMesh: 1
+--- !u!1001 &4546231245390216776
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1106551551899546213, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_Name
+      value: ChoiceManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.350395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8249297
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.325569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: NoButton
+      value: 
+      objectReference: {fileID: 1727477080}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: YesButton
+      value: 
+      objectReference: {fileID: 2125274929}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: ChoiceText
+      value: 
+      objectReference: {fileID: 1564402184}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: Days.Array.data[0].choices.Array.data[0].Buildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 897713515}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1244,7 +1245,7 @@ SceneRoots:
   - {fileID: 688688456}
   - {fileID: 464948087}
   - {fileID: 880348963}
-  - {fileID: 1291251733}
+  - {fileID: 4546231245390216776}
   - {fileID: 811594931}
   - {fileID: 1216713246}
   - {fileID: 1205518438}
