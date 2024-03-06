@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI; // Zorg ervoor dat je de UI namespace gebruikt voor toegang tot UI componenten
 using System.Collections.Generic;
-using System;
-using Unity.VisualScripting;
-using Unity.Mathematics;
+
 
 public class ChoiceManager : MonoBehaviour
 {
+    public static ChoiceManager instance { get; private set; }
     private MaterialChanger materialChanger = new();
     public List<Day> Days; // Een lijst met alle dagen en hun keuzes
     private int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
@@ -14,8 +13,17 @@ public class ChoiceManager : MonoBehaviour
     public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
     // UI Buttons voor Ja en Nee keuzes
-    public Button YesButton;
-    public Button NoButton;
+    // public Button YesButton;
+    // public Button NoButton;
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            //NOTE: als je wilt dat het object niet vernietigt wordt bij een nieuwe scene:
+            // DontDestroyOnLoad(this.gameObject);
+        }
+    }
 
     void Awake()
     {
@@ -33,8 +41,8 @@ public class ChoiceManager : MonoBehaviour
             if (currentDay.choices.Count > 0)
             {
                 ChoiceText.text = currentDay.choices[0].choiceText;
-                YesButton.onClick.AddListener(() => MakeChoice(true));
-                NoButton.onClick.AddListener(() => MakeChoice(false));
+                // YesButton.onClick.AddListener(() => MakeChoice(true));
+                // NoButton.onClick.AddListener(() => MakeChoice(false));
             }
         }
     }
@@ -59,7 +67,7 @@ public class ChoiceManager : MonoBehaviour
 
             FloatRange range = DetermineRange(GoodOrBadMeter);
             Choice currentChoice;
-            Debug.Log(CurrentChoiceIndex );
+            Debug.Log(CurrentChoiceIndex);
             if (currentDayIndex < Days.Count && CurrentChoiceIndex < Days[currentDayIndex].choices.Count)
             {
                 currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
@@ -107,7 +115,7 @@ public class ChoiceManager : MonoBehaviour
 
             // Controleer of de Renderer component bestaat
             if (renderer != null)
-            
+
             {
                 // Wijzig het materiaal van de Renderer naar het materiaal gedefinieerd in de keuze
                 renderer.material = choice.changeMaterial;

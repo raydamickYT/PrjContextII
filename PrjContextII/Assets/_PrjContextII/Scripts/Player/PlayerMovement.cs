@@ -67,6 +67,8 @@ public class PlayerMovement : State
         RayCastToUI();
     }
 
+    bool isHoveringOverScreen = false;
+
     void RayCastToUI()
     {
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -74,8 +76,12 @@ public class PlayerMovement : State
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, screenLayerMask))
         {
-            Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
-            Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 // RaycastToScreen();
@@ -85,7 +91,11 @@ public class PlayerMovement : State
         }
         else
         {
-            Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
         }
     }
 
