@@ -2820,6 +2820,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginScreen: {fileID: 478166449}
   HomeScreen: {fileID: 1715420892}
+  MapScreenMaterial: {fileID: 2100000, guid: 6098b1515d590f84f95a6563445006ec, type: 2}
+  BackgroundScreenMaterial: {fileID: 2100000, guid: 7fb2a70fb9ab9e94aa003426bbd21aa1, type: 2}
+  ComputerScreenObj: {fileID: 1502434803}
 --- !u!1 &922928615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5675,7 +5678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: yes
 --- !u!222 &1887973744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5837,7 +5840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.54156095, y: 0.000000026076693, z: -0.000000016798813, w: 0.8406615}
+  m_LocalRotation: {x: 0.54156095, y: -0.000000026076686, z: 0.00000001679881, w: 0.8406615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

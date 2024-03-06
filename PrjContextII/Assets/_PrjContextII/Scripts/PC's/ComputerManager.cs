@@ -1,4 +1,4 @@
-    using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ComputerManager : MonoBehaviour
@@ -7,6 +7,10 @@ public class ComputerManager : MonoBehaviour
     private Canvas loginScreen,
     HomeScreen;
 
+    public Material MapScreenMaterial, BackgroundScreenMaterial;
+    public GameObject ComputerScreenObj;
+    private Renderer ComputerScreenRenderer;
+
     //states
     public LoginState loginState;
     private readonly FSM<State> ComputerFsm = new();
@@ -14,6 +18,10 @@ public class ComputerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ComputerScreenRenderer = ComputerScreenObj.GetComponent<Renderer>();
+        // ComputerScreenRenderer.material = BackgroundScreenMaterial;
+        SwitchScreenMaterial(BackgroundScreenMaterial);
+
         SetupStates();
     }
 
@@ -33,7 +41,7 @@ public class ComputerManager : MonoBehaviour
     {
         loginState = new(ComputerFsm, loginScreen);
         ComputerFsm?.AddState(loginState);
-        ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen));
+        ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen, this));
         ComputerFsm?.AddState(new MapState(ComputerFsm));
         ComputerFsm?.AddState(new TasksClass(ComputerFsm));
         ComputerFsm?.AddState(new MailState(ComputerFsm));
@@ -44,5 +52,10 @@ public class ComputerManager : MonoBehaviour
     public void SwitchPlayerState(System.Type newState)
     {
         ComputerFsm.SwitchState(newState);
+    }
+
+    public void SwitchScreenMaterial(Material mat)
+    {
+        ComputerScreenRenderer.material = mat;
     }
 }
