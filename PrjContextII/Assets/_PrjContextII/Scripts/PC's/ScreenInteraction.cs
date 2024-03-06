@@ -7,21 +7,44 @@ public class ScreenInteraction : MonoBehaviour
     public Camera screenCamera;
     CinemachineBrain cinemachineBrain;
     public LayerMask screenLayerMask;
+    public Texture2D cursorArrow, cursorHand;
 
     void Start()
     {
         cinemachineBrain = FindObjectOfType<CinemachineBrain>();
         // mainCamera = cinemachineBrain.OutputCamera;
+
+        // Cursor.visible = false;
+        Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0)) // Detecteer klik met linker muisknop
+
+        RayCastToUI();
+    }
+    void RayCastToUI()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, screenLayerMask))
         {
-            RaycastToScreen();
+            Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                // RaycastToScreen();
+            }
+        }
+        else
+        {
+            Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+
         }
     }
 
+    //logic voor andere attempt om via scherm te interacteren
     void RaycastToScreen()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -45,7 +68,7 @@ public class ScreenInteraction : MonoBehaviour
         MeshRenderer screenMeshRenderer = screenObject.GetComponent<MeshRenderer>();
         if (screenMeshRenderer == null) return Vector2.zero;
 
-        Vector3 screenBounds = new Vector3(100,100,0);
+        Vector3 screenBounds = new Vector3(100, 100, 0);
         Debug.Log(screenMeshRenderer.bounds.size);
 
         // Bereken de lokale positie van de hit binnen het schermobject
