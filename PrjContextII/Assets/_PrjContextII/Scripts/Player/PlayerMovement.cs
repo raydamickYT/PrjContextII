@@ -4,14 +4,26 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public class PlayerMovement : State
 {
+    public LayerMask screenLayerMask;
+    private Camera mainCam;
     private PlayerStateHandler PlayerFSM;
+    public ComputerManager CompManager;
     private string stateName = "LookLeft";
     public PlayerSettings PS;
+    public Texture2D cursorArrow, cursorHand;
+    private FSM<State> fSM;
 
-    public PlayerMovement(PlayerSettings _PS, PlayerStateHandler _fsm)
+
+    public PlayerMovement(PlayerSettings _PS, PlayerStateHandler _fsm, FSM<State> _fSM, ComputerManager _com) : base(_fSM)
     {
+        screenLayerMask = _PS.computerLayerMask;
+        mainCam = _PS.MainCam;
         PS = _PS;
         PlayerFSM = _fsm;
+        fSM = _fSM;
+        cursorArrow = _PS.cursorArrow;
+        cursorHand = _PS.cursorHand;
+        CompManager = _com;
     }
 
     // Update is called once per frame
@@ -48,6 +60,32 @@ public class PlayerMovement : State
             }
             // Print de huidige tijd van de animatie naar de console
             // Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
+        }
+    }
+    public override void OnLateUpdate()
+    {
+        RayCastToUI();
+    }
+
+    void RayCastToUI()
+    {
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, screenLayerMask))
+        {
+            Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+            if (Input.GetMouseButtonDown(0))
+            {
+                // RaycastToScreen();
+                fSM.SwitchState(typeof(DisableMovementState));
+                CompManager.loginState.SelectInputField();
+            }
+        }
+        else
+        {
+            Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
         }
     }
 

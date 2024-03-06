@@ -11,7 +11,7 @@ public class PlayerMovementFree : State
     public PlayerSettings PS;
 
 
-    public PlayerMovementFree(PlayerStateHandler _fsm, PlayerSettings _ps)
+    public PlayerMovementFree(PlayerStateHandler _fsm, PlayerSettings _ps, FSM<State> _fSM) : base(_fSM)
     {
         PS = _ps;
         computerLayermask = LayerMask.GetMask("Computer");
