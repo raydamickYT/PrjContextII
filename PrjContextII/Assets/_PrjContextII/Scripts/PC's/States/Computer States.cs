@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,10 +18,15 @@ public class LoginState : State
     public LoginState(FSM<State> _fSM, Canvas _login) : base(_fSM)
     {
         loginScreen = _login;
+        loginScreen.enabled = false;
     }
 
     public override void OnEnter()
     {
+        //IMPORTANT: zet hier je canvas aan.
+        if (!loginScreen.enabled)
+            loginScreen.enabled = true;
+
         //TODO: je was bezig met checken of je variabelen kan opslaan zodat je ze niet nog een keer hoeft te vinden
         // wanneer je dit scherm weer opent
         if (inputFields == null)
@@ -72,6 +78,10 @@ public class LoginState : State
     public override void OnExit()
     {
         // Opruimen van inlogscherm
+        // loginScreen.GetComponent<GameObject>().SetActive(false);
+
+        //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
+        loginScreen.enabled = false;
     }
     public static void UserSelectedPC(LoginState instance)
     {
@@ -100,6 +110,7 @@ public class LoginState : State
         if (password == ComputerPassword)
         {
             Debug.Log($"Inlogpoging met Naam: {playerName} en Wachtwoord: {password}, SUCCES");
+            FSM.SwitchState(typeof(HomeScreenState));
 
         }
         else
