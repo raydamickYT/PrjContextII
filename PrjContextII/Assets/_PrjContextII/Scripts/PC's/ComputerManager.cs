@@ -1,10 +1,11 @@
-using UnityEngine;
+    using UnityEngine;
 using UnityEngine.UI;
 
 public class ComputerManager : MonoBehaviour
 {
     [SerializeField]
-    private Canvas loginScreen;
+    private Canvas loginScreen,
+    HomeScreen;
 
     //states
     public LoginState loginState;
@@ -32,6 +33,7 @@ public class ComputerManager : MonoBehaviour
     {
         loginState = new(ComputerFsm, loginScreen);
         ComputerFsm?.AddState(loginState);
+        ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen));
         ComputerFsm?.AddState(new MapState(ComputerFsm));
         ComputerFsm?.AddState(new TasksClass(ComputerFsm));
         ComputerFsm?.AddState(new MailState(ComputerFsm));
