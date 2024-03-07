@@ -5,7 +5,7 @@ public class ComputerManager : MonoBehaviour
 {
     [SerializeField]
     private Canvas loginScreen,
-    HomeScreen;
+    HomeScreen, MailScreen;
 
     public Material MapScreenMaterial, BackgroundScreenMaterial;
     public GameObject ComputerScreenObj;
@@ -44,8 +44,8 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen, this));
         ComputerFsm?.AddState(new MapState(ComputerFsm));
         ComputerFsm?.AddState(new TasksClass(ComputerFsm));
-        ComputerFsm?.AddState(new MailState(ComputerFsm));
-        ComputerFsm?.SwitchState(typeof(HomeScreenState));
+        ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
+        ComputerFsm?.SwitchState(typeof(MailScreenState));
     }
 
 

@@ -13,7 +13,7 @@ public class DisableMovementState : State
     public override void OnEnter()
     {
         base.OnEnter();
-        Cursor.visible = false;
+        // Cursor.visible = false;
     }
 
     public override void OnUpdate()

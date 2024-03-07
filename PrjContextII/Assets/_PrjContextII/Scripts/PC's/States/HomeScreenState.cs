@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,11 @@ public class HomeScreenState : State
     private Canvas HomeScreen;
     private ChoiceManager choiceManagerInstance;
     private ComputerManager manager;
+    private FSM<State> fSM;
 
     public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn, ComputerManager _manager) : base(_fSM)
     {
+        fSM = _fSM;
         HomeScreen = _homeScrn;
         HomeScreen.enabled = false;
         manager = _manager;
@@ -42,15 +45,15 @@ public class HomeScreenState : State
         //check hier voor alle ui elementen die je verwacht
         foreach (var buttonInList in Buttons)
         {
-            if (buttonInList.name == "Yes")
+            if (buttonInList.name == "Mail")
             {
                 YesButton = buttonInList;
-                YesButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(true));
+                YesButton.onClick.AddListener(() => SwitchToMailScreen());
             }
-            else if (buttonInList.name == "No")
+            else if (buttonInList.name == "Tasks")
             {
                 NoButton = buttonInList;
-                NoButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(false));
+                NoButton.onClick.AddListener(() => SwiwtchToTasks());
             }
             else
             {
@@ -62,6 +65,15 @@ public class HomeScreenState : State
     public override void OnUpdate()
     {
         // Update inlogscherm logica, bijv. inlogpoging
+    }
+    public void SwitchToMailScreen()
+    {
+        fSM.SwitchState(typeof(MailScreenState));        
+    }
+
+    public void SwiwtchToTasks()
+    {
+
     }
 
     public override void OnExit()

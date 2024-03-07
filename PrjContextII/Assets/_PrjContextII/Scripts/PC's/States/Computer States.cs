@@ -27,7 +27,7 @@ public class LoginState : State
         //IMPORTANT: zet hier je canvas aan.
         if (!loginScreen.enabled)
             loginScreen.enabled = true;
-            IsActive = true;
+        IsActive = true;
 
         //TODO: je was bezig met checken of je variabelen kan opslaan zodat je ze niet nog een keer hoeft te vinden
         // wanneer je dit scherm weer opent
@@ -84,7 +84,7 @@ public class LoginState : State
 
         //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
         loginScreen.enabled = false;
-            IsActive = false;
+        IsActive = false;
 
     }
     public static void UserSelectedPC(LoginState instance)
@@ -204,46 +204,6 @@ public class TasksClass : State
         // Update inlogscherm logica, bijv. inlogpoging
 
         FSM.SwitchState(typeof(MapState));
-    }
-
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-    }
-}
-
-public class MailState : State
-{
-    private Canvas MailScreen;
-
-    public MailState(FSM<State> _fSM) : base(_fSM) { }
-
-    public override void OnEnter()
-    {
-
-        // Initialiseer inlogscherm UI
-        InputField[] inputFields = MailScreen.GetComponentsInChildren<InputField>(true);
-
-        foreach (var inputField in inputFields)
-        {
-            if (inputField.name == "Name")
-            {
-                // nameInputField = inputField;
-            }
-            else if (inputField.name == "Password")
-            {
-                // passwordInputField = inputField;
-            }
-            else
-            {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + inputField.name);
-            }
-        }
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
     }
 
     public override void OnExit()
