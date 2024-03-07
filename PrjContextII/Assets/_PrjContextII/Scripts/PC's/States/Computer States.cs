@@ -14,6 +14,7 @@ public class LoginState : State
     public Button EnterButton;
     private Canvas loginScreen;
     private InputField[] inputFields;
+    public bool IsActive = false;
 
     public LoginState(FSM<State> _fSM, Canvas _login) : base(_fSM)
     {
@@ -26,6 +27,7 @@ public class LoginState : State
         //IMPORTANT: zet hier je canvas aan.
         if (!loginScreen.enabled)
             loginScreen.enabled = true;
+            IsActive = true;
 
         //TODO: je was bezig met checken of je variabelen kan opslaan zodat je ze niet nog een keer hoeft te vinden
         // wanneer je dit scherm weer opent
@@ -82,6 +84,8 @@ public class LoginState : State
 
         //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
         loginScreen.enabled = false;
+            IsActive = false;
+
     }
     public static void UserSelectedPC(LoginState instance)
     {

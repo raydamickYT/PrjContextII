@@ -73,9 +73,10 @@ public class ChoiceManager : MonoBehaviour
                 currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
                 CurrentChoiceIndex++;
             }
-            else
+            else if (CurrentChoiceIndex >= Days[currentDayIndex].choices.Count)
             {
-                Debug.LogWarning("currentchoice is NULL");
+                Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
+                Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
                 currentChoice = null;
             }
 
@@ -83,8 +84,8 @@ public class ChoiceManager : MonoBehaviour
             {
                 case FloatRange.BetweenZeroAndOne:
                     Debug.Log("De waarde ligt tussen 0.2 en 1.");
-                    // materialChanger.ChangeMaterial(1, Building.GetComponent<Renderer>());
-                    ApplyChoice(currentChoice);
+                    //hier apply je de texture op de building
+                    // ApplyChoice(currentChoice);
                     break;
                 case FloatRange.BetweenZeroAndMinusOne:
                     Debug.Log("De waarde ligt tussen 0 en -1.");
