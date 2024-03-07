@@ -1,3 +1,4 @@
+using FMOD;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor.Experimental.GraphView;
@@ -86,7 +87,11 @@ public class PlayerMovement : State
             {
                 // RaycastToScreen();
                 fSM.SwitchState(typeof(DisableMovementState));
-                CompManager.loginState.SelectInputField();
+                if (CompManager.loginState.IsActive)
+                {
+                    CompManager.loginState.SelectInputField();
+                }
+
             }
         }
         else

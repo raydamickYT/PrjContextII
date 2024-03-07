@@ -46,12 +46,11 @@ public class HomeScreenState : State
             {
                 YesButton = buttonInList;
                 YesButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(true));
-                // NoButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(false));
             }
             else if (buttonInList.name == "No")
             {
                 NoButton = buttonInList;
-
+                NoButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(false));
             }
             else
             {
