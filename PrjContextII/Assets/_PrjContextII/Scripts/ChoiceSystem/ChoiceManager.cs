@@ -8,7 +8,9 @@ public class ChoiceManager : MonoBehaviour
     public static ChoiceManager instance { get; private set; }
     private MaterialChanger materialChanger = new();
     public List<Day> Days; // Een lijst met alle dagen en hun keuzes
-    private int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
+    public List<Choice> ChoicesOfToday { get; private set; } = new List<Choice>();
+
+    public int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
 
     public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
@@ -17,32 +19,63 @@ public class ChoiceManager : MonoBehaviour
     // public Button NoButton;
     private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            //NOTE: als je wilt dat het object niet vernietigt wordt bij een nieuwe scene:
-            // DontDestroyOnLoad(this.gameObject);
-        }
+        DisplayChoices();
     }
 
     void Awake()
     {
-        DisplayChoices();
+        if (instance == null)
+        {
+            instance = this;
+            // DontDestroyOnLoad(this.gameObject); // Als je wilt dat dit object persistent is over scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Zorgt ervoor dat er geen duplicaten zijn
+        }
     }
 
-    // Methode om de keuzes voor de huidige dag te tonen
+    // // Methode om de keuzes voor de huidige dag te tonen
+    // public void DisplayChoices()
+    // {
+    //     if (currentDayIndex < Days.Count)
+    //     {
+    //         Day currentDay = Days[currentDayIndex];
+
+    //         // Voor dit voorbeeld, toon gewoon de eerste vraag van de dag
+    //         if (currentDay.choices.Count > 0)
+    //         {
+    //             ChoiceText.text = currentDay.choices[0].choiceText;
+
+    //             // YesButton.onClick.AddListener(() => MakeChoice(true));
+    //             // NoButton.onClick.AddListener(() => MakeChoice(false));
+    //         }
+
+    //         foreach (var day in Days)
+    //         {
+
+    //         }
+    //     }
+    // }
+
+    // Methode om de keuzes voor de huidige dag te tonen en toe te voegen aan ChoicesOfToday
     public void DisplayChoices()
     {
+        ChoicesOfToday.Clear(); // Zorg ervoor dat de lijst leeg is voordat je nieuwe keuzes toevoegt
         if (currentDayIndex < Days.Count)
         {
             Day currentDay = Days[currentDayIndex];
 
+            // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
+            ChoicesOfToday.AddRange(currentDay.choices);
+            Debug.Log(ChoicesOfToday.Count);
+
             // Voor dit voorbeeld, toon gewoon de eerste vraag van de dag
             if (currentDay.choices.Count > 0)
             {
+                // Debug.Log(Days.Count);
                 ChoiceText.text = currentDay.choices[0].choiceText;
-                // YesButton.onClick.AddListener(() => MakeChoice(true));
-                // NoButton.onClick.AddListener(() => MakeChoice(false));
+                // Verbind de Yes/No knoppen met MakeChoice methode...
             }
         }
     }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TaskContent : MonoBehaviour
 {
+    private ChoiceManager choiceManager;
     private bool taskIsShowing;
     private Button btn;
+
     [SerializeField]
     [TextArea(3, 10)]
     [Tooltip("Dit is waar je je tekst invoert")]
@@ -16,6 +19,9 @@ public class TaskContent : MonoBehaviour
     private GameObject TaskInstanceBackup;
     void Start()
     {
+        this.choiceManager = ChoiceManager.instance;
+
+
         btn = GetComponent<Button>();
         if (btn == null)
         {
@@ -25,6 +31,7 @@ public class TaskContent : MonoBehaviour
         {
             btn.onClick.AddListener(() => OpenTask());
         }
+
     }
     private void OnEnable()
     {
@@ -36,9 +43,26 @@ public class TaskContent : MonoBehaviour
         // MailWipeSingletons.Instance.UnsubscribeFromAction(CloseMail);
     }
 
+    void Update()
+    {
+        if (taskIsShowing)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Yes();
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                No();
+            }
+        }
+    }
+
     // Deze functie toont de inhoud van de mail
     public void OpenTask()
     {
+        TaskTekst = choiceManager.ChoicesOfToday[choiceManager.CurrentChoiceIndex].choiceText;
+
         // Controleer of er al een instantie bestaat en vernietig deze indien nodig
         if (MailWipeSingletons.Instance.MailIsShowing)
         {
@@ -87,6 +111,17 @@ public class TaskContent : MonoBehaviour
 
         }
     }
+
+    private void Yes()
+    {
+        choiceManager.MakeChoice(true);
+    }
+
+    private void No()
+    {
+        choiceManager.MakeChoice(false);
+    }
+
     public void CloseMail()
     {
         if (taskIsShowing && TaskInstanceBackup != null)
