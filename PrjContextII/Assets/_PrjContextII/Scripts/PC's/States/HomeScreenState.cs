@@ -7,17 +7,14 @@ using UnityEngine.UI;
 public class HomeScreenState : State
 {
     private Button YesButton, NoButton;
-    private Canvas HomeScreen;
     private ChoiceManager choiceManagerInstance;
-    private ComputerManager manager;
-    private FSM<State> fSM;
+    // private ComputerManager manager;
 
     public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn, ComputerManager _manager) : base(_fSM)
     {
-        fSM = _fSM;
-        HomeScreen = _homeScrn;
-        HomeScreen.enabled = false;
-        manager = _manager;
+        base.ScreenCanvas = _homeScrn;
+        // manager = _manager;
+        ScreenCanvas.enabled = false;
     }
 
     //TODO: De coupling met de choicemanager is niet correct. verbeter dit ajb
@@ -26,10 +23,11 @@ public class HomeScreenState : State
     {
         // manager.SwitchScreenMaterial(manager.MapScreenMaterial);
         //IMPORTANT: zet hier je canvas aan.
-        if (!HomeScreen.enabled)
-            HomeScreen.enabled = true;
+        if (!ScreenCanvas.enabled)
+            ScreenCanvas.enabled = true;
 
         GetButtons();
+
     }
 
 
@@ -40,23 +38,23 @@ public class HomeScreenState : State
 
     public void SwitchToMailScreen()
     {
-        fSM.SwitchState(typeof(MailScreenState));
+        FSM.SwitchState(typeof(MailScreenState));
     }
 
     public void SwitchToMap()
     {
-        fSM.SwitchState(typeof(MapScreenState));
+        FSM.SwitchState(typeof(MapScreenState));
     }
 
     public override void OnExit()
     {
         // Opruimen van scherm
-        HomeScreen.enabled = false;
+        ScreenCanvas.enabled = false;
     }
     public void GetButtons()
     {
         // Initialiseer UI
-        Button[] Buttons = HomeScreen.GetComponentsInChildren<Button>(true);
+        Button[] Buttons = ScreenCanvas.GetComponentsInChildren<Button>(true);
 
         if (ChoiceManager.instance != null)
         {

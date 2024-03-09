@@ -1,6 +1,11 @@
-﻿public abstract class State
+﻿using UnityEngine.UI;
+using UnityEngine;
+
+public abstract class State
 {
     protected FSM<State> FSM;
+    protected Canvas ScreenCanvas;
+    protected ComputerManager computerManager;
     public State(FSM<State> _fSM)
     {
         FSM = _fSM;

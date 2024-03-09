@@ -7,26 +7,25 @@ using UnityEngine.UI;
 
 public class LoginState : State
 {
+    private InputField[] inputFields;
     public InputField NameInputField; //0
     public InputField PasswordInputField; //1
     public static int inputSelect = 0;
 
     public Button EnterButton;
-    private Canvas loginScreen;
-    private InputField[] inputFields;
     public bool IsActive = false;
 
     public LoginState(FSM<State> _fSM, Canvas _login) : base(_fSM)
     {
-        loginScreen = _login;
-        loginScreen.enabled = false;
+        base.ScreenCanvas = _login;
+        ScreenCanvas.enabled = false;
     }
 
     public override void OnEnter()
     {
         //IMPORTANT: zet hier je canvas aan.
-        if (!loginScreen.enabled)
-            loginScreen.enabled = true;
+        if (!ScreenCanvas.enabled)
+            ScreenCanvas.enabled = true;
         IsActive = true;
 
         //TODO: je was bezig met checken of je variabelen kan opslaan zodat je ze niet nog een keer hoeft te vinden
@@ -34,7 +33,7 @@ public class LoginState : State
         if (inputFields == null)
         {
             // Initialiseer inlogscherm UI
-            inputFields = loginScreen.GetComponentsInChildren<InputField>(true);
+            inputFields = ScreenCanvas.GetComponentsInChildren<InputField>(true);
 
             foreach (var inputField in inputFields)
             {
@@ -83,7 +82,7 @@ public class LoginState : State
         // loginScreen.GetComponent<GameObject>().SetActive(false);
 
         //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
-        loginScreen.enabled = false;
+        ScreenCanvas.enabled = false;
         IsActive = false;
 
     }
@@ -129,44 +128,3 @@ public class LoginState : State
 }
 
 
-public class TasksClass : State
-{
-    private Canvas TasksScreen;
-
-    public TasksClass(FSM<State> _fSM) : base(_fSM) { }
-
-    public override void OnEnter()
-    {
-
-        // Initialiseer inlogscherm UI
-        InputField[] inputFields = TasksScreen.GetComponentsInChildren<InputField>(true);
-
-        foreach (var inputField in inputFields)
-        {
-            if (inputField.name == "Name")
-            {
-                // nameInputField = inputField;
-            }
-            else if (inputField.name == "Password")
-            {
-                // passwordInputField = inputField;
-            }
-            else
-            {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + inputField.name);
-            }
-        }
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-
-        FSM.SwitchState(typeof(MapScreenState));
-    }
-
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-    }
-}
