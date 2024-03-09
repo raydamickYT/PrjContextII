@@ -5,22 +5,19 @@ using UnityEngine.UI;
 
 public class MailScreenState : State
 {
-    private Canvas MailScreen;
     public GameObject mailContentPanel; // Verwijs naar het paneel dat de mailinhoud toont
-    private FSM<State> fSM;
     private Button BackButton;
 
 
     public MailScreenState(FSM<State> _fSM, Canvas _mailscreen) : base(_fSM)
     {
-        MailScreen = _mailscreen;
-        MailScreen.enabled = false;
-        fSM = _fSM;
+        base.ScreenCanvas = _mailscreen;
+        ScreenCanvas.enabled = false;
     }
 
     public override void OnEnter()
     {
-        MailScreen.enabled = true;
+        ScreenCanvas.enabled = true;
 
         GetButtons();
     }
@@ -33,20 +30,20 @@ public class MailScreenState : State
     public override void OnExit()
     {
         // Opruimen van inlogscherm
-        MailScreen.enabled = false;
+        ScreenCanvas.enabled = false;
 
     }
 
     public void SwitchToHomeScreen()
     {
-        fSM.SwitchState(typeof(HomeScreenState));
+        FSM.SwitchState(typeof(HomeScreenState));
         MailWipeSingletons.Instance.TriggerAction();
     }
 
     public void GetButtons()
     {
         // Initialiseer UI
-        Button[] Buttons = MailScreen.GetComponentsInChildren<Button>(true);
+        Button[] Buttons = ScreenCanvas.GetComponentsInChildren<Button>(true);
 
         //check hier voor alle ui elementen die je verwacht
         foreach (var buttonInList in Buttons)
