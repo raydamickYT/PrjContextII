@@ -29,7 +29,33 @@ public class HomeScreenState : State
         if (!HomeScreen.enabled)
             HomeScreen.enabled = true;
 
-        // Initialiseer inlogscherm UI
+        GetButtons();
+    }
+
+
+    public override void OnUpdate()
+    {
+        
+    }
+
+    public void SwitchToMailScreen()
+    {
+        fSM.SwitchState(typeof(MailScreenState));
+    }
+
+    public void SwiwtchToTasks()
+    {
+
+    }
+
+    public override void OnExit()
+    {
+        // Opruimen van scherm
+        HomeScreen.enabled = false;
+    }
+    public void GetButtons()
+    {
+        // Initialiseer UI
         Button[] Buttons = HomeScreen.GetComponentsInChildren<Button>(true);
 
         if (ChoiceManager.instance != null)
@@ -60,25 +86,5 @@ public class HomeScreenState : State
                 Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name);
             }
         }
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-    }
-    public void SwitchToMailScreen()
-    {
-        fSM.SwitchState(typeof(MailScreenState));        
-    }
-
-    public void SwiwtchToTasks()
-    {
-
-    }
-
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-        HomeScreen.enabled = false;
     }
 }
