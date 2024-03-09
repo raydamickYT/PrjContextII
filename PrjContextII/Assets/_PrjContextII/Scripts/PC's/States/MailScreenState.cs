@@ -40,6 +40,7 @@ public class MailScreenState : State
     public void SwitchToHomeScreen()
     {
         fSM.SwitchState(typeof(HomeScreenState));
+        MailWipeSingletons.Instance.TriggerAction();
     }
 
     public void GetButtons()
