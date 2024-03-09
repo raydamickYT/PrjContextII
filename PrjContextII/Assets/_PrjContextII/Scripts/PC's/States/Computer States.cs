@@ -128,47 +128,6 @@ public class LoginState : State
     }
 }
 
-public class MapState : State
-{
-    private Canvas MapScreen;
-
-    public MapState(FSM<State> _fSM) : base(_fSM) { }
-
-    public override void OnEnter()
-    {
-
-        // Initialiseer inlogscherm UI
-        InputField[] inputFields = MapScreen.GetComponentsInChildren<InputField>(true);
-
-
-        //check hier voor alle ui elementen die je verwacht
-        foreach (var inputField in inputFields)
-        {
-            if (inputField.name == "Name")
-            {
-                // nameInputField = inputField;
-            }
-            else if (inputField.name == "Password")
-            {
-                // passwordInputField = inputField;
-            }
-            else
-            {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + inputField.name);
-            }
-        }
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-    }
-
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-    }
-}
 
 public class TasksClass : State
 {
@@ -203,7 +162,7 @@ public class TasksClass : State
     {
         // Update inlogscherm logica, bijv. inlogpoging
 
-        FSM.SwitchState(typeof(MapState));
+        FSM.SwitchState(typeof(MapScreenState));
     }
 
     public override void OnExit()

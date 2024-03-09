@@ -35,7 +35,7 @@ public class HomeScreenState : State
 
     public override void OnUpdate()
     {
-        
+
     }
 
     public void SwitchToMailScreen()
@@ -43,9 +43,9 @@ public class HomeScreenState : State
         fSM.SwitchState(typeof(MailScreenState));
     }
 
-    public void SwiwtchToTasks()
+    public void SwitchToMap()
     {
-
+        fSM.SwitchState(typeof(MapScreenState));
     }
 
     public override void OnExit()
@@ -76,14 +76,14 @@ public class HomeScreenState : State
                 YesButton = buttonInList;
                 YesButton.onClick.AddListener(() => SwitchToMailScreen());
             }
-            else if (buttonInList.name == "Tasks")
+            else if (buttonInList.name == "Map")
             {
                 NoButton = buttonInList;
-                NoButton.onClick.AddListener(() => SwiwtchToTasks());
+                NoButton.onClick.AddListener(() => SwitchToMap());
             }
             else
             {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name);
+                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "\nCheck of de namen nog kloppen");
             }
         }
     }
