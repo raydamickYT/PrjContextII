@@ -7,35 +7,22 @@ public class MailScreenState : State
 {
     private Canvas MailScreen;
     public GameObject mailContentPanel; // Verwijs naar het paneel dat de mailinhoud toont
+    private FSM<State> fSM;
+    private Button BackButton;
+
 
     public MailScreenState(FSM<State> _fSM, Canvas _mailscreen) : base(_fSM)
     {
         MailScreen = _mailscreen;
         MailScreen.enabled = false;
+        fSM = _fSM;
     }
 
     public override void OnEnter()
     {
         MailScreen.enabled = true;
 
-        // Initialiseer inlogscherm UI
-        // InputField[] inputFields = MailScreen.GetComponentsInChildren<InputField>(true);
-
-        // foreach (var inputField in inputFields)
-        // {
-        //     if (inputField.name == "Name")
-        //     {
-        //         // nameInputField = inputField;
-        //     }
-        //     else if (inputField.name == "Password")
-        //     {
-        //         // passwordInputField = inputField;
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning("Juiste Knop is niet gevonden voor: " + inputField.name);
-        //     }
-        // }
+        GetButtons();
     }
 
     public override void OnUpdate()
@@ -43,18 +30,35 @@ public class MailScreenState : State
         // Update inlogscherm logica, bijv. inlogpoging
     }
 
-    // Deze functie toont de inhoud van de mail
-    public void OpenMail(int mailId)
-    {
-        // Logica om de inhoud van de mail te laden gebaseerd op mailId
-        // Bijvoorbeeld: mailContentPanel.SetActive(true);
-        Debug.Log("Mail geopend met ID: " + mailId);
-    }
-
     public override void OnExit()
     {
         // Opruimen van inlogscherm
         MailScreen.enabled = false;
 
+    }
+
+    public void SwitchToHomeScreen()
+    {
+        fSM.SwitchState(typeof(HomeScreenState));
+    }
+
+    public void GetButtons()
+    {
+        // Initialiseer UI
+        Button[] Buttons = MailScreen.GetComponentsInChildren<Button>(true);
+
+        //check hier voor alle ui elementen die je verwacht
+        foreach (var buttonInList in Buttons)
+        {
+            if (buttonInList.name == "BackButton")
+            {
+                BackButton = buttonInList;
+                BackButton.onClick.AddListener(() => SwitchToHomeScreen());
+            }
+            else
+            {
+                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "Negeer dit als het klopt");
+            }
+        }
     }
 }
