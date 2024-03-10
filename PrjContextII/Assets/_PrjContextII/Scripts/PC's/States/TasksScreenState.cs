@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TasksScreen : State
 {
-    private Canvas MapScreen;
     private bool isShowingButtons = false;
     private Button BackButton;
     private List<Button> Tasks = new();
@@ -31,7 +30,7 @@ public class TasksScreen : State
             Tasks = ComputerManager.instance.DisplayTaskButtons();
             isShowingButtons = true;
         }
-        // GetButtons();
+        GetButtons();
     }
 
     public override void OnUpdate()
@@ -62,7 +61,7 @@ public class TasksScreen : State
     public void GetButtons()
     {
         // Initialiseer UI
-        Button[] Buttons = MapScreen.GetComponentsInChildren<Button>(true);
+        Button[] Buttons = ScreenCanvas.GetComponentsInChildren<Button>(true);
 
         //check hier voor alle ui elementen die je verwacht
         foreach (var buttonInList in Buttons)
