@@ -7,7 +7,6 @@ public class ChoiceManager : MonoBehaviour
 {
     public static ChoiceManager instance { get; private set; }
     public bool ChoicesLeft = false;
-    private MaterialChanger materialChanger = new();
     public List<Day> Days; // Een lijst met alle dagen en hun keuzes
     public List<Choice> ChoicesOfToday { get; private set; } = new List<Choice>();
 
@@ -79,7 +78,7 @@ public class ChoiceManager : MonoBehaviour
 
             FloatRange range = DetermineRange(GoodOrBadMeter);
             Choice currentChoice;
-            Debug.Log(CurrentChoiceIndex);
+            // Debug.Log(CurrentChoiceIndex);
             if (currentDayIndex < Days.Count && CurrentChoiceIndex < Days[currentDayIndex].choices.Count)
             {
                 currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
@@ -88,8 +87,8 @@ public class ChoiceManager : MonoBehaviour
             else if (CurrentChoiceIndex >= Days[currentDayIndex].choices.Count)
             {
                 AdvanceToNextDay();
-                Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
-                Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
+                // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
+                // Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
                 currentChoice = null;
                 ChoicesLeft = false;
             }
@@ -101,15 +100,18 @@ public class ChoiceManager : MonoBehaviour
                     Debug.Log("De waarde ligt tussen 0.2 en 1.");
                     //hier apply je de texture op de building
                     // ApplyChoice(currentChoice);
+                    MaterialManager.Instance.TriggerAction(2);
                     break;
                 case FloatRange.BetweenZeroAndMinusOne:
                     Debug.Log("De waarde ligt tussen 0 en -1.");
+                    MaterialManager.Instance.TriggerAction(1);
                     break;
                 case FloatRange.Other:
                     Debug.Log("De waarde ligt niet binnen de gespecificeerde bereiken.");
                     break;
                 case FloatRange.Neutral:
                     Debug.Log("De waarde is neutraal");
+                    MaterialManager.Instance.TriggerAction(0);
                     break;
             }
         }
@@ -165,7 +167,7 @@ public class ChoiceManager : MonoBehaviour
             CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayChoices(); // Toon de keuzes voor de nieuwe dag
 
-            Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
+            // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
         }
         else
         {

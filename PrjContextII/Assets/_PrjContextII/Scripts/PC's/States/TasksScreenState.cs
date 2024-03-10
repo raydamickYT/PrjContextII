@@ -22,7 +22,7 @@ public class TasksScreen : State
 
         if (!ChoiceManager.instance.ChoicesLeft)
         {
-            Debug.Log("we zijn door de choices heen vandaag");
+            // Debug.Log("we zijn door de choices heen vandaag");
             isShowingButtons = false;
             // ChoiceManager.instance.currentDayIndex += 1;
         } 
