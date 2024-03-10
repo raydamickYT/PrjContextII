@@ -4,10 +4,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TaskContentScreenState : State
+public class TaskContentScreenState : State, IStateWithExtraInfo
 {
     private Button BackButton, YesButton, NoButton;
+    private Text contentText;
     private GameObject thisObject;
+    private Choice currentChoice;
     public TaskContentScreenState(FSM<State> _fSM, GameObject gameObject) : base(_fSM)
     {
         thisObject = gameObject;
@@ -17,6 +19,7 @@ public class TaskContentScreenState : State
     public override void OnEnter()
     {
         thisObject.SetActive(true);
+        SetupCanvas();
         GetButtons();
     }
 
@@ -71,6 +74,29 @@ public class TaskContentScreenState : State
                     break;
             }
 
+        }
+    }
+
+    private void SetupCanvas()
+    {
+        if (currentChoice != null)
+        {
+            contentText = thisObject.transform.Find("TaskContent").GetComponent<Text>();
+
+            contentText.text = currentChoice.choiceText;
+        }
+    }
+
+    public void InitializeWithExtraInfo(object extraInfo)
+    {
+        if (extraInfo is Choice choice)
+        {
+            currentChoice = choice;
+            Debug.Log("het werkt");
+        }
+        else
+        {
+            Debug.LogError("verkeerd type extra info is doorgegeven aan tasksscren");
         }
     }
 }
