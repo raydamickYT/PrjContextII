@@ -37,7 +37,7 @@ public class PlayerMovementFree : State
     }
     public override void OnExit()
     {
-        base.OnExit();
+        Cursor.visible = true;
         PS.anim.enabled = true;
     }
 
