@@ -6,11 +6,12 @@ using System.Collections.Generic;
 public class ChoiceManager : MonoBehaviour
 {
     public static ChoiceManager instance { get; private set; }
+    public bool ChoicesLeft = false;
     private MaterialChanger materialChanger = new();
     public List<Day> Days; // Een lijst met alle dagen en hun keuzes
     public List<Choice> ChoicesOfToday { get; private set; } = new List<Choice>();
 
-    public int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
+    public int currentDayIndex = 1, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
 
     public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
@@ -35,32 +36,10 @@ public class ChoiceManager : MonoBehaviour
         }
     }
 
-    // // Methode om de keuzes voor de huidige dag te tonen
-    // public void DisplayChoices()
-    // {
-    //     if (currentDayIndex < Days.Count)
-    //     {
-    //         Day currentDay = Days[currentDayIndex];
-
-    //         // Voor dit voorbeeld, toon gewoon de eerste vraag van de dag
-    //         if (currentDay.choices.Count > 0)
-    //         {
-    //             ChoiceText.text = currentDay.choices[0].choiceText;
-
-    //             // YesButton.onClick.AddListener(() => MakeChoice(true));
-    //             // NoButton.onClick.AddListener(() => MakeChoice(false));
-    //         }
-
-    //         foreach (var day in Days)
-    //         {
-
-    //         }
-    //     }
-    // }
-
     // Methode om de keuzes voor de huidige dag te tonen en toe te voegen aan ChoicesOfToday
     public void DisplayChoices()
     {
+        ChoicesLeft = true;
         ChoicesOfToday.Clear(); // Zorg ervoor dat de lijst leeg is voordat je nieuwe keuzes toevoegt
         if (currentDayIndex < Days.Count)
         {
@@ -108,13 +87,16 @@ public class ChoiceManager : MonoBehaviour
             }
             else if (CurrentChoiceIndex >= Days[currentDayIndex].choices.Count)
             {
+                AdvanceToNextDay();
                 Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
                 Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
                 currentChoice = null;
+                ChoicesLeft = false;
             }
 
             switch (range)
             {
+                //TODO: hier de materials veranderen van de gebouwen
                 case FloatRange.BetweenZeroAndOne:
                     Debug.Log("De waarde ligt tussen 0.2 en 1.");
                     //hier apply je de texture op de building
@@ -131,11 +113,12 @@ public class ChoiceManager : MonoBehaviour
                     break;
             }
         }
-        else //anders is de dag voorbij en eindigen we de turn.
-        {
-            currentDayIndex++;
-            CurrentChoiceIndex = 0;
-        }
+        // else //anders is de dag voorbij en eindigen we de turn.
+        // {
+        //     Debug.Log("hoi");
+        //     currentDayIndex++;
+        //     CurrentChoiceIndex = 0;
+        // }
 
         // Ga naar de volgende vraag of dag, afhankelijk van je spellogica
     }
@@ -157,26 +140,41 @@ public class ChoiceManager : MonoBehaviour
         }
     }
 
-    // Methode om te bepalen in welk bereik de float valt
     FloatRange DetermineRange(float value)
     {
-        if (value > 0 && value <= 1)
+        var range = (value > 0 && value <= 1, value < 0 && value >= -1, value > 0 && value <= GoodBadBorder || value < 0 && value >= GoodBadBorder);
+
+        switch (range)
         {
-            return FloatRange.BetweenZeroAndOne;
+            case (true, _, _):
+                return FloatRange.BetweenZeroAndOne;
+            case (_, true, _):
+                return FloatRange.BetweenZeroAndMinusOne;
+            case (_, _, true):
+                return FloatRange.Neutral;
+            default:
+                return FloatRange.Other;
         }
-        else if (value < 0 && value >= -1)
+    }
+
+    public void AdvanceToNextDay()
+    {
+        if (currentDayIndex < Days.Count - 1) // Controleer of er nog dagen over zijn
         {
-            return FloatRange.BetweenZeroAndMinusOne;
-        }
-        else if (value > 0 && value <= GoodBadBorder || value < 0 && value >= GoodBadBorder)
-        {
-            return FloatRange.Neutral;
+            currentDayIndex++; // Ga naar de volgende dag
+            CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
+            DisplayChoices(); // Toon de keuzes voor de nieuwe dag
+
+            Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
         }
         else
         {
-            return FloatRange.Other;
+            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
+            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
         }
     }
+
+
 
 }
 // Enum om de bereiken te definiëren
