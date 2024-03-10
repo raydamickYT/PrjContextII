@@ -3,9 +3,12 @@ using UnityEngine.UI;
 
 public class ComputerManager : MonoBehaviour
 {
+    public static ComputerManager instance;
     [SerializeField]
     private Canvas loginScreen,
     HomeScreen, MailScreen, MapScreen, TasksScreen;
+
+    public GameObject TaskScreenContent;
 
     public Material MapScreenMaterial, BackgroundScreenMaterial;
     public GameObject ComputerScreenObj;
@@ -14,6 +17,19 @@ public class ComputerManager : MonoBehaviour
     //states
     public LoginState loginState;
     private readonly FSM<State> ComputerFsm = new();
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            // DontDestroyOnLoad(this.gameObject); // Als je wilt dat dit object persistent is over scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Zorgt ervoor dat er geen duplicaten zijn
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,13 +58,14 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(loginState);
         ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen, this));
         ComputerFsm?.AddState(new MapScreenState(ComputerFsm, this, MapScreen));
-        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
         ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
-        ComputerFsm?.SwitchState(typeof(LoginState));
+        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
+        ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
+        ComputerFsm?.SwitchState(typeof(TasksScreen));
     }
 
 
-    public void SwitchPlayerState(System.Type newState)
+    public void SwitchComputerState(System.Type newState)
     {
         ComputerFsm.SwitchState(newState);
     }
