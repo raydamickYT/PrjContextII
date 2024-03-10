@@ -27,10 +27,18 @@ public class MailContent : MonoBehaviour
         {
             btn.onClick.AddListener(() => OpenMail());
         }
+
+        if (MailWipeSingletons.Instance != null)
+        {
+            MailWipeSingletons.Instance.SubscribeToAction(CloseMail);
+        }
+        else
+        {
+            Debug.Log("mailwipesingletons bestaat nog niet");
+        }
     }
     private void OnEnable()
     {
-        MailWipeSingletons.Instance.SubscribeToAction(CloseMail);
     }
 
     private void OnDisable()

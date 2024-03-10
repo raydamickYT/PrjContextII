@@ -6389,6 +6389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 675544376}
+  - component: {fileID: 675544377}
   m_Layer: 0
   m_Name: wijkje
   m_TagString: Untagged
@@ -6416,6 +6417,21 @@ Transform:
   - {fileID: 1667815945}
   m_Father: {fileID: 1689341726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &675544377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675544375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827a4024362f1d0438cd8cf1fa46e9a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 3748873f62f6826449e31081af520b55, type: 2}
+  - {fileID: 0}
 --- !u!1 &687653302
 GameObject:
   m_ObjectHideFlags: 0
@@ -16844,6 +16860,7 @@ Transform:
   - {fileID: 1278368275}
   - {fileID: 1658793533}
   - {fileID: 590363103}
+  - {fileID: 1971131174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1666247599
@@ -17752,7 +17769,7 @@ PrefabInstance:
       objectReference: {fileID: 755003895}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.data[0].choices.Array.size
@@ -17760,7 +17777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.data[1].choices.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.data[0].choices.Array.data[0].choiceName
@@ -17779,8 +17796,16 @@ PrefabInstance:
       value: testje
       objectReference: {fileID: 0}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: Days.Array.data[1].choices.Array.data[0].choiceName
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.data[1].choices.Array.data[0].choiceText
       value: anders
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
+      propertyPath: Days.Array.data[1].choices.Array.data[1].choiceName
+      value: teste
       objectReference: {fileID: 0}
     - target: {fileID: 5673711250422772730, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
       propertyPath: Days.Array.data[1].choices.Array.data[1].choiceText
@@ -18939,6 +18964,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f8fd19084e72064dac2ea63fcb184ca, type: 3}
   m_PrefabInstance: {fileID: 1528789907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1971131173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971131174}
+  - component: {fileID: 1971131175}
+  m_Layer: 0
+  m_Name: MaterialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1971131174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971131173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1659211641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971131175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971131173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f147eaf77e7b74fbbfae550ba67084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1983011570
 GameObject:
   m_ObjectHideFlags: 3
