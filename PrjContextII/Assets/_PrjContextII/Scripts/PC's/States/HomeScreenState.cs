@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HomeScreenState : State
 {
-    private Button YesButton, NoButton;
+    private Button MailButton, mapButton, tasksButton;
     private ChoiceManager choiceManagerInstance;
     // private ComputerManager manager;
 
@@ -45,6 +45,10 @@ public class HomeScreenState : State
     {
         FSM.SwitchState(typeof(MapScreenState));
     }
+    public void SwitchToTasks()
+    {
+        FSM.SwitchState(typeof(TasksScreen));
+    }
 
     public override void OnExit()
     {
@@ -69,19 +73,24 @@ public class HomeScreenState : State
         //check hier voor alle ui elementen die je verwacht
         foreach (var buttonInList in Buttons)
         {
-            if (buttonInList.name == "Mail")
+            switch (buttonInList.name)
             {
-                YesButton = buttonInList;
-                YesButton.onClick.AddListener(() => SwitchToMailScreen());
-            }
-            else if (buttonInList.name == "Map")
-            {
-                NoButton = buttonInList;
-                NoButton.onClick.AddListener(() => SwitchToMap());
-            }
-            else
-            {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "\nCheck of de namen nog kloppen");
+                case "Mail":
+                    MailButton = buttonInList;
+                    MailButton.onClick.AddListener(() => SwitchToMailScreen());
+                    break;
+                case "Map":
+                    mapButton = buttonInList;
+                    mapButton.onClick.AddListener(() => SwitchToMap());
+                    break;
+                case "Tasks":
+                    tasksButton = buttonInList;
+                    tasksButton.onClick.AddListener(() => SwitchToTasks()); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
+                    break;
+
+                default:
+                    Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + ". Negeer dit als het klopt.");
+                    break;
             }
         }
     }

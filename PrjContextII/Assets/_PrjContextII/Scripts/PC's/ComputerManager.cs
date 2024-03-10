@@ -64,7 +64,7 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
         ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
         ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
-        ComputerFsm?.SwitchState(typeof(TasksScreen));
+        ComputerFsm?.SwitchState(typeof(LoginState));
     }
 
 
@@ -85,7 +85,7 @@ public class ComputerManager : MonoBehaviour
         {
             Debug.Log("button spawned" + ButtonsParent.name);
             Button questionButton = Instantiate(QuestionButtonPrefab, ButtonsParent);
-            questionButton.GetComponentInChildren<Text>().text = question.choiceText;
+            questionButton.GetComponentInChildren<Text>().text = question.choiceName;
             questionButton.GetComponent<TaskContent>().choice = question;
 
             // Zorg ervoor dat je ook event listeners correct instelt
