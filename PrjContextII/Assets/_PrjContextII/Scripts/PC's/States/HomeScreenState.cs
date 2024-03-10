@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HomeScreenState : State
 {
-    private Button YesButton, NoButton;
-    private Canvas HomeScreen;
+    private Button MailButton, mapButton, tasksButton;
     private ChoiceManager choiceManagerInstance;
-    private ComputerManager manager;
+    // private ComputerManager manager;
 
     public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn, ComputerManager _manager) : base(_fSM)
     {
-        HomeScreen = _homeScrn;
-        HomeScreen.enabled = false;
-        manager = _manager;
+        base.ScreenCanvas = _homeScrn;
+        // manager = _manager;
+        ScreenCanvas.enabled = false;
     }
 
     //TODO: De coupling met de choicemanager is niet correct. verbeter dit ajb
@@ -23,11 +23,42 @@ public class HomeScreenState : State
     {
         // manager.SwitchScreenMaterial(manager.MapScreenMaterial);
         //IMPORTANT: zet hier je canvas aan.
-        if (!HomeScreen.enabled)
-            HomeScreen.enabled = true;
+        if (!ScreenCanvas.enabled)
+            ScreenCanvas.enabled = true;
 
-        // Initialiseer inlogscherm UI
-        Button[] Buttons = HomeScreen.GetComponentsInChildren<Button>(true);
+        GetButtons();
+
+    }
+
+
+    public override void OnUpdate()
+    {
+
+    }
+
+    public void SwitchToMailScreen()
+    {
+        FSM.SwitchState(typeof(MailScreenState));
+    }
+
+    public void SwitchToMap()
+    {
+        FSM.SwitchState(typeof(MapScreenState));
+    }
+    public void SwitchToTasks()
+    {
+        FSM.SwitchState(typeof(TasksScreen));
+    }
+
+    public override void OnExit()
+    {
+        // Opruimen van scherm
+        ScreenCanvas.enabled = false;
+    }
+    public void GetButtons()
+    {
+        // Initialiseer UI
+        Button[] Buttons = ScreenCanvas.GetComponentsInChildren<Button>(true);
 
         if (ChoiceManager.instance != null)
         {
@@ -42,32 +73,25 @@ public class HomeScreenState : State
         //check hier voor alle ui elementen die je verwacht
         foreach (var buttonInList in Buttons)
         {
-            if (buttonInList.name == "Yes")
+            switch (buttonInList.name)
             {
-                YesButton = buttonInList;
-                YesButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(true));
-                // NoButton.onClick.AddListener(() => choiceManagerInstance.MakeChoice(false));
-            }
-            else if (buttonInList.name == "No")
-            {
-                NoButton = buttonInList;
+                case "Mail":
+                    MailButton = buttonInList;
+                    MailButton.onClick.AddListener(() => SwitchToMailScreen());
+                    break;
+                case "Map":
+                    mapButton = buttonInList;
+                    mapButton.onClick.AddListener(() => SwitchToMap());
+                    break;
+                case "Tasks":
+                    tasksButton = buttonInList;
+                    tasksButton.onClick.AddListener(() => SwitchToTasks()); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
+                    break;
 
-            }
-            else
-            {
-                Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name);
+                default:
+                    Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + ". Negeer dit als het klopt.");
+                    break;
             }
         }
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-    }
-
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-        HomeScreen.enabled = false;
     }
 }

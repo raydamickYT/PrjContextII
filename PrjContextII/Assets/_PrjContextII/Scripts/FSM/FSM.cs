@@ -32,4 +32,27 @@ public class FSM<T>
             currentState?.OnEnter();
         }
     }
+
+    public void SwitchStateWithExtraInfo(System.Type _type, object extraInfo)
+    {
+        if (allStates.ContainsKey(_type))
+        {
+            currentState?.OnExit();
+            currentState = allStates[_type];
+
+            // Als de nieuwe staat extra informatie verwacht, roep dan InitializeWithExtraInfo aan
+            if (currentState is IStateWithExtraInfo stateWithExtraInfo)
+            {
+                stateWithExtraInfo.InitializeWithExtraInfo(extraInfo);
+            }
+
+            currentState?.OnEnter();
+        }
+    }
+
+}
+
+public interface IStateWithExtraInfo
+{
+    void InitializeWithExtraInfo(object extraInfo);
 }
