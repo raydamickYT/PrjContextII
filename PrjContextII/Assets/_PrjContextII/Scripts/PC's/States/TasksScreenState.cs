@@ -20,6 +20,12 @@ public class TasksScreen : State
         if (!ScreenCanvas.enabled)
             ScreenCanvas.enabled = true;
 
+        if (!ChoiceManager.instance.ChoicesLeft)
+        {
+            Debug.Log("we zijn door de choices heen vandaag");
+            isShowingButtons = false;
+            // ChoiceManager.instance.currentDayIndex += 1;
+        } 
         if (!isShowingButtons)
         {
             Tasks = ComputerManager.instance.DisplayTaskButtons();
