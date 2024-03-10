@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +11,11 @@ public class TaskContent : MonoBehaviour
     private bool taskIsShowing;
     private Button btn;
 
-    [SerializeField]
-    [TextArea(3, 10)]
     [Tooltip("Dit is waar je je tekst invoert")]
-    private string TaskTekst;
+    public string TaskTekst;
     [Tooltip("Geef hier de prefab op voor de email")]
-    public GameObject TaskPrefab; // Verwijst naar het paneel dat de mailinhoud toont
     private GameObject TaskInstanceBackup;
-    void Start()
+    void Awake()
     {
         this.choiceManager = ChoiceManager.instance;
 
@@ -91,6 +89,7 @@ public class TaskContent : MonoBehaviour
     private void SwitchToTaskContentState()
     {
         ComputerManager.instance.SwitchComputerState(typeof(TaskContentScreenState));
+        Destroy(this.gameObject);
     }
 
     public void CloseMail()
