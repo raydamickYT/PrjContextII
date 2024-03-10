@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class TasksScreen : State
 {
     private Canvas MapScreen;
+    private bool isShowingButtons = false;
     private Button BackButton;
+    private List<Button> Tasks = new();
     public TasksScreen(FSM<State> _fSM, Canvas _tasks) : base(_fSM)
     {
         base.ScreenCanvas = _tasks;
@@ -18,6 +20,11 @@ public class TasksScreen : State
         if (!ScreenCanvas.enabled)
             ScreenCanvas.enabled = true;
 
+        if (!isShowingButtons)
+        {
+            Tasks = ComputerManager.instance.DisplayTaskButtons();
+            isShowingButtons = true;
+        }
         // GetButtons();
     }
 

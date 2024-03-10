@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class ComputerManager : MonoBehaviour
     HomeScreen, MailScreen, MapScreen, TasksScreen;
 
     public GameObject TaskScreenContent;
+    public Button QuestionButtonPrefab;
+    public Transform ButtonsParent;
 
     public Material MapScreenMaterial, BackgroundScreenMaterial;
     public GameObject ComputerScreenObj;
@@ -74,4 +77,24 @@ public class ComputerManager : MonoBehaviour
     {
         ComputerScreenRenderer.material = mat;
     }
+    public List<Button> DisplayTaskButtons()
+    {
+        List<Button> createdButtons = new List<Button>();
+
+        foreach (var question in ChoiceManager.instance.ChoicesOfToday)
+        {
+            Debug.Log("button spawned" + ButtonsParent.name);
+            Button questionButton = Instantiate(QuestionButtonPrefab, ButtonsParent);
+            questionButton.GetComponentInChildren<Text>().text = question.choiceText;
+
+
+            questionButton.GetComponent<TaskContent>().TaskTekst = "hoi";
+            // Zorg ervoor dat je ook event listeners correct instelt
+
+            createdButtons.Add(questionButton);
+        }
+
+        return createdButtons; // Retourneer de lijst met aangemaakte knoppen
+    }
+
 }
