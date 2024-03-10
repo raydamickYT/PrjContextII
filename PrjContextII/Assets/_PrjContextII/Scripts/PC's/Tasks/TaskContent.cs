@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class TaskContent : MonoBehaviour
 {
     private ChoiceManager choiceManager;
+    public Choice choice;
     private bool taskIsShowing;
     private Button btn;
 
@@ -88,7 +89,11 @@ public class TaskContent : MonoBehaviour
 
     private void SwitchToTaskContentState()
     {
-        ComputerManager.instance.SwitchComputerState(typeof(TaskContentScreenState));
+        if (choice != null)
+        {
+            ComputerManager.instance.SwitchComputerState(typeof(TaskContentScreenState), choice);
+        }
+
         Destroy(this.gameObject);
     }
 

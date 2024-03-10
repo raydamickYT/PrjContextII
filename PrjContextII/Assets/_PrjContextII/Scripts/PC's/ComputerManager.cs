@@ -68,9 +68,9 @@ public class ComputerManager : MonoBehaviour
     }
 
 
-    public void SwitchComputerState(System.Type newState)
+    public void SwitchComputerState(System.Type newState, object ChoiceInfo)
     {
-        ComputerFsm.SwitchState(newState);
+        ComputerFsm.SwitchStateWithExtraInfo(newState, ChoiceInfo);
     }
 
     public void SwitchScreenMaterial(Material mat)
@@ -86,9 +86,8 @@ public class ComputerManager : MonoBehaviour
             Debug.Log("button spawned" + ButtonsParent.name);
             Button questionButton = Instantiate(QuestionButtonPrefab, ButtonsParent);
             questionButton.GetComponentInChildren<Text>().text = question.choiceText;
+            questionButton.GetComponent<TaskContent>().choice = question;
 
-
-            questionButton.GetComponent<TaskContent>().TaskTekst = "hoi";
             // Zorg ervoor dat je ook event listeners correct instelt
 
             createdButtons.Add(questionButton);
