@@ -13,6 +13,7 @@ public class HomeScreenState : State
     public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn, ComputerManager _manager) : base(_fSM)
     {
         base.ScreenCanvas = _homeScrn;
+        base.computerManager = _manager;
         // manager = _manager;
         ScreenCanvas.enabled = false;
     }
@@ -27,7 +28,7 @@ public class HomeScreenState : State
             ScreenCanvas.enabled = true;
 
         GetButtons();
-
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("HomeScreen"));
     }
 
 

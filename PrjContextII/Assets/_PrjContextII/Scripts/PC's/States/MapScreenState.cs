@@ -19,7 +19,8 @@ public class MapScreenState : State
     public override void OnEnter()
     {
         ScreenCanvas.enabled = true;
-        computerManager.SwitchScreenMaterial(computerManager.MapScreenMaterial);
+        // computerManager.SwitchScreenMaterial(computerManager.MapScreenMaterial);
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("CameraView"));
         GetButtons();
     }
 
@@ -31,7 +32,8 @@ public class MapScreenState : State
     public override void OnExit()
     {
         // Opruimen van inlogscherm
-        computerManager.SwitchScreenMaterial(computerManager.BackgroundScreenMaterial);
+        // computerManager.SwitchScreenMaterial(computerManager.BackgroundScreenMaterial);
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TempBackGround"));
         ScreenCanvas.enabled = false;
     }
 

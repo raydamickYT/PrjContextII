@@ -138,7 +138,12 @@ MonoBehaviour:
     neerzetten van 3 a 10 regels
 
 '
-  mailScrollViewPrefab: {fileID: 6298878988905189230, guid: def7af32d5b062a4da9c6b70c9066c73, type: 3}
+  MailScrollViewPrefab: {fileID: 0}
+  mail:
+    MailTitle: 
+    MailSender: 
+    MailReceiver: 
+    MailContent: 
 --- !u!1 &8115651437512081123
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +210,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c0202996051ce6948b10468c1627cd70, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
