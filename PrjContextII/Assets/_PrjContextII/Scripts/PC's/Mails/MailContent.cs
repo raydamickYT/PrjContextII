@@ -16,6 +16,7 @@ public class MailContent : MonoBehaviour
     [Tooltip("Geef hier de prefab op voor de email")]
     public GameObject MailScrollViewPrefab; // Verwijst naar het paneel dat de mailinhoud toont
     private GameObject mailScrollViewBackup;
+    public Mail mail;
     void Start()
     {
         btn = GetComponent<Button>();
