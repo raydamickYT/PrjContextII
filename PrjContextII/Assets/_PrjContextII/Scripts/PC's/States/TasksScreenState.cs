@@ -12,6 +12,7 @@ public class TasksScreen : State
     {
         base.ScreenCanvas = _tasks;
         ScreenCanvas.enabled = false;
+
     }
 
     public override void OnEnter()
@@ -21,13 +22,15 @@ public class TasksScreen : State
 
         if (!ChoiceManager.instance.ChoicesLeft)
         {
-            // Debug.Log("we zijn door de choices heen vandaag");
-            isShowingButtons = false;
-            // ChoiceManager.instance.currentDayIndex += 1;
-        } 
+            Debug.Log("we zijn door de choices heen vandaag");
+
+            isShowingButtons = ChoiceManager.instance.AdvanceNextDay(); //voeg een dag toe en add de nieuwe tasks
+            // isShowingButtons = false;
+
+        }
         if (!isShowingButtons)
         {
-            Tasks = ComputerManager.instance.DisplayTaskButtons();
+            Tasks = ChoiceManager.instance.DisplayTaskButtons();
             isShowingButtons = true;
         }
         GetButtons();
