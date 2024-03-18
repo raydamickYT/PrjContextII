@@ -65,7 +65,8 @@ PrefabInstance:
       value: appartementecomplex VERSIE 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: b5cc7c9575167e4448a1ae0aa8f840a5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b5cc7c9575167e4448a1ae0aa8f840a5, type: 3}
