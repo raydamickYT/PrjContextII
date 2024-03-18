@@ -16,6 +16,7 @@ public class MailContent : MonoBehaviour
     [Tooltip("Geef hier de prefab op voor de email")]
     public GameObject MailScrollViewPrefab; // Verwijst naar het paneel dat de mailinhoud toont
     private GameObject mailScrollViewBackup;
+    public Mail mail;
     void Start()
     {
         btn = GetComponent<Button>();
@@ -67,7 +68,7 @@ public class MailContent : MonoBehaviour
             GameObject mailScrollViewInstance = Instantiate(MailScrollViewPrefab, transform.parent.parent, false);
             mailScrollViewBackup = mailScrollViewInstance;
 
-            mailScrollViewInstance.transform.position += new Vector3(0.18f, -0.13f, -0.03f); // Bijvoorbeeld, centreer het
+            mailScrollViewInstance.transform.position += new Vector3(0.18f, -0.08f, -0.03f); // Bijvoorbeeld, centreer het
             mailScrollViewInstance.transform.SetParent(transform.parent.parent.parent); //niet de netste manier om de parent te veranderen...
 
             if (mailScrollViewInstance.transform.Find("EmailContent").GetComponent<Text>() != null)

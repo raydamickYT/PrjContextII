@@ -7,18 +7,25 @@ public class MailScreenState : State
 {
     public GameObject mailContentPanel; // Verwijs naar het paneel dat de mailinhoud toont
     private Button BackButton;
+    private bool ButtonsActive = false;
+    private List<Button> mails = new();
 
-
-    public MailScreenState(FSM<State> _fSM, Canvas _mailscreen) : base(_fSM)
+    public MailScreenState(FSM<State> _fSM, Canvas _mailscreen, ComputerManager _manager) : base(_fSM)
     {
         base.ScreenCanvas = _mailscreen;
         ScreenCanvas.enabled = false;
+        computerManager = _manager;
     }
 
     public override void OnEnter()
     {
         ScreenCanvas.enabled = true;
-
+        if (!ButtonsActive)
+        {
+            mails = MailManager.instance.DisplayMailButtons();
+            ButtonsActive = true;
+        }
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));
         GetButtons();
     }
 
@@ -58,5 +65,7 @@ public class MailScreenState : State
                 Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "Negeer dit als het klopt");
             }
         }
+
+
     }
 }

@@ -1,24 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI; // Zorg ervoor dat je de UI namespace gebruikt voor toegang tot UI componenten
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 
 public class ChoiceManager : MonoBehaviour
 {
     public static ChoiceManager instance { get; private set; }
     public bool ChoicesLeft = false;
-    public List<Day> Days; // Een lijst met alle dagen en hun keuzes
+    public Transform ButtonsParent;
+    public Button QuestionButtonPrefab;
+
+    private List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
     public List<Choice> ChoicesOfToday { get; private set; } = new List<Choice>();
+    public int CurrentChoiceIndex = 0; // Houdt bij welke dag het is
 
-    public int currentDayIndex = 1, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
-
-    public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
-    public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
-    // UI Buttons voor Ja en Nee keuzes
-    // public Button YesButton;
-    // public Button NoButton;
     private void Start()
     {
+        Days = GameManager.instance.Days;
         DisplayChoices();
     }
 
@@ -32,6 +31,7 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // Zorgt ervoor dat er geen duplicaten zijn
+            
         }
     }
 
@@ -40,80 +40,98 @@ public class ChoiceManager : MonoBehaviour
     {
         ChoicesLeft = true;
         ChoicesOfToday.Clear(); // Zorg ervoor dat de lijst leeg is voordat je nieuwe keuzes toevoegt
-        if (currentDayIndex < Days.Count)
+
+        // Debug.Log("days count " + Days.Count);
+        // Debug.Log("current day " + currentDayIndex);
+
+        if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count)
         {
-            Day currentDay = Days[currentDayIndex];
+            // Debug.Log(currentDayIndex);
+            ChoiceDay currentDay = Days[GameManager.instance.currentDayIndex];
 
             // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
             ChoicesOfToday.AddRange(currentDay.choices);
-            Debug.Log(ChoicesOfToday.Count);
 
-            // Voor dit voorbeeld, toon gewoon de eerste vraag van de dag
-            if (currentDay.choices.Count > 0)
-            {
-                // Debug.Log(Days.Count);
-                ChoiceText.text = currentDay.choices[0].choiceText;
-                // Verbind de Yes/No knoppen met MakeChoice methode...
-            }
         }
     }
 
+    public bool AdvanceNextDay()
+    {
+        // currentDayIndex += 1;
+        if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
+        {
+            GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
+            CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
+            DisplayChoices(); // Toon de keuzes voor de nieuwe dag
+            return false;
+
+            // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
+        }
+        else
+        {
+            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
+            return true;
+            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
+        }
+    }
     public void MakeChoice(bool choiceMade)
     {
-        // Hier zou je logica implementeren om te bepalen wat er gebeurt op basis van de keuze
-        // Bijvoorbeeld, controleer of choiceMade overeenkomt met isCorrectChoice van de huidige keuze
-
-        // Voor nu, simpelweg loggen of de juiste keuze gemaakt is
-        if (Days[currentDayIndex].choices.Count > currentDayIndex)//als de aantal totale keuzes van vandaag nog meer is dan het aantal keuzes gemaakt.
+        if (choiceMade)
         {
-            // Debug.Log("Juiste keuze gemaakt: " + choiceMade);
-            if (choiceMade)
-            {
-                GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter + GoodBadIncrement, -1f, 1f);
-            }
-            else
-            {
-                GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter - GoodBadIncrement, -1f, 1f);
-            }
+            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter + GameManager.instance.GoodBadIncrement, -1f, 1f);
+        }
+        else
+        {
+            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter - GameManager.instance.GoodBadIncrement, -1f, 1f);
+        }
 
-            FloatRange range = DetermineRange(GoodOrBadMeter);
-            Choice currentChoice;
-            // Debug.Log(CurrentChoiceIndex);
-            if (currentDayIndex < Days.Count && CurrentChoiceIndex < Days[currentDayIndex].choices.Count)
+        FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
+        Choice currentChoice;
+
+        if (GameManager.instance.currentDayIndex < Days.Count && CurrentChoiceIndex < Days[GameManager.instance.currentDayIndex].choices.Count)
+        {
+            // Debug.Log("pipo currentchoice index: " + CurrentChoiceIndex);
+            // Debug.Log("pipo keuzes over vandaag: " + currentDayIndex);
+            currentChoice = Days[GameManager.instance.currentDayIndex].choices[CurrentChoiceIndex];
+            CurrentChoiceIndex++;
+        }
+        else if (GameManager.instance.currentDayIndex < Days.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
+        {
+            if (CurrentChoiceIndex >= Days[GameManager.instance.currentDayIndex].choices.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
             {
-                currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
-                CurrentChoiceIndex++;
-            }
-            else if (CurrentChoiceIndex >= Days[currentDayIndex].choices.Count)
-            {
-                AdvanceToNextDay();
-                // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
-                // Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
                 currentChoice = null;
                 ChoicesLeft = false;
             }
+            // AdvanceToNextDay();
+            // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
+            // Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
+        }
+        else
+        {
+            //we zijn door onze dagen heen
+            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
+        }
 
-            switch (range)
-            {
-                //TODO: hier de materials veranderen van de gebouwen
-                case FloatRange.BetweenZeroAndOne:
-                    Debug.Log("De waarde ligt tussen 0.2 en 1.");
-                    //hier apply je de texture op de building
-                    // ApplyChoice(currentChoice);
-                    MaterialManager.Instance.TriggerAction(2);
-                    break;
-                case FloatRange.BetweenZeroAndMinusOne:
-                    Debug.Log("De waarde ligt tussen 0 en -1.");
-                    MaterialManager.Instance.TriggerAction(1);
-                    break;
-                case FloatRange.Other:
-                    Debug.Log("De waarde ligt niet binnen de gespecificeerde bereiken.");
-                    break;
-                case FloatRange.Neutral:
-                    Debug.Log("De waarde is neutraal");
-                    MaterialManager.Instance.TriggerAction(0);
-                    break;
-            }
+        switch (range)
+        {
+            //TODO: hier de materials veranderen van de gebouwen
+            case FloatRange.BetweenZeroAndOne:
+                // Debug.Log("De waarde ligt tussen 0.2 en 1.");
+                //hier apply je de texture op de building
+                // ApplyChoice(currentChoice);
+                MaterialManager.Instance.TriggerAction(2);
+                break;
+            case FloatRange.BetweenZeroAndMinusOne:
+                // Debug.Log("De waarde ligt tussen 0 en -1.");
+                MaterialManager.Instance.TriggerAction(1);
+                break;
+            case FloatRange.Other:
+                Debug.LogWarning("De waarde ligt niet binnen de gespecificeerde bereiken.");
+                break;
+            case FloatRange.Neutral:
+                // Debug.Log("De waarde is neutraal");
+                MaterialManager.Instance.TriggerAction(0);
+                break;
         }
         // else //anders is de dag voorbij en eindigen we de turn.
         // {
@@ -144,7 +162,7 @@ public class ChoiceManager : MonoBehaviour
 
     FloatRange DetermineRange(float value)
     {
-        var range = (value > 0 && value <= 1, value < 0 && value >= -1, value > 0 && value <= GoodBadBorder || value < 0 && value >= GoodBadBorder);
+        var range = (value > 0 && value <= 1, value < 0 && value >= -1, value > 0 && value <= GameManager.instance.GoodBadBorder || value < 0 && value >= GameManager.instance.GoodBadBorder);
 
         switch (range)
         {
@@ -159,24 +177,24 @@ public class ChoiceManager : MonoBehaviour
         }
     }
 
-    public void AdvanceToNextDay()
+    public List<Button> DisplayTaskButtons()
     {
-        if (currentDayIndex < Days.Count - 1) // Controleer of er nog dagen over zijn
-        {
-            currentDayIndex++; // Ga naar de volgende dag
-            CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
-            DisplayChoices(); // Toon de keuzes voor de nieuwe dag
+        List<Button> createdButtons = new List<Button>();
 
-            // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
-        }
-        else
+        foreach (var question in ChoicesOfToday)
         {
-            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
-            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
+            // Debug.Log("button spawned" + ButtonsParent.name);
+            Button questionButton = Instantiate(QuestionButtonPrefab, ButtonsParent);
+            questionButton.GetComponentInChildren<Text>().text = question.choiceName;
+            questionButton.GetComponent<TaskContent>().choice = question;
+
+            // Zorg ervoor dat je ook event listeners correct instelt
+
+            createdButtons.Add(questionButton);
         }
+
+        return createdButtons; // Retourneer de lijst met aangemaakte knoppen
     }
-
-
 
 }
 // Enum om de bereiken te definiëren

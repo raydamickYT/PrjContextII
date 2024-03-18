@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEditor.EditorTools;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ using UnityEngine;
 public class Choice
 {
     [Tooltip("Dit is de naam van de task knop")]
-    public string choiceName; 
+    public string choiceName;
 
     [TextArea]
     [Tooltip("Dit is de tekst van de task")]
@@ -23,8 +24,25 @@ public class Choice
 }
 
 [System.Serializable]
-public class Day
+public class ChoiceDay
 {
     public List<Choice> choices; // Een lijst met keuzes voor de dag
+    public List<Mail> mail; //lijst met mails voor die dag
+
+}
+
+[System.Serializable]
+public class MailDay
+{
+    public List<Mail> mail; //lijst met mails voor die dag
+}
+
+[System.Serializable]
+public class Mail
+{
+    public string MailTitle;
+    public string MailSender, MailReceiver;
+    [Tooltip("This is where you enter you mail's content"), TextArea]
+    public string MailContent;
 }
 
