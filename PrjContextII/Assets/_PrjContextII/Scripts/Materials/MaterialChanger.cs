@@ -57,7 +57,7 @@ public class MaterialChanger : MonoBehaviour
                 }
             }
             // Verandert het materiaal van het GameObject.
-            Debug.Log(materialIndex);
+            // Debug.Log(materialIndex);
         }
         else
         {

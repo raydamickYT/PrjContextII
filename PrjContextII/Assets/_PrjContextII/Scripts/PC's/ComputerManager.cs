@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ComputerManager : MonoBehaviour
 {
+    private ChoiceCounter choiceCounter = new();
     public static ComputerManager instance;
     [SerializeField]
     private Canvas loginScreen,
@@ -37,6 +38,7 @@ public class ComputerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         ComputerScreenRenderer = ComputerScreenObj.GetComponent<Renderer>();
         SwitchScreenMaterial(BackgroundScreenMaterial);
 
@@ -64,7 +66,7 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
         ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
         ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
-        ComputerFsm?.SwitchState(typeof(LoginState));
+        ComputerFsm?.SwitchState(typeof(TasksScreen));
     }
 
 
