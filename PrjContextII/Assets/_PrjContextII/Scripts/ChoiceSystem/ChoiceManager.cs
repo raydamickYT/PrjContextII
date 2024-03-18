@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // Zorg ervoor dat je de UI namespace gebruikt voor toegang tot UI componenten
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 
 public class ChoiceManager : MonoBehaviour
@@ -10,18 +11,13 @@ public class ChoiceManager : MonoBehaviour
     public Transform ButtonsParent;
     public Button QuestionButtonPrefab;
 
-    public List<Day> Days; // Een lijst met alle dagen en hun keuzes
+    private List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
     public List<Choice> ChoicesOfToday { get; private set; } = new List<Choice>();
+    public int CurrentChoiceIndex = 0; // Houdt bij welke dag het is
 
-    public int currentDayIndex = 0, CurrentChoiceIndex = 0; // Houdt bij welke dag het is
-
-    public Text ChoiceText; // Een UI Text component om de keuzetekst te tonen
-    public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
-    // UI Buttons voor Ja en Nee keuzes
-    // public Button YesButton;
-    // public Button NoButton;
     private void Start()
     {
+        Days = GameManager.instance.Days;
         DisplayChoices();
     }
 
@@ -35,6 +31,7 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // Zorgt ervoor dat er geen duplicaten zijn
+            
         }
     }
 
@@ -47,30 +44,23 @@ public class ChoiceManager : MonoBehaviour
         // Debug.Log("days count " + Days.Count);
         // Debug.Log("current day " + currentDayIndex);
 
-        if (currentDayIndex < Days.Count)
+        if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count)
         {
             // Debug.Log(currentDayIndex);
-            Day currentDay = Days[currentDayIndex];
+            ChoiceDay currentDay = Days[GameManager.instance.currentDayIndex];
 
             // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
             ChoicesOfToday.AddRange(currentDay.choices);
 
-            // Voor dit voorbeeld, toon gewoon de eerste vraag van de dag
-            if (currentDay.choices.Count > 0)
-            {
-                // Debug.Log(Days.Count);
-                ChoiceText.text = currentDay.choices[0].choiceText;
-                // Verbind de Yes/No knoppen met MakeChoice methode...
-            }
         }
     }
 
     public bool AdvanceNextDay()
     {
         // currentDayIndex += 1;
-        if (currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
+        if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
         {
-            currentDayIndex++; // Ga naar de volgende dag
+            GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
             CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayChoices(); // Toon de keuzes voor de nieuwe dag
             return false;
@@ -88,26 +78,26 @@ public class ChoiceManager : MonoBehaviour
     {
         if (choiceMade)
         {
-            GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter + GoodBadIncrement, -1f, 1f);
+            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter + GameManager.instance.GoodBadIncrement, -1f, 1f);
         }
         else
         {
-            GoodOrBadMeter = Mathf.Clamp(GoodOrBadMeter - GoodBadIncrement, -1f, 1f);
+            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter - GameManager.instance.GoodBadIncrement, -1f, 1f);
         }
 
-        FloatRange range = DetermineRange(GoodOrBadMeter);
+        FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
         Choice currentChoice;
 
-        if (currentDayIndex < Days.Count && CurrentChoiceIndex < Days[currentDayIndex].choices.Count)
+        if (GameManager.instance.currentDayIndex < Days.Count && CurrentChoiceIndex < Days[GameManager.instance.currentDayIndex].choices.Count)
         {
             // Debug.Log("pipo currentchoice index: " + CurrentChoiceIndex);
             // Debug.Log("pipo keuzes over vandaag: " + currentDayIndex);
-            currentChoice = Days[currentDayIndex].choices[CurrentChoiceIndex];
+            currentChoice = Days[GameManager.instance.currentDayIndex].choices[CurrentChoiceIndex];
             CurrentChoiceIndex++;
         }
-        else if (currentDayIndex < Days.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
+        else if (GameManager.instance.currentDayIndex < Days.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
         {
-            if (CurrentChoiceIndex >= Days[currentDayIndex].choices.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
+            if (CurrentChoiceIndex >= Days[GameManager.instance.currentDayIndex].choices.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
             {
                 currentChoice = null;
                 ChoicesLeft = false;
@@ -172,7 +162,7 @@ public class ChoiceManager : MonoBehaviour
 
     FloatRange DetermineRange(float value)
     {
-        var range = (value > 0 && value <= 1, value < 0 && value >= -1, value > 0 && value <= GoodBadBorder || value < 0 && value >= GoodBadBorder);
+        var range = (value > 0 && value <= 1, value < 0 && value >= -1, value > 0 && value <= GameManager.instance.GoodBadBorder || value < 0 && value >= GameManager.instance.GoodBadBorder);
 
         switch (range)
         {
@@ -186,7 +176,6 @@ public class ChoiceManager : MonoBehaviour
                 return FloatRange.Other;
         }
     }
-
 
     public List<Button> DisplayTaskButtons()
     {

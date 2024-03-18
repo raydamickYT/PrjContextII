@@ -27,6 +27,8 @@ public class TasksScreen : State
             isShowingButtons = ChoiceManager.instance.AdvanceNextDay(); //voeg een dag toe en add de nieuwe tasks
             // isShowingButtons = false;
 
+            //TIJDELIJK
+            MailManager.instance.IsShowingButtons = MailManager.instance.AdvanceNextDay();
         }
         if (!isShowingButtons)
         {

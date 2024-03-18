@@ -66,7 +66,7 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
         ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
         ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
-        ComputerFsm?.SwitchState(typeof(TasksScreen));
+        ComputerFsm?.SwitchState(typeof(MailScreenState));
     }
 
 
@@ -79,23 +79,6 @@ public class ComputerManager : MonoBehaviour
     {
         ComputerScreenRenderer.material = mat;
     }
-    public List<Button> DisplayTaskButtons()
-    {
-        List<Button> createdButtons = new List<Button>();
 
-        foreach (var question in ChoiceManager.instance.ChoicesOfToday)
-        {
-            Debug.Log("button spawned" + ButtonsParent.name);
-            Button questionButton = Instantiate(QuestionButtonPrefab, ButtonsParent);
-            questionButton.GetComponentInChildren<Text>().text = question.choiceName;
-            questionButton.GetComponent<TaskContent>().choice = question;
-
-            // Zorg ervoor dat je ook event listeners correct instelt
-
-            createdButtons.Add(questionButton);
-        }
-
-        return createdButtons; // Retourneer de lijst met aangemaakte knoppen
-    }
 
 }
