@@ -32,19 +32,10 @@ public class MailManager : MonoBehaviour
         DisplayChoices();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     // Methode om de keuzes voor de huidige dag te tonen en toe te voegen aan ChoicesOfToday
     public void DisplayChoices()
     {
-        MailsOfToday.Clear(); // Zorg ervoor dat de lijst leeg is voordat je nieuwe keuzes toevoegt
-
-        // Debug.Log("days count " + Days.Count);
-        // Debug.Log("current day " + currentDayIndex);
+        // MailsOfToday.Clear(); // deze hoeven we niet te legen, want mail kan je de dag erna nog zien.
 
         if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count)
         {
@@ -53,7 +44,6 @@ public class MailManager : MonoBehaviour
 
             // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
             MailsOfToday.AddRange(currentDay.mail);
-
         }
     }
 

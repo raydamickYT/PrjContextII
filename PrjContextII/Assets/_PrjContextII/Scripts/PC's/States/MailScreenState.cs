@@ -10,10 +10,11 @@ public class MailScreenState : State
     private bool ButtonsActive = false;
     private List<Button> mails = new();
 
-    public MailScreenState(FSM<State> _fSM, Canvas _mailscreen) : base(_fSM)
+    public MailScreenState(FSM<State> _fSM, Canvas _mailscreen, ComputerManager _manager) : base(_fSM)
     {
         base.ScreenCanvas = _mailscreen;
         ScreenCanvas.enabled = false;
+        computerManager = _manager;
     }
 
     public override void OnEnter()
@@ -24,6 +25,7 @@ public class MailScreenState : State
             mails = MailManager.instance.DisplayMailButtons();
             ButtonsActive = true;
         }
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));
         GetButtons();
     }
 
