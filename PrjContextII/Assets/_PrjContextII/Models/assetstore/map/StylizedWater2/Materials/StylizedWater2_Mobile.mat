@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ENVIRONMENTREFLECTIONS_OFF
+  - _FLAT_SHADING
   - _FOAM
   - _NORMALMAP
   - _RECEIVE_SHADOWS_OFF
@@ -162,7 +163,7 @@ Material:
     - _EdgeFade: 7.37
     - _EnvironmentReflections: 1
     - _EnvironmentReflectionsOn: 0
-    - _FlatShadingOn: 0
+    - _FlatShadingOn: 1
     - _FlowSpeed: 1
     - _FoamBaseAmount: 1
     - _FoamClipping: 0.98
@@ -247,8 +248,8 @@ Material:
     - _SlopeThreshold: 0.25
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SparkleIntensity: 4
-    - _SparkleSize: 0.7
+    - _SparkleIntensity: 2.6
+    - _SparkleSize: 0.601
     - _SpecularHighlights: 1
     - _SpecularReflectionsOn: 1
     - _Speed: 1
