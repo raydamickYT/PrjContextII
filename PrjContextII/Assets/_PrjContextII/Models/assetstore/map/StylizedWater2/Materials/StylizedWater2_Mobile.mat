@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ENVIRONMENTREFLECTIONS_OFF
+  - _FLAT_SHADING
   - _FOAM
   - _NORMALMAP
   - _RECEIVE_SHADOWS_OFF
@@ -32,7 +33,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _EdgeFade
+  m_LockedProperties: _DepthExp _EdgeFade
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -162,7 +163,7 @@ Material:
     - _EdgeFade: 7.37
     - _EnvironmentReflections: 1
     - _EnvironmentReflectionsOn: 0
-    - _FlatShadingOn: 0
+    - _FlatShadingOn: 1
     - _FlowSpeed: 1
     - _FoamBaseAmount: 1
     - _FoamClipping: 0.98
@@ -247,8 +248,8 @@ Material:
     - _SlopeThreshold: 0.25
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SparkleIntensity: 4
-    - _SparkleSize: 0.7
+    - _SparkleIntensity: 2.6
+    - _SparkleSize: 0.601
     - _SpecularHighlights: 1
     - _SpecularReflectionsOn: 1
     - _Speed: 1
@@ -286,7 +287,7 @@ Material:
     - _ZClip: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.16451614, b: 0.34, a: 0.9647059}
+    - _BaseColor: {r: 0.23433957, g: 0.2791452, b: 0.5999999, a: 0.9647059}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DepthMapBounds: {r: -402.3, g: -459.43, b: 0.0012693577, a: 0}
     - _Direction: {r: 1, g: 1, b: 0, a: 0}
