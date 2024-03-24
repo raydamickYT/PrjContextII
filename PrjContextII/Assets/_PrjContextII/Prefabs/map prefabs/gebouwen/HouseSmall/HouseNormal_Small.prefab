@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7527863893299349242}
   - component: {fileID: 857223082062227421}
   - component: {fileID: 1512272909332112037}
+  - component: {fileID: 7667924028781039077}
   m_Layer: 0
   m_Name: HouseNormal_Small
   m_TagString: Untagged
@@ -83,3 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7667924028781039077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127423735557083346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40360af256394c488ca6e233b861323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buildings: []
+  BuildingVariantsMeshes: []
+  BuildingVariants:
+  - {fileID: 6127423735557083346}
+  - {fileID: 7356132447863251535, guid: af3f9f7f6fadc20489d2adda159f7da6, type: 3}
+  - {fileID: 7356132447863251535, guid: 4386b9a32040dbc47942ff035c1b9f08, type: 3}

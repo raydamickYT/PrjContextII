@@ -58,10 +58,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7da3e059a85b95543afc39c1f25a6d5c, type: 2}
     - target: {fileID: 919132149155446097, guid: c11fa9d86969dc74086a68a7a92bc763, type: 3}
       propertyPath: m_Name
-      value: House_Both
+      value: HouseNormal_Both
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c11fa9d86969dc74086a68a7a92bc763, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3625192580779391903}
   m_SourcePrefab: {fileID: 100100000, guid: c11fa9d86969dc74086a68a7a92bc763, type: 3}
+--- !u!1 &2885253226756436032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c11fa9d86969dc74086a68a7a92bc763, type: 3}
+  m_PrefabInstance: {fileID: 2651234057266973969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3625192580779391903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885253226756436032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40360af256394c488ca6e233b861323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buildings: []
+  BuildingVariantsMeshes: []
+  BuildingVariants:
+  - {fileID: 2885253226756436032}
+  - {fileID: 5658138071960691697, guid: 90c2b6020f3feb245994e6c665db50a1, type: 3}
+  - {fileID: 1400150240226722486, guid: 10325762325fbf24dbe4ddf825b746b5, type: 3}

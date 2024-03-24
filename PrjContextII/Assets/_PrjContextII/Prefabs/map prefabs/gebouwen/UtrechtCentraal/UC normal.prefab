@@ -67,5 +67,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49ca450fd522d2b489e714ca55c4adaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4670663188657792491}
   m_SourcePrefab: {fileID: 100100000, guid: 49ca450fd522d2b489e714ca55c4adaf, type: 3}
+--- !u!1 &5960212215761799785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 49ca450fd522d2b489e714ca55c4adaf, type: 3}
+  m_PrefabInstance: {fileID: 6807055319384995640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4670663188657792491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960212215761799785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40360af256394c488ca6e233b861323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buildings: []
+  BuildingVariantsMeshes: []
+  BuildingVariants:
+  - {fileID: 5960212215761799785}
+  - {fileID: 6688261169556388436, guid: 61fe9c5a034da444e97e7a1d16344258, type: 3}
+  - {fileID: 3347069611335303252, guid: 761c0d8632c89b84b95224f4b6220455, type: 3}

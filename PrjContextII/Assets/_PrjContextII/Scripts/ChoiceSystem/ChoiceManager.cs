@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 public class ChoiceManager : MonoBehaviour
 {
     public static ChoiceManager instance { get; private set; }
+    private Choice currentChoice;
     public bool ChoicesLeft = false;
     public Transform ButtonsParent;
     public Button QuestionButtonPrefab;
@@ -32,7 +33,7 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // Zorgt ervoor dat er geen duplicaten zijn
-            
+
         }
     }
 
@@ -77,8 +78,23 @@ public class ChoiceManager : MonoBehaviour
     }
     public void MakeChoice(bool choiceMade)
     {
-        if (choiceMade)
+        FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
+
+        if (GameManager.instance.currentDayIndex < Days.Count && CurrentChoiceIndex < Days[GameManager.instance.currentDayIndex].choices.Count)
         {
+            // Debug.Log("pipo currentchoice index: " + CurrentChoiceIndex);
+            // Debug.Log("pipo keuzes over vandaag: " + currentDayIndex);
+            currentChoice = Days[GameManager.instance.currentDayIndex].choices[CurrentChoiceIndex];
+
+            CurrentChoiceIndex++; //als de keuze is uitgevoerd, dan update je de index
+        }
+
+        if (choiceMade) //voor nu: als ze ja zeggen zijn ze het eens met de dat er iets gebouwt mag worden
+        {
+            if (currentChoice.prefabChanger != null)
+            {
+                currentChoice.prefabChanger.ChangeGameObject();
+            }
             GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter + GameManager.instance.GoodBadIncrement, -1f, 1f);
         }
         else
@@ -86,32 +102,6 @@ public class ChoiceManager : MonoBehaviour
             GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter - GameManager.instance.GoodBadIncrement, -1f, 1f);
         }
 
-        FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
-        Choice currentChoice;
-
-        if (GameManager.instance.currentDayIndex < Days.Count && CurrentChoiceIndex < Days[GameManager.instance.currentDayIndex].choices.Count)
-        {
-            // Debug.Log("pipo currentchoice index: " + CurrentChoiceIndex);
-            // Debug.Log("pipo keuzes over vandaag: " + currentDayIndex);
-            currentChoice = Days[GameManager.instance.currentDayIndex].choices[CurrentChoiceIndex];
-            CurrentChoiceIndex++;
-        }
-        else if (GameManager.instance.currentDayIndex < Days.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
-        {
-            if (CurrentChoiceIndex >= Days[GameManager.instance.currentDayIndex].choices.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
-            {
-                currentChoice = null;
-                ChoicesLeft = false;
-            }
-            // AdvanceToNextDay();
-            // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
-            // Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
-        }
-        else
-        {
-            //we zijn door onze dagen heen
-            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
-        }
 
         switch (range)
         {
@@ -143,21 +133,24 @@ public class ChoiceManager : MonoBehaviour
 
         // Ga naar de volgende vraag of dag, afhankelijk van je spellogica
     }
-    public void ApplyChoice(Choice choice)
+    private void CheckDay()
     {
-        // Loop door elk GameObject in de Buildings array van de keuze
-        foreach (GameObject building in choice.Buildings)
+        if (GameManager.instance.currentDayIndex < Days.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
         {
-            // Verkrijg de Renderer component van het GameObject
-            Renderer renderer = building.GetComponent<Renderer>();
-
-            // Controleer of de Renderer component bestaat
-            if (renderer != null)
-
+            //als er geen choices in deze dag zitten betekent dat dat we alle choices hebben voltooid
+            if (CurrentChoiceIndex >= Days[GameManager.instance.currentDayIndex].choices.Count) //als de current choice index meer is dan de hoeveelheid keuzes die we hebben.
             {
-                // Wijzig het materiaal van de Renderer naar het materiaal gedefinieerd in de keuze
-                renderer.material = choice.changeMaterial;
+                currentChoice = null;
+                ChoicesLeft = false;
             }
+            // AdvanceToNextDay();
+            // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");
+            // Debug.LogWarning("Choices left: " + (CurrentChoiceIndex - Days[currentDayIndex].choices.Count));
+        }
+        else
+        {
+            //we zijn door onze dagen heen
+            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
         }
     }
 

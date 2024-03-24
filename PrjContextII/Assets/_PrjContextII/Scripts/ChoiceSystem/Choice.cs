@@ -13,9 +13,7 @@ public class Choice
     [TextArea]
     [Tooltip("Dit is de tekst van de task")]
     public string choiceText; // De tekst die de keuze beschrijft
-    public GameObject[] Buildings; //de buildings die bij deze keuze horen
-    public Material changeMaterial; // Het materiaal dat verandert als gevolg van de keuze
-
+    public PrefabChanger prefabChanger;
     public Choice(string text)
     {
         choiceText = text;
