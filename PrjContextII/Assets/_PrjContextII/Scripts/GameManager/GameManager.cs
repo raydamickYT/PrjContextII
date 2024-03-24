@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int currentDayIndex = 0;
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
     public List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
+    public Func<bool> AdvanceTheDay;
+    public bool Result = false;
 
     public static BoxCollider computerCollider;
     private void Awake()
@@ -22,16 +26,10 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
-    // Start is called before the first frame update
-    void Start()
+
+    public void EndDay()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Result = AdvanceTheDay.Invoke();
     }
 
     public static void EnableComputer()

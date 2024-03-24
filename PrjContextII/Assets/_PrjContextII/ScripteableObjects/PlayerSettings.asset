@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cdc61372e5fbe46b4923bac282598c, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  speed: 2
-  computerLayerMask:
+  Speed: 2
+  ComputerLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  BedLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   MainCam: {fileID: 0}
   rb: {fileID: 0}
-  anim: {fileID: 0}
-  cursorArrow: {fileID: 2800000, guid: eef449077bc390142aa5d73e435b6804, type: 3}
-  cursorHand: {fileID: 2800000, guid: d75867a234d090745851aae0912cddb5, type: 3}
+  Anim: {fileID: 0}
+  CursorArrow: {fileID: 0}
+  CursorHand: {fileID: 0}

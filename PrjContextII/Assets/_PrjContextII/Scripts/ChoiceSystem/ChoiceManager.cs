@@ -19,6 +19,7 @@ public class ChoiceManager : MonoBehaviour
     {
         Days = GameManager.instance.Days;
         DisplayChoices();
+        GameManager.instance.AdvanceTheDay += AdvanceNextDay;
     }
 
     void Awake()

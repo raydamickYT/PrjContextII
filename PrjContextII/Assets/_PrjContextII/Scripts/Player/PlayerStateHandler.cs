@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using Cinemachine.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -37,12 +39,11 @@ public class PlayerStateHandler : MonoBehaviour
     {
         PS.rb = rb;
         PS.MainCam = mainCam;
-        PS.anim = anim;
+        PS.Anim = anim;
     }
 
     void Update()
     {
-
         playerFsm.OnUpdate();
     }
 
@@ -63,5 +64,21 @@ public class PlayerStateHandler : MonoBehaviour
     public void SwitchPlayerState(System.Type newState)
     {
         playerFsm.SwitchState(newState);
+    }
+    void OnCollisionStay(Collision other)
+    {
+        if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
+        {
+            if (!ChoiceManager.instance.ChoicesLeft)
+            {
+                Debug.Log("Press E to end Day");
+                //hier einde turn.
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Debug.Log("day ended");
+                    GameManager.instance.EndDay();
+                }
+            }
+        }
     }
 }
