@@ -29,6 +29,7 @@ public class MailManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.AdvanceTheDay += AdvanceNextDay;
         DisplayChoices();
     }
 
@@ -59,7 +60,7 @@ public class MailManager : MonoBehaviour
             questionButton.GetComponentInChildren<Text>().text = question.MailTitle;
             questionButton.GetComponent<MailContent>().mail = question;
             questionButton.GetComponent<MailContent>().MailScrollViewPrefab = MailScrollViewPrefab;
-            
+
             // Zorg ervoor dat je ook event listeners correct instelt
 
             createdButtons.Add(questionButton);

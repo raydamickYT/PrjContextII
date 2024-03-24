@@ -17,12 +17,12 @@ public class ComputerInteract : State
 
     public override void OnEnter()
     {
-        PS.anim.SetTrigger("AwayFromComp");
+        PS.Anim.SetTrigger("AwayFromComp");
     }
     public override void OnUpdate()
     {
         //voor als de speler wilt opstaan.
-        AnimatorStateInfo stateInfo = PS.anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
+        AnimatorStateInfo stateInfo = PS.Anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
         if (stateInfo.IsName(stateName))
         {

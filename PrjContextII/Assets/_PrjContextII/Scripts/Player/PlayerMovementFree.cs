@@ -16,7 +16,7 @@ public class PlayerMovementFree : State
         PS = _ps;
         computerLayermask = LayerMask.GetMask("Computer");
         PlayerFSM = _fsm;
-        speed = PS.speed;
+        speed = PS.Speed;
     }
 
     public override void OnEnter()
@@ -24,7 +24,7 @@ public class PlayerMovementFree : State
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         // Debug.Log("test");
-        PS.anim.enabled = false;
+        PS.Anim.enabled = false;
     }
     public override void OnUpdate()
     {
@@ -38,27 +38,31 @@ public class PlayerMovementFree : State
     public override void OnExit()
     {
         Cursor.visible = true;
-        PS.anim.enabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        PS.Anim.enabled = true;
     }
 
     public void CheckSurroundsingsWithSphereCast()
     {
         float radius = 1f;
-        float maxDist = .5f;
+        float maxDist = 1f;
         Vector3 direction = Vector3.forward;
 
         RaycastHit hitInfo;
-        bool hit = Physics.SphereCast(PS.rb.transform.position, radius, direction, out hitInfo, maxDist, computerLayermask);
+        bool hit = Physics.SphereCast(PS.rb.transform.position, radius, direction, out hitInfo, maxDist, PS.ComputerLayerMask);
 
         if (hit)
         {
-            Debug.Log("hij ziet de computer");
-            if (Input.GetKeyDown(KeyCode.E))
+            if (((1 << hitInfo.collider.gameObject.layer) & PS.ComputerLayerMask) != 0)
             {
-                PS.anim.enabled = true;
-                PS.anim.SetTrigger("AwayFromComp");
+                Debug.Log("hij ziet de computer");
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PS.Anim.enabled = true;
+                    PS.Anim.SetTrigger("AwayFromComp");
 
-                PlayerFSM.SwitchPlayerState(typeof(PlayerMovement));
+                    PlayerFSM.SwitchPlayerState(typeof(PlayerMovement));
+                }
             }
         }
     }

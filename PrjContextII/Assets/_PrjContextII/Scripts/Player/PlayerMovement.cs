@@ -17,15 +17,16 @@ public class PlayerMovement : State
 
     public PlayerMovement(PlayerSettings _PS, PlayerStateHandler _fsm, FSM<State> _fSM, ComputerManager _com) : base(_fSM)
     {
-        screenLayerMask = _PS.computerLayerMask;
+        screenLayerMask = _PS.ComputerLayerMask;
         mainCam = _PS.MainCam;
         PS = _PS;
         PlayerFSM = _fsm;
         fSM = _fSM;
-        cursorArrow = _PS.cursorArrow;
-        cursorHand = _PS.cursorHand;
+        cursorArrow = _PS.CursorArrow;
+        cursorHand = _PS.CursorHand;
         CompManager = _com;
     }
+
 
     // Update is called once per frame
     public override void OnUpdate()
@@ -44,20 +45,20 @@ public class PlayerMovement : State
             // anim.SetTrigger("AwayFromComp");
             PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
         }
-        AnimatorStateInfo stateInfo = PS.anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
+        AnimatorStateInfo stateInfo = PS.Anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
         // Check of de huidige staat overeenkomt met de staat die je wilt monitoren
         if (stateInfo.IsName(stateName))
         {
             if (stateInfo.normalizedTime > 1)
             {
-                PS.anim.SetFloat("Speed", 0);
-                PS.anim.Play("LookLeft", 0, 1);
+                PS.Anim.SetFloat("Speed", 0);
+                PS.Anim.Play("LookLeft", 0, 1);
             }
             else if (stateInfo.normalizedTime < 0)
             {
-                PS.anim.SetFloat("Speed", 0);
-                PS.anim.Play("LookLeft", 0, 0);
+                PS.Anim.SetFloat("Speed", 0);
+                PS.Anim.Play("LookLeft", 0, 0);
             }
             // Print de huidige tijd van de animatie naar de console
             // Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
@@ -106,13 +107,13 @@ public class PlayerMovement : State
 
     void PlayBackwards()
     {
-        PS.anim.SetFloat("Speed", -1f);
-        PS.anim.SetTrigger("StartAnimation");
+        PS.Anim.SetFloat("Speed", -1f);
+        PS.Anim.SetTrigger("StartAnimation");
     }
     void PlayForwards()
     {
-        PS.anim.SetFloat("Speed", 1f);
-        PS.anim.SetTrigger("StartAnimation");
+        PS.Anim.SetFloat("Speed", 1f);
+        PS.Anim.SetTrigger("StartAnimation");
     }
 }
 
