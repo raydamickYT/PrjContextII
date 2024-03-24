@@ -11,8 +11,8 @@ public class MailContent : MonoBehaviour
     private Button btn;
     [SerializeField]
     [TextArea(3, 10)]
-    [Tooltip("Dit is waar je je tekst invoert")]
-    private string MailText;
+    // [Tooltip("Dit is waar je je tekst invoert")]
+    // private string MailText;
     [Tooltip("Geef hier de prefab op voor de email")]
     public GameObject MailScrollViewPrefab; // Verwijst naar het paneel dat de mailinhoud toont
     private GameObject mailScrollViewBackup;
@@ -71,12 +71,10 @@ public class MailContent : MonoBehaviour
             mailScrollViewInstance.transform.position += new Vector3(0.18f, -0.08f, -0.03f); // Bijvoorbeeld, centreer het
             mailScrollViewInstance.transform.SetParent(transform.parent.parent.parent); //niet de netste manier om de parent te veranderen...
 
-            if (mailScrollViewInstance.transform.Find("EmailContent").GetComponent<Text>() != null)
+            Text textComponent = mailScrollViewInstance.transform.Find("EmailContent").GetComponent<Text>();
+            if (textComponent != null)
             {
-
-                Text textComponent = mailScrollViewInstance.transform.Find("EmailContent").GetComponent<Text>();
-
-                textComponent.text = MailText;
+                textComponent.text = mail.MailContent;
 
                 // Pas de grootte van het Text-component aan op basis van de tekstlengte
                 float preferredHeight = textComponent.preferredHeight;
@@ -99,7 +97,19 @@ public class MailContent : MonoBehaviour
             {
                 Debug.LogWarning("geen tekst object gevonden in mail prefab");
             }
+            if ((textComponent = mailScrollViewInstance.transform.Find("Recipient").GetComponent<Text>()) != null)
+            {
+                textComponent.text = "Recipient: " + mail.MailReceiver;
+            }
+            if ((textComponent = mailScrollViewInstance.transform.Find("Subject").GetComponent<Text>()) != null)
+            {
+                textComponent.text = "Subject: " + mail.MailTitle;
+            }
+            // else if ((textComponent = mailScrollViewInstance.transform.Find("Sender").GetComponent<Text>()) != null)
+            // {
+            //     textComponent.text = "Sender: " + mail.MailSender;
 
+            // }
         }
     }
     public void CloseMail()

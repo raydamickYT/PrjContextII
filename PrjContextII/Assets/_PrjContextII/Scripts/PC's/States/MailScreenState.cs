@@ -20,10 +20,10 @@ public class MailScreenState : State
     public override void OnEnter()
     {
         ScreenCanvas.enabled = true;
-        if (!ButtonsActive)
+        if (!MailManager.instance.IsShowingButtonsForToday)
         {
             mails = MailManager.instance.DisplayMailButtons();
-            ButtonsActive = true;
+            MailManager.instance.IsShowingButtonsForToday = true;
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));
         GetButtons();

@@ -8,9 +8,10 @@ public class TasksScreen : State
     private bool isShowingButtons = false;
     private Button BackButton;
     private List<Button> Tasks = new();
-    public TasksScreen(FSM<State> _fSM, Canvas _tasks) : base(_fSM)
+    public TasksScreen(FSM<State> _fSM, Canvas _tasks, ComputerManager _comp) : base(_fSM)
     {
         base.ScreenCanvas = _tasks;
+        base.computerManager = _comp;
         ScreenCanvas.enabled = false;
 
     }
@@ -37,14 +38,8 @@ public class TasksScreen : State
             Tasks = ChoiceManager.instance.DisplayTaskButtons();
             isShowingButtons = true;
         }
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
         GetButtons();
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-
-        // FSM.SwitchState(typeof(MapScreenState));
     }
 
     public override void OnExit()
@@ -57,11 +52,6 @@ public class TasksScreen : State
     public void SwitchToHomeScreen()
     {
         FSM.SwitchState(typeof(HomeScreenState));
-
-    }
-
-    public void SwitchToTask()
-    {
 
     }
 
