@@ -34,18 +34,6 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
         thisObject.SetActive(false);
     }
 
-    public void SwitchToTaskScreen()
-    {
-        FSM.SwitchState(typeof(TasksScreen));
-    }
-
-    public void ExecuteChoice(bool Choice)
-    {
-        ChoiceManager.instance.MakeChoice(Choice);
-        //omdat je na de choice niet meer deze choice kan uitvoeren, ga je terug naar de task screen.
-        FSM.SwitchState(typeof(TasksScreen));
-    }
-
     public void GetButtons()
     {
         // Initialiseer UI
@@ -77,16 +65,6 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
         }
     }
 
-    private void SetupCanvas()
-    {
-        if (currentChoice != null)
-        {
-            contentText = thisObject.transform.Find("TaskContent").GetComponent<Text>();
-
-            contentText.text = currentChoice.choiceText;
-        }
-    }
-
     public void InitializeWithExtraInfo(object extraInfo)
     {
         if (extraInfo is Choice choice)
@@ -97,6 +75,28 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
         else
         {
             Debug.LogError("verkeerd type extra info is doorgegeven aan tasksscren");
+        }
+    }
+
+    public void ExecuteChoice(bool Choice)
+    {
+        ChoiceManager.instance.MakeChoice(Choice); //true is yes, false is no.
+        //omdat je na de choice niet meer deze choice kan uitvoeren, ga je terug naar de task screen.
+        FSM.SwitchState(typeof(TasksScreen));
+    }
+    public void SwitchToTaskScreen()
+    {
+        FSM.SwitchState(typeof(TasksScreen));
+    }
+
+
+    private void SetupCanvas()
+    {
+        if (currentChoice != null)
+        {
+            contentText = thisObject.transform.Find("TaskContent").GetComponent<Text>();
+
+            contentText.text = currentChoice.choiceText;
         }
     }
 }

@@ -13,6 +13,7 @@ public class PlayerMovement : State
     public PlayerSettings PS;
     public Texture2D cursorArrow, cursorHand;
     private FSM<State> fSM;
+    private bool hasMoved = false;
 
 
     public PlayerMovement(PlayerSettings _PS, PlayerStateHandler _fsm, FSM<State> _fSM, ComputerManager _com) : base(_fSM)
@@ -33,11 +34,19 @@ public class PlayerMovement : State
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            PlayBackwards();
+            if (hasMoved)
+            {
+                PlayBackwards();
+                hasMoved = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PlayForwards();
+            if (!hasMoved)
+            {
+                PlayForwards();
+                hasMoved = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

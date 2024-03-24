@@ -1,69 +1,63 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-
 
 public class MaterialChanger : MonoBehaviour
 {
-    // Een array om de materialen te houden die je wilt kunnen toewijzen.
-    public Material[] materials; //1 = goed, 2 = minder, 3= slecht
-    List<GameObject> childGameObjects = new List<GameObject>();
-    private Renderer test;
+    private List<GameObject> Buildings = new();
+    public GameObject[] BuildingVariants;
 
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Debug.Log("test");
         if (MaterialManager.Instance != null)
         {
-            MaterialManager.Instance.SubscribeToAction(ChangeMaterial);
+            MaterialManager.Instance.SubscribeToAction(ReplaceBuildingMeshes);
         }
         else
         {
-            Debug.Log("materialmanager bestaat no niet ");
+            Debug.Log("materialmanager bestaat nog niet ");
         }
 
-
+        // Buildings = gameObject.GetComponentsInChildren<GameObject>();
         GetAllBuildings();
     }
-
-    private void OnDisable()
-    {
-        MaterialManager.Instance.SubscribeToAction(ChangeMaterial);
-    }
-
     private void GetAllBuildings()
     {
         Transform[] childTransforms = GetComponentsInChildren<Transform>(false); // 'true' om ook inactieve GameObjects op te nemen
 
         foreach (Transform childTransform in childTransforms)
         {
-            childGameObjects.Add(childTransform.gameObject);
+            Buildings.Add(childTransform.gameObject);
         }
     }
 
-
-    public void ChangeMaterial(int materialIndex)
+    void ReplaceBuildingMeshes(int PrefabIndex)
     {
-        // Controleert of de index geldig is.
-        if (materialIndex < materials.Length && materialIndex >= 0)
+        // Verkrijg de Renderer componenten van het huidige gebouw en het prefab
+        Renderer[] currentRenderers = this.gameObject.GetComponentsInChildren<MeshRenderer>();
+        if (PrefabIndex < BuildingVariants.Length)
         {
-            foreach (GameObject child in childGameObjects)
+            Renderer[] prefabRenderers = BuildingVariants[PrefabIndex].GetComponentsInChildren<MeshRenderer>();
+
+            // Loop door elke Renderer in het huidige gebouw
+            for (int i = 0; i < currentRenderers.Length; i++)
             {
-                Renderer renderer = child.GetComponent<Renderer>();
-                if (renderer != null)
+                // Zorg ervoor dat er een overeenkomende Renderer is in het prefab om de materialen van te kopiëren
+                if (i < prefabRenderers.Length)
                 {
-                    child.GetComponent<Renderer>().material = materials[materialIndex];
+                    // Vervang de materialen van de huidige Renderer door die van de overeenkomstige Renderer in het prefab
+                    // Dit kopieert alle materialen (nuttig voor objecten met meerdere materialen)
+                    currentRenderers[i].sharedMaterials = prefabRenderers[i].sharedMaterials;
                 }
             }
-            // Verandert het materiaal van het GameObject.
-            // Debug.Log(materialIndex);
         }
         else
         {
-            Debug.Log("material index: " + materialIndex);
-
-            Debug.LogError("Material index out of range!");
+            Debug.LogWarning(this.gameObject.name + " GameObject is out of bounds. Index: " + PrefabIndex + "buildingvariants length" + BuildingVariants.Length);
         }
     }
+
+
 }
