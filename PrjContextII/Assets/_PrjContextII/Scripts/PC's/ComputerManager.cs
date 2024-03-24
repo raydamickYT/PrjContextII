@@ -74,9 +74,9 @@ public class ComputerManager : MonoBehaviour
         ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen, this));
         ComputerFsm?.AddState(new MapScreenState(ComputerFsm, this, MapScreen));
         ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen, this));
-        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
+        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen, this));
         ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
-        ComputerFsm?.SwitchState(typeof(LoginState));
+        ComputerFsm?.SwitchState(typeof(MailScreenState));
     }
 
 
