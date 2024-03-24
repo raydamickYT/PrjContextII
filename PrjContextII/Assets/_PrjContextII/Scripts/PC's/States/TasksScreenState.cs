@@ -8,10 +8,9 @@ public class TasksScreen : State
     private bool isShowingButtons = false;
     private Button BackButton;
     private List<Button> Tasks = new();
-    public TasksScreen(FSM<State> _fSM, Canvas _tasks, ComputerManager _comp) : base(_fSM)
+    public TasksScreen(FSM<State> _fSM, Canvas _tasks) : base(_fSM)
     {
         base.ScreenCanvas = _tasks;
-        base.computerManager = _comp;
         ScreenCanvas.enabled = false;
 
     }

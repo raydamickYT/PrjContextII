@@ -9,11 +9,10 @@ public class MapScreenState : State
     public Button BackButton { get; private set; }
     public GameObject MapScreen;
 
-    public MapScreenState(FSM<State> _fSM, ComputerManager _man, Canvas _map) : base(_fSM)
+    public MapScreenState(FSM<State> _fSM, Canvas _map) : base(_fSM)
     {
         base.ScreenCanvas = _map;
         ScreenCanvas.enabled = false;
-        computerManager = _man;
         if (MapScreen == null)
         {
             MapScreen = ScreenCanvas.GetComponentInChildren<MapIdentifier>().gameObject;
