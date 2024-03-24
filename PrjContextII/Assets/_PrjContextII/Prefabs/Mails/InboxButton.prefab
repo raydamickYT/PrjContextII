@@ -134,10 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8443728d52fa6b24a84778859482b70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MailText: 'dit is een test om te kijken of hij alles goed vind. hier kan je mailtjes
-    neerzetten van 3 a 10 regels
-
-'
+  MailText: als je niks invoert staat dit er
   MailScrollViewPrefab: {fileID: 0}
   mail:
     MailTitle: 

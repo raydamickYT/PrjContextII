@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class PlayerSettings : ScriptableObject
 {
-    public float speed = 2f;
-    public LayerMask computerLayerMask;
+    public float Speed = 2f;
+    public LayerMask ComputerLayerMask, BedLayerMask;
     public Camera MainCam;
     public Rigidbody rb;
-    public Animator anim;
-    public Texture2D cursorArrow, cursorHand;
+    public Animator Anim;
+    public Texture2D CursorArrow, CursorHand;
 
 }

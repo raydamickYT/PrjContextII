@@ -44,6 +44,7 @@ public class LoginState : State
                 else if (inputField.name == "Password")
                 {
                     PasswordInputField = inputField;
+                    PasswordInputField.contentType = InputField.ContentType.Password;
                 }
                 else
                 {
@@ -55,6 +56,8 @@ public class LoginState : State
         {
             Debug.Log("hij is niet leeg");
         }
+
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("LoginScreen"));
 
         //check even of dit scherm al niet eerder al deze elementen heeft gevonden.
 

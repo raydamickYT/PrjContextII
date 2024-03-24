@@ -20,29 +20,25 @@ public class TasksScreen : State
         if (!ScreenCanvas.enabled)
             ScreenCanvas.enabled = true;
 
+        //maak hier een reference aan de gamemanager
         if (!ChoiceManager.instance.ChoicesLeft)
         {
             Debug.Log("we zijn door de choices heen vandaag");
 
-            isShowingButtons = ChoiceManager.instance.AdvanceNextDay(); //voeg een dag toe en add de nieuwe tasks
-            // isShowingButtons = false;
+            isShowingButtons = GameManager.instance.Result; //verandert dus alleen als de result wordt geupdate in de GameManager.
+            return;
+            // isShowingButtons = true;
 
             //TIJDELIJK
-            MailManager.instance.IsShowingButtons = MailManager.instance.AdvanceNextDay();
+            // MailManager.instance.IsShowingButtons = GameManager.instance.Result;
         }
-        if (!isShowingButtons)
+        else if (!isShowingButtons)
         {
             Tasks = ChoiceManager.instance.DisplayTaskButtons();
             isShowingButtons = true;
         }
+        computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
         GetButtons();
-    }
-
-    public override void OnUpdate()
-    {
-        // Update inlogscherm logica, bijv. inlogpoging
-
-        // FSM.SwitchState(typeof(MapScreenState));
     }
 
     public override void OnExit()
@@ -55,11 +51,6 @@ public class TasksScreen : State
     public void SwitchToHomeScreen()
     {
         FSM.SwitchState(typeof(HomeScreenState));
-
-    }
-
-    public void SwitchToTask()
-    {
 
     }
 

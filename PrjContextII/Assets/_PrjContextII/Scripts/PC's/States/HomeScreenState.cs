@@ -10,10 +10,9 @@ public class HomeScreenState : State
     private ChoiceManager choiceManagerInstance;
     // private ComputerManager manager;
 
-    public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn, ComputerManager _manager) : base(_fSM)
+    public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn) : base(_fSM)
     {
         base.ScreenCanvas = _homeScrn;
-        base.computerManager = _manager;
         // manager = _manager;
         ScreenCanvas.enabled = false;
     }

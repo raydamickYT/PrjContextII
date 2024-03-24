@@ -10,8 +10,8 @@ public class MailManager : MonoBehaviour
     public GameObject MailScrollViewPrefab;
     public Button MailButtonPrefab;
     public Transform ButtonsParent;
-    public bool IsShowingButtons = false;
-    public List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
+    public bool IsShowingButtonsForToday = false;
+    // public List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
     public List<Mail> MailsOfToday { get; private set; } = new List<Mail>();
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
 
@@ -25,22 +25,23 @@ public class MailManager : MonoBehaviour
         {
             Destroy(this);
         }
+        DisplayMails();
     }
     // Start is called before the first frame update
     void Start()
     {
-        DisplayChoices();
+        GameManager.instance.AdvanceTheDay += AdvanceNextDay;
     }
 
     // Methode om de keuzes voor de huidige dag te tonen en toe te voegen aan ChoicesOfToday
-    public void DisplayChoices()
+    public void DisplayMails()
     {
         // MailsOfToday.Clear(); // deze hoeven we niet te legen, want mail kan je de dag erna nog zien.
 
         if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count)
         {
             // Debug.Log(currentDayIndex);
-            ChoiceDay currentDay = Days[GameManager.instance.currentDayIndex];
+            ChoiceDay currentDay = GameManager.instance.Days[GameManager.instance.currentDayIndex]; //alle mails zitten in de game manager
 
             // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
             MailsOfToday.AddRange(currentDay.mail);
@@ -51,15 +52,15 @@ public class MailManager : MonoBehaviour
     public List<Button> DisplayMailButtons()
     {
         List<Button> createdButtons = new List<Button>();
-
         foreach (var question in MailsOfToday)
         {
+            Debug.Log("button");
             // Debug.Log("button spawned" + ButtonsParent.name);
             Button questionButton = Instantiate(MailButtonPrefab, ButtonsParent);
             questionButton.GetComponentInChildren<Text>().text = question.MailTitle;
             questionButton.GetComponent<MailContent>().mail = question;
             questionButton.GetComponent<MailContent>().MailScrollViewPrefab = MailScrollViewPrefab;
-            
+
             // Zorg ervoor dat je ook event listeners correct instelt
 
             createdButtons.Add(questionButton);
@@ -71,11 +72,12 @@ public class MailManager : MonoBehaviour
     public bool AdvanceNextDay() //call deze als de speler laat zien dat ze naar de volgende dag willen
     {
         // currentDayIndex += 1;
-        if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
+        if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count) // Controleer of er nog dagen over zijn
         {
+            IsShowingButtonsForToday = false;
             GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
             ChoiceManager.instance.CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
-            DisplayChoices(); // Toon de keuzes voor de nieuwe dag
+            DisplayMails(); // Toon de keuzes voor de nieuwe dag
             return false;
 
             // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is

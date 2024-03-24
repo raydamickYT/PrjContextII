@@ -7,6 +7,7 @@ public class MaterialManager : MonoBehaviour
 {
     public static MaterialManager Instance;
     public Action<int> HandleMaterialChange;
+    public Action<GameObject, GameObject> HandleMeshChange;
 
     void Awake()
     {
@@ -37,7 +38,6 @@ public class MaterialManager : MonoBehaviour
     {
         HandleMaterialChange += action;
     }
-
     // Een methode om af te melden van de action/delegate.
     public void UnsubscribeFromAction(Action<int> action)
     {
