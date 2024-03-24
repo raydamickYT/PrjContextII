@@ -5,7 +5,7 @@ public abstract class State
 {
     protected FSM<State> FSM;
     protected Canvas ScreenCanvas;
-    protected ComputerManager computerManager;
+    public ComputerManager computerManager;
     public State(FSM<State> _fSM)
     {
         FSM = _fSM;

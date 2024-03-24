@@ -3,6 +3,7 @@
 public class FSM<T>
 {
     private State currentState;
+    public ComputerManager computerManager;
     private Dictionary<System.Type, State> allStates = new();
 
     public void AddState(State _state)
@@ -10,6 +11,7 @@ public class FSM<T>
         if (!allStates.ContainsKey(_state.GetType()))
         {
             allStates.Add(_state.GetType(), _state);
+            _state.computerManager = computerManager;
         }
     }
 

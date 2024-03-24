@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +39,6 @@ public class ComputerManager : MonoBehaviour
     void Start()
     {
         ComputerScreenRenderer = ComputerScreenObj.GetComponent<Renderer>();
-        SwitchScreenMaterial(GetMaterialByName("TempBackGround"));
 
         SetupStates();
     }
@@ -69,12 +69,13 @@ public class ComputerManager : MonoBehaviour
     }
     void SetupStates()
     {
+        ComputerFsm.computerManager = this;
         loginState = new(ComputerFsm, loginScreen);
         ComputerFsm?.AddState(loginState);
-        ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen, this));
-        ComputerFsm?.AddState(new MapScreenState(ComputerFsm, this, MapScreen));
-        ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen, this));
-        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen, this));
+        ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen));
+        ComputerFsm?.AddState(new MapScreenState(ComputerFsm, MapScreen));
+        ComputerFsm?.AddState(new MailScreenState(ComputerFsm, MailScreen));
+        ComputerFsm?.AddState(new TasksScreen(ComputerFsm, TasksScreen));
         ComputerFsm?.AddState(new TaskContentScreenState(ComputerFsm, TaskScreenContent));
         ComputerFsm?.SwitchState(typeof(LoginState));
     }
