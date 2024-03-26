@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerStateHandler : MonoBehaviour
 {
-    public ComputerManager CompManager;
+    public static PlayerStateHandler Instance;
     public Rigidbody rb;
     public Animator anim;
     public Camera mainCam;
@@ -18,16 +18,23 @@ public class PlayerStateHandler : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         mainCam = GetComponentInChildren<Camera>();
         FillScripteableObject();
+    }
+    void Start()
+    {
         if (mainCam == null)
         {
             Debug.LogWarning("camera is niet gevonden in speler");
         }
 
-        if (CompManager == null)
+        if (ComputerManager.instance == null)
         {
             Debug.LogWarning("CompManager is niet assigned.");
         }
@@ -54,10 +61,12 @@ public class PlayerStateHandler : MonoBehaviour
 
     void SetupStates()
     {
-        playerFsm.AddState(new PlayerMovement(PS, this, playerFsm, CompManager));
-        playerFsm.AddState(new PlayerMovementFree(this, PS, playerFsm));
-        playerFsm.AddState(new ComputerInteract(PS, this, playerFsm));
-        playerFsm.AddState(new DisableMovementState(playerFsm, PS));
+        playerFsm.computerManager = ComputerManager.instance;
+        playerFsm.playerSettings = this.PS;
+        playerFsm.AddState(new PlayerMovement(this, playerFsm));
+        playerFsm.AddState(new PlayerMovementFree(this, playerFsm));
+        playerFsm.AddState(new ComputerInteract(this, playerFsm));
+        playerFsm.AddState(new DisableMovementState(playerFsm));
         playerFsm.SwitchState(typeof(PlayerMovement));
     }
 

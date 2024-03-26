@@ -7,7 +7,7 @@ public class BookManager : MonoBehaviour
 {
     public GameObject Book;
     public List<Text> Days = new();
-    public int Index = -1;
+    public int Index = 0;
     public bool temp = false;
     void Awake()
     {
@@ -49,7 +49,6 @@ public class BookManager : MonoBehaviour
     }
     public void DisplayDays()
     {
-        Index++;
         if (Index <= Days.Count)
         {
             Text Day = Days[Index];

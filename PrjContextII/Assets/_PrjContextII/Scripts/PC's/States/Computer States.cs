@@ -14,15 +14,38 @@ public class LoginState : State
 
     public Button EnterButton;
     public bool IsActive = false;
+    private Camera mainCam;
+    private LayerMask screenLayerMask;
+    public Texture2D cursorArrow, cursorHand;
+    private bool isHoveringOverScreen;
+
 
     public LoginState(FSM<State> _fSM, Canvas _login) : base(_fSM)
     {
         base.ScreenCanvas = _login;
         ScreenCanvas.enabled = false;
     }
+    public void Init()
+    {
+        if (PS != null)
+        {
+            mainCam = PS.MainCam;
+            screenLayerMask = PS.ComputerLayerMask;
+            cursorArrow = PS.CursorArrow;
+            cursorHand = PS.CursorHand;
+        }
+        else
+        {
+            Debug.Log("kan geen ps vinden");
+        }
+    }
 
     public override void OnEnter()
     {
+        if (mainCam == null)
+        {
+            Init();
+        }
         //IMPORTANT: zet hier je canvas aan.
         if (!ScreenCanvas.enabled)
             ScreenCanvas.enabled = true;
@@ -78,6 +101,10 @@ public class LoginState : State
             SelectInputField();
         }
     }
+    public override void OnLateUpdate()
+    {
+        RayCastToUI();
+    }
 
     public override void OnExit()
     {
@@ -89,6 +116,29 @@ public class LoginState : State
         IsActive = false;
 
     }
+    void RayCastToUI()
+    {
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, screenLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
+    }
     public static void UserSelectedPC(LoginState instance)
     {
         instance.NameInputField.Select();
@@ -96,15 +146,15 @@ public class LoginState : State
     }
     public void SelectInputField()
     {
-        switch (inputSelect)
-        {
-            case 0:
-                NameInputField.Select();
-                break;
-            case 1:
-                PasswordInputField.Select();
-                break;
-        }
+        PasswordInputField.Select();
+        // switch (inputSelect)
+        // {
+        //     case 0:
+        //         NameInputField.Select();
+        //         break;
+        //     case 1:
+        //         break;
+        // }
     }
 
     private void OnEnterPressed()

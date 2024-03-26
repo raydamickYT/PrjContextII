@@ -8,15 +8,12 @@ public class PlayerMovementFree : State
     private LayerMask computerLayermask;
     private PlayerStateHandler PlayerFSM;
     private float speed;
-    public PlayerSettings PS;
 
 
-    public PlayerMovementFree(PlayerStateHandler _fsm, PlayerSettings _ps, FSM<State> _fSM) : base(_fSM)
+    public PlayerMovementFree(PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
     {
-        PS = _ps;
         computerLayermask = LayerMask.GetMask("Computer");
         PlayerFSM = _fsm;
-        speed = PS.Speed;
     }
 
     public override void OnEnter()
@@ -25,6 +22,7 @@ public class PlayerMovementFree : State
         Cursor.visible = false;
         // Debug.Log("test");
         PS.Anim.enabled = false;
+        speed = PS.Speed;
     }
     public override void OnUpdate()
     {

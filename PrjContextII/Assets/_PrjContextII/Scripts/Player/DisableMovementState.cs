@@ -5,12 +5,10 @@ using UnityEngine;
 public class DisableMovementState : State
 {
     private FSM<State> fsm;
-    private PlayerSettings PS;
 
-    public DisableMovementState(FSM<State> _fsm, PlayerSettings _ps) : base(_fsm)
+    public DisableMovementState(FSM<State> _fsm) : base(_fsm)
     {
         fsm = _fsm;
-        PS = _ps;
     }
 
     public override void OnEnter()

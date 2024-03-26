@@ -4,14 +4,16 @@ public class FSM<T>
 {
     private State currentState;
     public ComputerManager computerManager;
+    public PlayerSettings playerSettings;
     private Dictionary<System.Type, State> allStates = new();
 
     public void AddState(State _state)
     {
+        _state.computerManager = computerManager;
+        _state.PS = playerSettings;
         if (!allStates.ContainsKey(_state.GetType()))
         {
             allStates.Add(_state.GetType(), _state);
-            _state.computerManager = computerManager;
         }
     }
 
