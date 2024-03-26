@@ -14,15 +14,38 @@ public class LoginState : State
 
     public Button EnterButton;
     public bool IsActive = false;
+    private Camera mainCam;
+    private LayerMask screenLayerMask;
+    public Texture2D cursorArrow, cursorHand;
+    private bool isHoveringOverScreen;
+
 
     public LoginState(FSM<State> _fSM, Canvas _login) : base(_fSM)
     {
         base.ScreenCanvas = _login;
         ScreenCanvas.enabled = false;
     }
+    public void Init()
+    {
+        if (PS != null)
+        {
+            mainCam = PS.MainCam;
+            screenLayerMask = PS.ComputerLayerMask;
+            cursorArrow = PS.CursorArrow;
+            cursorHand = PS.CursorHand;
+        }
+        else
+        {
+            Debug.Log("kan geen ps vinden");
+        }
+    }
 
     public override void OnEnter()
     {
+        if (mainCam == null)
+        {
+            Init();
+        }
         //IMPORTANT: zet hier je canvas aan.
         if (!ScreenCanvas.enabled)
             ScreenCanvas.enabled = true;
@@ -57,6 +80,7 @@ public class LoginState : State
             Debug.Log("hij is niet leeg");
         }
 
+
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("LoginScreen"));
 
         //check even of dit scherm al niet eerder al deze elementen heeft gevonden.
@@ -78,16 +102,33 @@ public class LoginState : State
             SelectInputField();
         }
     }
-
-    public override void OnExit()
+    public override void OnLateUpdate()
     {
-        // Opruimen van inlogscherm
-        // loginScreen.GetComponent<GameObject>().SetActive(false);
+        RayCastToUI();
+    }
 
-        //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
-        ScreenCanvas.enabled = false;
-        IsActive = false;
+    void RayCastToUI()
+    {
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, screenLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
     }
     public static void UserSelectedPC(LoginState instance)
     {
@@ -96,15 +137,15 @@ public class LoginState : State
     }
     public void SelectInputField()
     {
-        switch (inputSelect)
-        {
-            case 0:
-                NameInputField.Select();
-                break;
-            case 1:
-                PasswordInputField.Select();
-                break;
-        }
+        PasswordInputField.Select();
+        // switch (inputSelect)
+        // {
+        //     case 0:
+        //         NameInputField.Select();
+        //         break;
+        //     case 1:
+        //         break;
+        // }
     }
 
     private void OnEnterPressed()
@@ -127,6 +168,19 @@ public class LoginState : State
 
         // Implementeer hier logica voor het verifiëren van de inloggegevens
         // en schakel over naar de volgende staat indien succesvol.
+    }
+    
+    public override void OnExit()
+    {
+        // Opruimen van inlogscherm
+        // loginScreen.GetComponent<GameObject>().SetActive(false);
+
+        //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
+        ScreenCanvas.enabled = false;
+        IsActive = false;
+        Cursor.visible = true;
+
+
     }
 }
 

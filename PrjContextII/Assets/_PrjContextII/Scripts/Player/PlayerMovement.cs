@@ -1,4 +1,4 @@
-using FMOD;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor.Experimental.GraphView;
@@ -10,26 +10,41 @@ public class PlayerMovement : State
     private PlayerStateHandler PlayerFSM;
     public ComputerManager CompManager;
     private string stateName = "LookLeft";
-    public PlayerSettings PS;
     public Texture2D cursorArrow, cursorHand;
     private FSM<State> fSM;
     private bool hasMoved = false;
 
 
-    public PlayerMovement(PlayerSettings _PS, PlayerStateHandler _fsm, FSM<State> _fSM, ComputerManager _com) : base(_fSM)
+    public PlayerMovement(PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
     {
-        screenLayerMask = _PS.ComputerLayerMask;
-        mainCam = _PS.MainCam;
-        PS = _PS;
         PlayerFSM = _fsm;
         fSM = _fSM;
-        cursorArrow = _PS.CursorArrow;
-        cursorHand = _PS.CursorHand;
-        CompManager = _com;
     }
 
+    public override void OnEnter()
+    {
+        if (mainCam == null)
+        {
+            Init();
+        }
+    }
 
-    // Update is called once per frame
+    public void Init()
+    {
+        if (PS != null)
+        {
+            screenLayerMask = PS.ComputerLayerMask;
+            mainCam = PS.MainCam;
+            cursorArrow = PS.CursorArrow;
+            cursorHand = PS.CursorHand;
+            CompManager = computerManager;
+        }
+        else
+        {
+            Debug.Log("geen ps gevonden");
+        }
+    }
+
     public override void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -53,6 +68,7 @@ public class PlayerMovement : State
         {
             // anim.SetTrigger("AwayFromComp");
             PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
+            ComputerManager.instance.SwitchComputerState(typeof(LoginState), null);
         }
         AnimatorStateInfo stateInfo = PS.Anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
@@ -96,7 +112,7 @@ public class PlayerMovement : State
             if (Input.GetMouseButtonDown(0))
             {
                 // RaycastToScreen();
-                fSM.SwitchState(typeof(DisableMovementState));
+                fSM.SwitchState(typeof(DisableMovementForCompState));
                 if (CompManager.loginState.IsActive)
                 {
                     CompManager.loginState.SelectInputField();

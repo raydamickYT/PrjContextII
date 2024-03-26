@@ -9,6 +9,7 @@ public class MailScreenState : State
     private Button BackButton;
     private bool ButtonsActive = false;
     private List<Button> mails = new();
+    private bool isHoveringOverScreen;
 
     public MailScreenState(FSM<State> _fSM, Canvas _mailscreen) : base(_fSM)
     {
@@ -32,13 +33,35 @@ public class MailScreenState : State
     {
         // Update inlogscherm logica, bijv. inlogpoging
     }
-
-    public override void OnExit()
+    public override void OnLateUpdate()
     {
-        // Opruimen van inlogscherm
-        ScreenCanvas.enabled = false;
-
+        RayCastToUI();
     }
+
+    void RayCastToUI()
+    {
+        Ray ray = PS.MainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, PS.ComputerLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.ComputerArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
+    }
+
 
     public void SwitchToHomeScreen()
     {
@@ -64,7 +87,12 @@ public class MailScreenState : State
                 Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "Negeer dit als het klopt");
             }
         }
+    }
 
+    public override void OnExit()
+    {
+        // Opruimen van inlogscherm
+        ScreenCanvas.enabled = false;
 
     }
 }
