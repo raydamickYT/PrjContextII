@@ -57,7 +57,7 @@ public class PlayerStateHandler : MonoBehaviour
         playerFsm.AddState(new PlayerMovement(PS, this, playerFsm, CompManager));
         playerFsm.AddState(new PlayerMovementFree(this, PS, playerFsm));
         playerFsm.AddState(new ComputerInteract(PS, this, playerFsm));
-        playerFsm.AddState(new DisableMovementState(playerFsm));
+        playerFsm.AddState(new DisableMovementState(playerFsm, PS));
         playerFsm.SwitchState(typeof(PlayerMovement));
     }
 

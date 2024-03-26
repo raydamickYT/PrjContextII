@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TaskContentScreenState : State, IStateWithExtraInfo
 {
     private Button BackButton, YesButton, NoButton;
-    private Text contentText;
+    private Text contentText, contentName;
     private GameObject thisObject;
     private Choice currentChoice;
     public TaskContentScreenState(FSM<State> _fSM, GameObject gameObject) : base(_fSM)
@@ -74,7 +74,7 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
         }
         else
         {
-            Debug.LogError("verkeerd type extra info is doorgegeven aan tasksscren");
+            Debug.LogError("verkeerd type extra info is doorgegeven aan tasksscreen");
         }
     }
 
@@ -84,19 +84,39 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
         //omdat je na de choice niet meer deze choice kan uitvoeren, ga je terug naar de task screen.
         FSM.SwitchState(typeof(TasksScreen));
     }
+
     public void SwitchToTaskScreen()
     {
         FSM.SwitchState(typeof(TasksScreen));
     }
-
 
     private void SetupCanvas()
     {
         if (currentChoice != null)
         {
             contentText = thisObject.transform.Find("TaskContent").GetComponent<Text>();
+            contentName = thisObject.transform.Find("TabName").GetComponent<Text>();
 
-            contentText.text = currentChoice.choiceText;
+            // Text textComponent = mailScrollViewInstance.transform.Find("EmailContent").GetComponent<Text>();
+            if (contentText != null)
+            {
+                contentText.text = currentChoice.choiceText;
+                // Pas de grootte van het Text-component aan op basis van de tekstlengte
+                float preferredHeight = contentText.preferredHeight;
+
+                // Pas de grootte van de RectTransform aan op basis van de preferredWidth en preferredHeight
+                RectTransform textRectTransform = contentText.rectTransform;
+                textRectTransform.sizeDelta = new Vector2(textRectTransform.sizeDelta.x, preferredHeight);
+                // Pas de ankerpositie aan zodat de tekst aan de bovenkant blijft vastzitten
+                textRectTransform.pivot = new Vector2(0.5f, 1f);
+                textRectTransform.anchorMin = new Vector2(0.5f, 1f);
+                textRectTransform.anchorMax = new Vector2(0.5f, 1f);
+            }
+
+            if (contentName != null)
+            {
+                contentName.text = currentChoice.choiceName;
+            }
         }
     }
 }

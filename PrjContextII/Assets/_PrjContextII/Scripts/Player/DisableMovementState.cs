@@ -5,29 +5,32 @@ using UnityEngine;
 public class DisableMovementState : State
 {
     private FSM<State> fsm;
-    public DisableMovementState(FSM<State> _fsm) : base(_fsm)
+    private PlayerSettings PS;
+
+    public DisableMovementState(FSM<State> _fsm, PlayerSettings _ps) : base(_fsm)
     {
         fsm = _fsm;
+        PS = _ps;
     }
 
     public override void OnEnter()
     {
-        base.OnEnter();
+        PS.Anim.SetTrigger("ZoomIntoComp");
         // Cursor.visible = false;
     }
 
     public override void OnUpdate()
     {
-        base.OnUpdate();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             fsm.SwitchState(typeof(PlayerMovement));
+            PS.Anim.SetTrigger("ZomOutOfComp");
         }
     }
 
     public override void OnExit()
     {
-        base.OnExit();
+        Debug.Log("exiting");
         Cursor.visible = true;
     }
 }
