@@ -6736,97 +6736,193 @@ MonoBehaviour:
   Days:
   - choices:
     - choiceName: Budget
-      choiceText: 'Geeft je Woningcorporatie Utrecht het budget om de huizen in Utrecht
-        Noord te renoveren? '
+      choiceText: Will you give Woningcorporatie Utrecht The budget to renovate the
+        empty houses in the Utrecht North district.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Testmail
-      MailSender: Haha
-      MailReceiver: You@Umail.com
-      MailContent: AAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-    - MailTitle: Welkom
+    - MailTitle: Welcome
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
       MailContent: 
-    - MailTitle: 'Leegstaande huizen '
+    - MailTitle: Houses Utrecht North
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: In the Northern district of Utrecht there have been a lot of houses
+        that have been degrading for a while now. We would like to renovate these
+        houses so people can live in them again. To achieve this we would like a
+        budget of 5 Million euros.
     - MailTitle: Introduction Cleo
       MailSender: CleoUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: Hello, my name is Cleo, I am currently running for mayor for Utrecht.
+        It is my mission to ensure that the culture in Utrecht stays protected so
+        the people can keep living their lives. I look forward to working with you
+        and I expect great things.
     - MailTitle: Introduction Alex
       MailSender: AlexUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
+        stays steady for a promising future. Let us make sure Utrecht becomes a place
+        for everyone.
   - choices:
-    - choiceName: Nieuwbouw
-      choiceText: 
+    - choiceName: New Housing
+      choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
+        the appartment block with new housing?
       prefabChanger: {fileID: 0}
-    - choiceName: Nieuwe Burgermeester
-      choiceText: 
+    - choiceName: New Mayor
+      choiceText: The Election for mayor is going smooth, Cleo is currently in the
+        lead but you can change the outcome by promoting Alex through the company.
+        Will you Promote Alex for mayor? (Choosing no would result in Cleo becoming
+        Mayor.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Goed Begin
+    - MailTitle: Running start
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: De situate met de leegstaande huizen op Utrecht Noord was erg
-        ingewikkeld maar je hebt het erg goed geregeld nu. Mijn complimenten daarvoor
-        en ga zo door!
-    - MailTitle: Nieuwbouw
+      MailContent: The Situation regarding the empty houses in the Utrecht North
+        Districht has been a difficult topic for a while but you have resolved it
+        quickly and efficiently. Great job and keep going!
+    - MailTitle: New Housing
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
-    - MailTitle: Burgemeester Cleo
+      MailContent: We at Woningcorporatie Utrecht would like to get clearance to
+        replace and old appartment block with brand new housing for family's. This
+        would make the area safer and allow for more green space in Utrecht.
+    - MailTitle: Plans for Utrecht
       MailSender: CleoUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
-    - MailTitle: Burgemeester Alex
+      MailContent: Today there was a meeting where we discussed which of our plans
+        would be set in motion first if I would to become mayor. I would like to
+        invite you to discuss these plans when that happens. Hopefully we will meet
+        soon.
+    - MailTitle: Support for Elections
       MailSender: AlexUtrecht@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
-    - MailTitle: Friettent failliet
-      MailSender: BewonerUtrechtA@Umail.com
+      MailContent: For a while I have been working on a project to ensure the workers
+        in Utrecht will be treated fairly but I am afraid it might not get realised
+        if I don't get elected as mayor. I would like to ask you for support during
+        this campain and to meet to discuss the project.
+    - MailTitle: Restaurant Closed
+      MailSender: UtrechtWestResident@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: Lately there have been a few restaurants needing to close due
+        to the amount of fast food chains popping up in our neighbourhood. I am concerend
+        about the future of our food culture if this keeps up but hopefully when
+        Cleo becomes mayor the problem might get resolved.
   - choices:
     - choiceName: Transportatie Utrecht
-      choiceText: 
+      choiceText: Will you shift the focus of transportation from the central train
+        station for a better connected city centre?
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Zorgen over huizenmarkt
-      MailSender: BewonerUtrechtB@gmail.com
-      MailReceiver: You@Umail.com
-      MailContent: 
-    - MailTitle: Connectiviteit
+    - MailTitle: Connectivity
       MailSender: UtrechtOV@Umail.com
       MailReceiver: You@Umail.com
+      MailContent: Since last year we have experienced a lack of ways to explore
+        the city centre of Utrecht especially for the elderly. Our yearly budget
+        demands a lot of attention towards the central train station but we would
+        like to ask that this could be changed so our budget would be more focused
+        on the city centre.
+    - MailTitle: Rent Increases
+      MailSender: ResidentUtrechtSouth@gmail.com
+      MailReceiver: You@Umail.com
+      MailContent: This is outrageous! We just got told that the rent will be increasing
+        by 15% this year and by 20% the year after that. At this rate I will be paying
+        rent with more than half my income. I expect you to do something about this
+        horrible situation!
+  - choices:
+    - choiceName: Waste in the Canals
+      choiceText: Will you pressure polluting company's to reduce waste?
+      prefabChanger: {fileID: 0}
+    - choiceName: Restoration Dom Tower
+      choiceText: Will you allow McDonalds to take over the restoration of the Dom
+        Tower instead of the usual company?
+      prefabChanger: {fileID: 0}
+    mail:
+    - MailTitle: Dirty Water
+      MailSender: WaterManagementUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Our canals are getting more and more polluted due to company's
+        throwing their waste into them. This is leading to an unhealthy city and
+        will damage the environment. We have come to you to request that the company's
+        that are polluting will be punished.
+    - MailTitle: So Much Noise
+      MailSender: ResidentUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Why are there so many cars in the city lately? This problem didn't
+        exist before but suddenly all I hear is the noise of cars all around my house!
+        Make our streets car free again!
+    - MailTitle: A Better Dom Tower
+      MailSender: McDonalds@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: For the last couple of years the company behind the resoration
+        of the Dom tower has been slacking off in term of performance. Their work
+        is not adequate and we ask of you to allow us to take over this job as a
+        trusted company. We simply have better technology and more money to spend
+        on the tower.
+    - MailTitle: Traffic
+      MailSender: TaxiUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: While there are more roads now in the entire city this has just
+        led to more traffic which is disturbing our work. Our service is supposed
+        to be an efficient way to get from place A to B but nowadays the busy roads
+        makes it so we have to increase our prices because every meter takes longer
+        to drive!
+  - choices:
+    - choiceName: Printing Money
+      choiceText: Will you allow the Bank of Utrecht to print more money to prevent
+        an eventual recession?
+      prefabChanger: {fileID: 0}
+    - choiceName: Protect Residents
+      choiceText: Will you deny any corpotate buildings being built in the city that
+        cause the resident to move?
+      prefabChanger: {fileID: 0}
+    mail:
+    - MailTitle: Recession
+      MailSender: BankOfUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 'With the way that the economy seems to be going we are worried
+        that we will be entering a recession very soon. We ask of you to raise the
+        amount of money we are allowed to print to combat this. It will put a halt
+        on the recession and give us time to fight the underlying problems. '
+    - MailTitle: Chased Out Of Our Homes!
+      MailSender: UtrechtResidentA@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: The USVB has been targeting houses in our street to be replaced
+        with office buildings. We will not stand for this as this is the home our
+        grandparents grew up in!
+    - MailTitle: Stop the USVB!
+      MailSender: UtrechtResidentB@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: The USVB is a corporation that builds commercial property for
+        other corporations. I have nothing against that but they have been destroying
+        culturaly important property to make this come true. You need to stop watching
+        as they destroy our Utrecht and make sure our streets stay safe!
+    - MailTitle: Troublesome Residents
+      MailSender: USVB@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: We at the USVB have been constructing commercial buildings since
+        1987 and every time it has lead to amazing economical growth in the areas.
+        We ask of you to explain that there are more than enough houses in the suburban
+        areas of Utrecht and that the precious space of the city should be used properly.
+    - MailTitle: (No Title)
+      MailSender: Unknown
+      MailReceiver: You@Umail.com
+      MailContent: The Dom tower has been turned into a company's plaything, Is this
+        really the direction you want the city to go in?
+  - choices:
+    - choiceName: Skyscrapers
+      choiceText: Will you allow the building of skyscrapers in utrecht?
+      prefabChanger: {fileID: 0}
+    - choiceName: Equal Taxes
+      choiceText: Taxes will be based on the average income of the city and will
+        be the same for everyone.
+      prefabChanger: {fileID: 0}
+    mail:
+    - MailTitle: 
+      MailSender: 
+      MailReceiver: 
       MailContent: 
-  - choices:
-    - choiceName: Vervuiling kanalen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Restauratie Domtoren
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-  - choices:
-    - choiceName: Bewoners Verdedigen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Geld Printen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-  - choices:
-    - choiceName: Hoogbouw wet
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Belasting
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
   - choices: []
     mail: []
   Result: 0
@@ -18720,10 +18816,10 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1582350141}
   m_HandleRect: {fileID: 1582350140}
   m_Direction: 2
-  m_NumberOfSteps: 0
-  m_OnValueChanged:
   m_Value: 1
   m_Size: 0.37783852
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1899529437
@@ -19585,7 +19681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.022827992, y: -0.012025945, z: -0.00027461964, w: 0.99966705}
+  m_LocalRotation: {x: -0.022827988, y: -0.012025945, z: -0.00027461958, w: 0.99966705}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
