@@ -23,6 +23,7 @@ public class PlayerMovementFree : State
         // Debug.Log("test");
         PS.Anim.enabled = false;
         speed = PS.Speed;
+        PS.Screen.SetActive(false);
     }
     public override void OnUpdate()
     {
@@ -38,6 +39,7 @@ public class PlayerMovementFree : State
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         PS.Anim.enabled = true;
+        PS.Screen.SetActive(true);
     }
 
     public void CheckSurroundsingsWithSphereCast()

@@ -13,7 +13,7 @@ public class PlayerStateHandler : MonoBehaviour
     public Animator anim;
     public Camera mainCam;
     private readonly FSM<State> playerFsm = new();
-
+    public GameObject Screen;
     public PlayerSettings PS;
 
     void Awake()
@@ -44,6 +44,7 @@ public class PlayerStateHandler : MonoBehaviour
 
     void FillScripteableObject()
     {
+        PS.Screen = Screen;
         PS.rb = rb;
         PS.MainCam = mainCam;
         PS.Anim = anim;

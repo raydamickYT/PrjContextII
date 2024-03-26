@@ -12,5 +12,6 @@ public class PlayerSettings : ScriptableObject
     public Rigidbody rb;
     public Animator Anim;
     public Texture2D CursorArrow, CursorHand, ComputerArrow;
+    public GameObject Screen;
 
 }
