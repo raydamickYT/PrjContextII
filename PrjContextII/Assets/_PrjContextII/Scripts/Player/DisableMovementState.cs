@@ -14,13 +14,21 @@ public class DisableMovementForCompState : State
     public override void OnEnter()
     {
         PS.Anim.SetTrigger("ZoomIntoComp");
-        Cursor.visible = false;
+        if (computerManager.loginState.IsActive)
+        {
+            Cursor.visible = false;
+        }
+        Cursor.SetCursor(PS.ComputerArrow, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     public override void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (!computerManager.loginState.IsActive)
+            {
+                ComputerManager.instance.SwitchComputerState(typeof(HomeScreenState), null);
+            }
             fsm.SwitchState(typeof(PlayerMovement));
             PS.Anim.SetTrigger("ZomOutOfComp");
         }
@@ -28,6 +36,7 @@ public class DisableMovementForCompState : State
 
     public override void OnExit()
     {
+        Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
         Debug.Log("exiting");
         Cursor.visible = true;
     }

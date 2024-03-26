@@ -68,6 +68,7 @@ public class PlayerMovement : State
         {
             // anim.SetTrigger("AwayFromComp");
             PlayerFSM.SwitchPlayerState(typeof(ComputerInteract));
+            ComputerManager.instance.SwitchComputerState(typeof(LoginState), null);
         }
         AnimatorStateInfo stateInfo = PS.Anim.GetCurrentAnimatorStateInfo(0); // 0 verwijst naar de eerste laag van de Animator
 
@@ -111,7 +112,7 @@ public class PlayerMovement : State
             if (Input.GetMouseButtonDown(0))
             {
                 // RaycastToScreen();
-                fSM.SwitchState(typeof(DisableMovementState));
+                fSM.SwitchState(typeof(DisableMovementForCompState));
                 if (CompManager.loginState.IsActive)
                 {
                     CompManager.loginState.SelectInputField();
