@@ -70,6 +70,7 @@ public class ComputerManager : MonoBehaviour
     void SetupStates()
     {
         ComputerFsm.computerManager = this;
+        ComputerFsm.playerSettings = PlayerStateHandler.Instance.PS;
         loginState = new(ComputerFsm, loginScreen);
         ComputerFsm?.AddState(loginState);
         ComputerFsm?.AddState(new HomeScreenState(ComputerFsm, HomeScreen));

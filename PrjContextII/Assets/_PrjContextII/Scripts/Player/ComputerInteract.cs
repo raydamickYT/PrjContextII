@@ -6,12 +6,10 @@ public class ComputerInteract : State
 {
     private PlayerStateHandler PlayerFSM;
     private string stateName = "Sit";
-    private PlayerSettings PS;
 
 
-    public ComputerInteract(PlayerSettings _ps, PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
+    public ComputerInteract(PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
     {
-        PS = _ps;
         PlayerFSM = _fsm;
     }
 

@@ -8,6 +8,8 @@ public class TasksScreen : State
     private bool isShowingButtons = false;
     private Button BackButton;
     private List<Button> Tasks = new();
+    private bool isHoveringOverScreen;
+
     public TasksScreen(FSM<State> _fSM, Canvas _tasks) : base(_fSM)
     {
         base.ScreenCanvas = _tasks;
@@ -40,13 +42,35 @@ public class TasksScreen : State
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
         GetButtons();
     }
-
-    public override void OnExit()
+    public override void OnLateUpdate()
     {
-        // Opruimen van inlogscherm
-        if (ScreenCanvas.enabled)
-            ScreenCanvas.enabled = false;
+        RayCastToUI();
     }
+
+    void RayCastToUI()
+    {
+        Ray ray = PS.MainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, PS.ComputerLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.ComputerArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
+    }
+
 
     public void SwitchToHomeScreen()
     {
@@ -72,5 +96,12 @@ public class TasksScreen : State
                 Debug.LogWarning("Juiste Knop is niet gevonden voor: " + buttonInList.name + "Negeer dit als het klopt");
             }
         }
+    }
+    
+    public override void OnExit()
+    {
+        // Opruimen van inlogscherm
+        if (ScreenCanvas.enabled)
+            ScreenCanvas.enabled = false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -26,13 +27,8 @@ public class ChoiceDay
 {
     public List<Choice> choices; // Een lijst met keuzes voor de dag
     public List<Mail> mail; //lijst met mails voor die dag
+    public Book book;
 
-}
-
-[System.Serializable]
-public class MailDay
-{
-    public List<Mail> mail; //lijst met mails voor die dag
 }
 
 [System.Serializable]
@@ -43,4 +39,13 @@ public class Mail
     [Tooltip("This is where you enter you mail's content"), TextArea]
     public string MailContent;
 }
+
+[System.Serializable]
+public class Book
+{
+    public string Day = "Day ...: ";
+    [TextArea]
+    public string DayText;
+}
+
 
