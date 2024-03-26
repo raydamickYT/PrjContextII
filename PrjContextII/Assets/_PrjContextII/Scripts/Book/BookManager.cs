@@ -52,8 +52,15 @@ public class BookManager : MonoBehaviour
         if (Index <= Days.Count)
         {
             Text Day = Days[Index];
-            Day.text = GameManager.instance.Days[Index].book.Day + "\n" + GameManager.instance.Days[Index].book.DayText; //beetje lang, maar belangrijk is om de dag goed in te vullen.
- 
+            if (GameManager.instance.GoodOrBadMeter > GameManager.instance.GoodBadBorder) //0.2
+            {
+                Day.text = GameManager.instance.Days[Index].book.Day + "\n" + GameManager.instance.Days[Index].book.DayText1; //beetje lang, maar belangrijk is om de dag goed in te vullen.
+            }
+            else if (GameManager.instance.GoodOrBadMeter > -GameManager.instance.GoodBadBorder) //-0.2
+            {
+                Day.text = GameManager.instance.Days[Index].book.Day + "\n" + GameManager.instance.Days[Index].book.DayText2; //beetje lang, maar belangrijk is om de dag goed in te vullen.
+            }
+
             RectTransform textRectTransform = Day.rectTransform;
             textRectTransform.pivot = new Vector2(textRectTransform.pivot.x, 0.8f);
 

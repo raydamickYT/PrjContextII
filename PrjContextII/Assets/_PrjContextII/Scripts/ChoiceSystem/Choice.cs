@@ -47,7 +47,9 @@ public class Book
 {
     public string Day = "Day ...: ";
     [TextArea]
-    public string DayText;
+    public string DayText1;
+    [TextArea]
+    public string DayText2;
 }
 
 
