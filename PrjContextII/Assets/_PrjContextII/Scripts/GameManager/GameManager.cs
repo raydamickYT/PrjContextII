@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static BoxCollider computerCollider;
     private void Awake()
     {
-        Debug.Log("made");
+        // Debug.Log("made");
         if (instance == null)
         {
             instance = this;
@@ -32,29 +32,13 @@ public class GameManager : MonoBehaviour
         currentDayIndex++; // Ga naar de volgende dag
 
         Result = AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
-        if (Result)
+        if (Result) //pakt de laatste return (kan dus zijn dat je dit toch nog moet veranderen naar een action)
         {
             //einde game
         }
         else
         {
             //niks, de dagen gaan door
-        }
-    }
-
-    public static void EnableComputer()
-    {
-        if (!computerCollider.enabled)
-        {
-            computerCollider.enabled = true;
-            Debug.Log("computer collider is nu aan");
-        }
-    }
-    public static void DisableComputer()
-    {
-        if (computerCollider.enabled)
-        {
-            computerCollider.enabled = false;
         }
     }
 }

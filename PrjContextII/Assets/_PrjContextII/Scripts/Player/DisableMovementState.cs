@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableMovementState : State
+public class DisableMovementForCompState : State
 {
     private FSM<State> fsm;
 
-    public DisableMovementState(FSM<State> _fsm) : base(_fsm)
+    public DisableMovementForCompState(FSM<State> _fsm) : base(_fsm)
     {
         fsm = _fsm;
     }
@@ -24,6 +24,31 @@ public class DisableMovementState : State
             fsm.SwitchState(typeof(PlayerMovement));
             PS.Anim.SetTrigger("ZomOutOfComp");
         }
+    }
+
+    public override void OnExit()
+    {
+        Debug.Log("exiting");
+        Cursor.visible = true;
+    }
+}
+
+public class DisableMovementState : State
+{
+    private FSM<State> fsm;
+
+    public DisableMovementState(FSM<State> _fsm) : base(_fsm)
+    {
+        fsm = _fsm;
+    }
+
+    public override void OnEnter()
+    {
+        Cursor.visible = false;
+    }
+
+    public override void OnUpdate()
+    {
     }
 
     public override void OnExit()
