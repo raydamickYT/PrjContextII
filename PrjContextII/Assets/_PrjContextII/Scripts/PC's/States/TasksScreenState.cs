@@ -36,6 +36,8 @@ public class TasksScreen : State
         }
         else if (!isShowingButtons)
         {
+            Debug.Log("choice of today: ");
+
             Tasks = ChoiceManager.instance.DisplayTaskButtons();
             isShowingButtons = true;
         }
@@ -97,7 +99,7 @@ public class TasksScreen : State
             }
         }
     }
-    
+
     public override void OnExit()
     {
         // Opruimen van inlogscherm

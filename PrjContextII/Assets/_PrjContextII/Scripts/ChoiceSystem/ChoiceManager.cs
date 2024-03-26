@@ -129,6 +129,7 @@ public class ChoiceManager : MonoBehaviour
                 MaterialManager.Instance.TriggerAction(0);
                 break;
         }
+        CheckDay();
         // else //anders is de dag voorbij en eindigen we de turn.
         // {
         //     Debug.Log("hoi");
