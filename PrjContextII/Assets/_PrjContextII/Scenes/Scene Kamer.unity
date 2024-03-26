@@ -3832,7 +3832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396319720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000696208, y: 0.9998603, z: -0.004309661, w: 0.016152332}
+  m_LocalRotation: {x: 0.00006962083, y: 0.9998603, z: -0.0043096617, w: 0.016152332}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7482,7 +7482,8 @@ MonoBehaviour:
     - MailTitle: Welcome
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: Welcome to the company, you will be in charge to lead utrecht
+        and make choices for a better future. Good luck!
     - MailTitle: Houses Utrecht North
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
@@ -7503,6 +7504,9 @@ MonoBehaviour:
       MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
         stays steady for a promising future. Let us make sure Utrecht becomes a place
         for everyone.
+    book:
+      Day: 'Day 1:'
+      DayText: 34323333333333333333333333333333333333333333333333344444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666677777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888888889999999999999999999999999999999999999999
   - choices:
     - choiceName: New Housing
       choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
@@ -7548,6 +7552,9 @@ MonoBehaviour:
         to the amount of fast food chains popping up in our neighbourhood. I am concerend
         about the future of our food culture if this keeps up but hopefully when
         Cleo becomes mayor the problem might get resolved.
+    book:
+      Day: 'Day ...: '
+      DayText: 1234234234324324
   - choices:
     - choiceName: Transportatie Utrecht
       choiceText: Will you shift the focus of transportation from the central train
@@ -7569,6 +7576,9 @@ MonoBehaviour:
         by 15% this year and by 20% the year after that. At this rate I will be paying
         rent with more than half my income. I expect you to do something about this
         horrible situation!
+    book:
+      Day: 'Day ...: '
+      DayText: 
   - choices:
     - choiceName: Waste in the Canals
       choiceText: Will you pressure polluting company's to reduce waste?
@@ -7607,6 +7617,9 @@ MonoBehaviour:
         to be an efficient way to get from place A to B but nowadays the busy roads
         makes it so we have to increase our prices because every meter takes longer
         to drive!
+    book:
+      Day: 'Day ...: '
+      DayText: 
   - choices:
     - choiceName: Printing Money
       choiceText: Will you allow the Bank of Utrecht to print more money to prevent
@@ -7649,6 +7662,9 @@ MonoBehaviour:
       MailReceiver: You@Umail.com
       MailContent: The Dom tower has been turned into a company's plaything, Is this
         really the direction you want the city to go in?
+    book:
+      Day: 'Day ...: '
+      DayText: 
   - choices:
     - choiceName: Skyscrapers
       choiceText: Will you allow the building of skyscrapers in utrecht?
@@ -7662,57 +7678,18 @@ MonoBehaviour:
       MailSender: 
       MailReceiver: 
       MailContent: 
+    - MailTitle: (No Title)
+      MailSender: Unkown
+      MailReceiver: You
+      MailContent: 
     book:
       Day: 'Day ...: '
       DayText: 
-  - choices:
-    - choiceName: Vervuiling kanalen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Restauratie Domtoren
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-    book:
-      Day: 'Day ...: '
-      DayText: 
-  - choices:
-    - choiceName: Bewoners Verdedigen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Geld Printen
-      choiceText: 
-      prefabChanger: {fileID: 0}
+  - choices: []
     mail: []
     book:
       Day: 'Day ...: '
       DayText: 
-  - choices:
-    - choiceName: Hoogbouw wet
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Belasting
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-    book:
-      Day: 'Day 2:'
-      DayText: Dit is dag 2 niet langer dan dit
-  - choices: []
-    mail: []
-    book:
-      Day: 'Day 3: '
-      DayText: Niet meer dan dit, want da zou te veel zijn hahahahahahha
-  - choices: []
-    mail: []
-    book:
-      Day: 'Day 4:'
-      DayText: Hoe gaat het dan? niet heel goed he? nee...
-  - choices: []
-    mail: []
-    book:
-      Day: 'Day 5:'
-      DayText: Idk tegen wie ik aan het praten ben :(
   Result: 0
 --- !u!1001 &752982468
 PrefabInstance:
@@ -8435,7 +8412,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580412887}
   m_HandleRect: {fileID: 1580412886}
   m_Direction: 2
-  m_Value: 0.9994498
+  m_Value: 0.8505681
   m_Size: 0.75353736
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9427,7 +9404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.06269107}
+  m_AnchoredPosition: {x: 0, y: 17.223152}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -17982,7 +17959,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994093724}
   m_HandleRect: {fileID: 1994093723}
   m_Direction: 0
-  m_Value: -1.6846846
+  m_Value: -1.5225226
   m_Size: 0.9999875
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20852,7 +20829,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1582350141}
   m_HandleRect: {fileID: 1582350140}
   m_Direction: 2
-  m_Value: 0.99999905
+  m_Value: 0.99999833
   m_Size: 0.37783822
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21411,7 +21388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0004961388, y: 0.99939775, z: 0.030711979, w: 0.016144842}
+  m_LocalRotation: {x: -0.0004961389, y: 0.99939775, z: 0.030711979, w: 0.016144842}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
