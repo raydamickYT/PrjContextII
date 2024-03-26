@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.655
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.36550677, g: 0.4072859, b: 0.47301757, a: 0.655}
+  m_IndirectSpecularColor: {r: 0.365507, g: 0.40728635, b: 0.47301805, a: 0.655}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6775,26 +6775,95 @@ MonoBehaviour:
   GoodBadIncrement: 0.2
   Days:
   - choices:
-    - choiceName: choice 1
-      choiceText: met de domtoren die gaat veranderen
-      prefabChanger: {fileID: 1504812739}
-    - choiceName: Choice 2
-      choiceText: hier gebeurt niks
+    - choiceName: Budget
+      choiceText: 'Geeft je Woningcorporatie Utrecht het budget om de huizen in Utrecht
+        Noord te renoveren? '
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: it
-      MailSender: sen
-      MailReceiver: rec
-      MailContent: etwtet
-    - MailTitle: 
-      MailSender: 
-      MailReceiver: 
+    - MailTitle: Testmail
+      MailSender: Haha
+      MailReceiver: You@Umail.com
+      MailContent: AAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+    - MailTitle: Welkom
+      MailSender: YourBoss@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: 'Leegstaande huizen '
+      MailSender: WoningcorporatieUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Introduction Cleo
+      MailSender: CleoUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Introduction Alex
+      MailSender: AlexUtrecht@Umail.com
+      MailReceiver: You@Umail.com
       MailContent: 
   - choices:
-    - choiceName: 
+    - choiceName: Nieuwbouw
       choiceText: 
       prefabChanger: {fileID: 0}
-    - choiceName: 
+    - choiceName: Nieuwe Burgermeester
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    mail:
+    - MailTitle: Goed Begin
+      MailSender: YourBoss@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: De situate met de leegstaande huizen op Utrecht Noord was erg
+        ingewikkeld maar je hebt het erg goed geregeld nu. Mijn complimenten daarvoor
+        en ga zo door!
+    - MailTitle: Nieuwbouw
+      MailSender: WoningcorporatieUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Burgemeester Cleo
+      MailSender: CleoUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Burgemeester Alex
+      MailSender: AlexUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Friettent failliet
+      MailSender: BewonerUtrechtA@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+  - choices:
+    - choiceName: Transportatie Utrecht
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    mail:
+    - MailTitle: Zorgen over huizenmarkt
+      MailSender: BewonerUtrechtB@gmail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+    - MailTitle: Connectiviteit
+      MailSender: UtrechtOV@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 
+  - choices:
+    - choiceName: Vervuiling kanalen
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    - choiceName: Restauratie Domtoren
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    mail: []
+  - choices:
+    - choiceName: Bewoners Verdedigen
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    - choiceName: Geld Printen
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    mail: []
+  - choices:
+    - choiceName: Hoogbouw wet
+      choiceText: 
+      prefabChanger: {fileID: 0}
+    - choiceName: Belasting
       choiceText: 
       prefabChanger: {fileID: 0}
     mail: []
@@ -7465,7 +7534,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580412887}
   m_HandleRect: {fileID: 1580412886}
   m_Direction: 2
-  m_Value: 0.99997985
+  m_Value: 0.99997723
   m_Size: 0.75353825
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16481,7 +16550,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994093724}
   m_HandleRect: {fileID: 1994093723}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19051,8 +19120,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1582350141}
   m_HandleRect: {fileID: 1582350140}
   m_Direction: 2
-  m_Value: 1.0000023
-  m_Size: 0.3778385
+  m_Value: 1
+  m_Size: 0.37783852
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19301,7 +19370,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1911036656}
   m_HandleRect: {fileID: 1911036655}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20193,7 +20262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.022827988, y: -0.012025945, z: -0.00027461958, w: 0.99966705}
+  m_LocalRotation: {x: -0.022827992, y: -0.012025945, z: -0.00027461964, w: 0.99966705}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
