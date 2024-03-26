@@ -29,7 +29,17 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
-        Result = AdvanceTheDay.Invoke();
+        currentDayIndex++; // Ga naar de volgende dag
+
+        Result = AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
+        if (Result)
+        {
+            //einde game
+        }
+        else
+        {
+            //niks, de dagen gaan door
+        }
     }
 
     public static void EnableComputer()

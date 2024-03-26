@@ -790,7 +790,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -883,7 +883,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3173,7 +3173,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3558,7 +3558,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3905,6 +3905,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410247917}
   m_CullTransparentMesh: 1
+--- !u!1 &438595219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2282360102704243023, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+  m_PrefabInstance: {fileID: 1460076764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &452294784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6750,6 +6755,9 @@ MonoBehaviour:
       MailSender: 
       MailReceiver: 
       MailContent: 
+    book:
+      Day: 'Day 1: '
+      DayText: Vandaag was een kanker slechte kut dag
   - choices:
     - choiceName: 
       choiceText: 
@@ -6758,8 +6766,24 @@ MonoBehaviour:
       choiceText: 
       prefabChanger: {fileID: 0}
     mail: []
+    book:
+      Day: 'Day 2:'
+      DayText: Dit is dag 2 niet langer dan dit
   - choices: []
     mail: []
+    book:
+      Day: 'Day 3: '
+      DayText: Niet meer dan dit, want da zou te veel zijn hahahahahahha
+  - choices: []
+    mail: []
+    book:
+      Day: 'Day 4:'
+      DayText: Hoe gaat het dan? niet heel goed he? nee...
+  - choices: []
+    mail: []
+    book:
+      Day: 'Day 5:'
+      DayText: Idk tegen wie ik aan het praten ben :(
   Result: 0
 --- !u!1001 &752982468
 PrefabInstance:
@@ -7735,6 +7759,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922928615}
   m_CullTransparentMesh: 1
+--- !u!1 &928920200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928920201}
+  - component: {fileID: 928920202}
+  m_Layer: 0
+  m_Name: BookManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928920201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928920200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1659211641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928920202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928920200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cbeadf637d6c6469143a8f905987db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Book: {fileID: 438595219}
+  Days: []
+  Index: -1
+  temp: 0
 --- !u!1 &949127679
 GameObject:
   m_ObjectHideFlags: 0
@@ -15720,9 +15792,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5243478639253724082, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5802561638628321861, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448230902134590680, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6673277308875991984, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_Layer
@@ -15766,6 +15846,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6769753445690891488, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833058982124183434, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_Alignment
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17289,6 +17373,7 @@ Transform:
   - {fileID: 590363103}
   - {fileID: 1971131174}
   - {fileID: 1135496500}
+  - {fileID: 928920201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1666247599
@@ -19516,7 +19601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.022827992, y: -0.012025945, z: -0.00027461964, w: 0.99966705}
+  m_LocalRotation: {x: -0.022827988, y: -0.012025945, z: -0.00027461958, w: 0.99966705}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

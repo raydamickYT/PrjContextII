@@ -62,7 +62,6 @@ public class ChoiceManager : MonoBehaviour
         // currentDayIndex += 1;
         if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
         {
-            GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
             CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayChoices(); // Toon de keuzes voor de nieuwe dag
             return false;
