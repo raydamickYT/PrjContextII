@@ -24,3 +24,4 @@ MonoBehaviour:
   Anim: {fileID: 0}
   CursorArrow: {fileID: 2800000, guid: 5f0131e31a5f62c4aa26fc55949d4b56, type: 3}
   CursorHand: {fileID: 2800000, guid: 31a417e2494bee544b3b8c7b00a179b3, type: 3}
+  ComputerArrow: {fileID: 2800000, guid: 88a404b139be8d44593849eedb4a5f1b, type: 3}

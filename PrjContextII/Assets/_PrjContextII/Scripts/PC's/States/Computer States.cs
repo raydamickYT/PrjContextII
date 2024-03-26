@@ -80,6 +80,7 @@ public class LoginState : State
             Debug.Log("hij is niet leeg");
         }
 
+
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("LoginScreen"));
 
         //check even of dit scherm al niet eerder al deze elementen heeft gevonden.
@@ -106,16 +107,6 @@ public class LoginState : State
         RayCastToUI();
     }
 
-    public override void OnExit()
-    {
-        // Opruimen van inlogscherm
-        // loginScreen.GetComponent<GameObject>().SetActive(false);
-
-        //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
-        ScreenCanvas.enabled = false;
-        IsActive = false;
-
-    }
     void RayCastToUI()
     {
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -177,6 +168,19 @@ public class LoginState : State
 
         // Implementeer hier logica voor het verifiëren van de inloggegevens
         // en schakel over naar de volgende staat indien succesvol.
+    }
+    
+    public override void OnExit()
+    {
+        // Opruimen van inlogscherm
+        // loginScreen.GetComponent<GameObject>().SetActive(false);
+
+        //IMPORTANT: als je van scherm wisselt, dan zet je hier je canvas uit.
+        ScreenCanvas.enabled = false;
+        IsActive = false;
+        Cursor.visible = true;
+
+
     }
 }
 

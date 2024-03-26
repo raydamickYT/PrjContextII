@@ -10,6 +10,8 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
     private Text contentText, contentName;
     private GameObject thisObject;
     private Choice currentChoice;
+    private bool isHoveringOverScreen;
+
     public TaskContentScreenState(FSM<State> _fSM, GameObject gameObject) : base(_fSM)
     {
         thisObject = gameObject;
@@ -27,11 +29,33 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
     {
         // Update inlogscherm logica, bijv. inlogpoging
     }
-
-    public override void OnExit()
+    public override void OnLateUpdate()
     {
-        // Opruimen van inlogscherm
-        thisObject.SetActive(false);
+        RayCastToUI();
+    }
+
+    void RayCastToUI()
+    {
+        Ray ray = PS.MainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, PS.ComputerLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            if (isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
     }
 
     public void GetButtons()
@@ -118,5 +142,11 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
                 contentName.text = currentChoice.choiceName;
             }
         }
+    }
+
+    public override void OnExit()
+    {
+        // Opruimen van inlogscherm
+        thisObject.SetActive(false);
     }
 }

@@ -8,6 +8,8 @@ public class HomeScreenState : State
 {
     private Button MailButton, mapButton, tasksButton;
     private ChoiceManager choiceManagerInstance;
+    private bool isHoveringOverScreen = false;
+
     // private ComputerManager manager;
 
     public HomeScreenState(FSM<State> _fSM, Canvas _homeScrn) : base(_fSM)
@@ -49,11 +51,41 @@ public class HomeScreenState : State
     {
         FSM.SwitchState(typeof(TasksScreen));
     }
+    public override void OnLateUpdate()
+    {
+        RayCastToUI();
+    }
+
+    void RayCastToUI()
+    {
+        Ray ray = PS.MainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, PS.ComputerLayerMask))
+        {
+            // Debug.Log("Geraakt object: " + hit.collider.gameObject.name);
+            if (!isHoveringOverScreen)
+            {
+                Cursor.SetCursor(PS.ComputerArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = true;
+            }
+        }
+        else
+        {
+            {
+            if (isHoveringOverScreen)
+                Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+                isHoveringOverScreen = false;
+            }
+        }
+    }
 
     public override void OnExit()
     {
         // Opruimen van scherm
         ScreenCanvas.enabled = false;
+        Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+
     }
     public void GetButtons()
     {

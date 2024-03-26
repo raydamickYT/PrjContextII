@@ -14,7 +14,7 @@ public class DisableMovementState : State
     public override void OnEnter()
     {
         PS.Anim.SetTrigger("ZoomIntoComp");
-        // Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     public override void OnUpdate()
