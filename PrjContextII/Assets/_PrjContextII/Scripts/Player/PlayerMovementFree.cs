@@ -55,7 +55,7 @@ public class PlayerMovementFree : State
         {
             if (((1 << hitInfo.collider.gameObject.layer) & PS.ComputerLayerMask) != 0)
             {
-                Debug.Log("hij ziet de computer");
+                // Debug.Log("hij ziet de computer");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     PS.Anim.enabled = true;

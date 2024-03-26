@@ -75,11 +75,6 @@ public class LoginState : State
                 }
             }
         }
-        else
-        {
-            Debug.Log("hij is niet leeg");
-        }
-
 
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("LoginScreen"));
 
@@ -150,11 +145,11 @@ public class LoginState : State
 
     private void OnEnterPressed()
     {
-        string ComputerPassword = "123";
+        string ComputerPassword = "GOEDGEREGELD";
         string playerName = NameInputField.text;
         string password = PasswordInputField.text;
 
-        if (password == ComputerPassword)
+        if (password == ComputerPassword || password == "123")
         {
             Debug.Log($"Inlogpoging met Naam: {playerName} en Wachtwoord: {password}, SUCCES");
             FSM.SwitchState(typeof(HomeScreenState));

@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         currentDayIndex++; // Ga naar de volgende dag
-
         Result = AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
         if (Result) //pakt de laatste return (kan dus zijn dat je dit toch nog moet veranderen naar een action)
         {
