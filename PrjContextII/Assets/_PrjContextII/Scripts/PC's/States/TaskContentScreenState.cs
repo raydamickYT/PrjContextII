@@ -78,6 +78,12 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
                     break;
                 case "No":
                     NoButton = buttonInList;
+                    if (GameManager.instance.currentDayIndex > 6) //moet op dag 7 gebeuren
+                    {
+                        NoButton.GetComponentInChildren<Text>().text = "Yes";
+                        NoButton.onClick.AddListener(() => ExecuteChoice(true)); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
+
+                    }
                     NoButton.onClick.AddListener(() => ExecuteChoice(false)); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
                     break;
 
