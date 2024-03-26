@@ -11,9 +11,10 @@ public class PlayerStateHandler : MonoBehaviour
     public Animator anim;
     public Camera mainCam;
     private readonly FSM<State> playerFsm = new();
-    public GameObject Screen;
+    public GameObject Screen, PopUpText;
     public PlayerSettings PS;
     public Image FadeImage;
+    public float FadeTime = 1;
 
     void Awake()
     {
@@ -83,7 +84,7 @@ public class PlayerStateHandler : MonoBehaviour
         playerFsm.SwitchState(typeof(DisableMovementState));
         while (alphaValue < 1)
         {
-            alphaValue += Time.deltaTime * 1f; // 1f is de fade speed
+            alphaValue += Time.deltaTime * FadeTime;
             FadeImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, alphaValue);
             yield return null;
         }
@@ -100,7 +101,7 @@ public class PlayerStateHandler : MonoBehaviour
         // Verminder de alpha-waarde geleidelijk tot 0
         while (alphaValue > 0)
         {
-            alphaValue -= Time.deltaTime * 1f;
+            alphaValue -= Time.deltaTime * FadeTime;
             FadeImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, alphaValue);
             yield return null;
         }
@@ -109,17 +110,23 @@ public class PlayerStateHandler : MonoBehaviour
     {
         if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
         {
-            if (Input.GetKey(KeyCode.E))
-            {
-                Debug.Log("day ended");
-                GameManager.instance.EndDay();
-                StartCoroutine(FadeToBlack(1));
-            }
+            PopUpText.SetActive(true); //laat een pop up zien (mis in een aparte manager als er meer ui bijkomt)
             if (!ChoiceManager.instance.ChoicesLeft)
             {
-                Debug.Log("Press E to end Day");
-                //hier einde turn.
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Debug.Log("day ended");
+                    GameManager.instance.EndDay();
+                    StartCoroutine(FadeToBlack(1));
+                }
             }
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
+        {
+            PopUpText.SetActive(false);
         }
     }
 }

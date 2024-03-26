@@ -53,7 +53,7 @@ public class HomeScreenState : State
     }
     public override void OnLateUpdate()
     {
-        RayCastToUI();
+        // RayCastToUI();
     }
 
     void RayCastToUI()
