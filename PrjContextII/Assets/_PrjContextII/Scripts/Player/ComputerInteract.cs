@@ -29,7 +29,7 @@ public class ComputerInteract : State
                 PlayerFSM.SwitchPlayerState(typeof(PlayerMovementFree));
             }
             // Print de huidige tijd van de animatie naar de console
-            Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
+            // Debug.Log($"Animatie {stateName} tijd: {stateInfo.normalizedTime}");
         }
     }
     public override void OnExit()

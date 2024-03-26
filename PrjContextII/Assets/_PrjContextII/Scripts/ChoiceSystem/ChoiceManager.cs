@@ -9,6 +9,8 @@ public class ChoiceManager : MonoBehaviour
     public static ChoiceManager instance { get; private set; }
     private Choice currentChoice;
     public bool ChoicesLeft = false;
+    // public bool RecentChoice = false; //false is nee, true is ja.
+    public bool? FirstChoiceMade;
     public Transform ButtonsParent;
     public Button QuestionButtonPrefab;
 
@@ -77,6 +79,10 @@ public class ChoiceManager : MonoBehaviour
     }
     public void MakeChoice(bool choiceMade)
     {
+        if (!FirstChoiceMade.HasValue)
+        {
+            FirstChoiceMade = choiceMade;
+        }
         FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
 
         if (GameManager.instance.currentDayIndex < Days.Count && CurrentChoiceIndex < Days[GameManager.instance.currentDayIndex].choices.Count)

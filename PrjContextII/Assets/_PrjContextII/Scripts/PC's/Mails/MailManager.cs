@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +43,19 @@ public class MailManager : MonoBehaviour
         {
             // Debug.Log(currentDayIndex);
             ChoiceDay currentDay = GameManager.instance.Days[GameManager.instance.currentDayIndex]; //alle mails zitten in de game manager
-
+            Debug.Log("current day" + GameManager.instance.currentDayIndex);
+            if (GameManager.instance.currentDayIndex > 0)
+            {
+                //hier nu logic voor de verschillende keuzes
+                if (ChoiceManager.instance.FirstChoiceMade.Value) //vanaf dag 2 verschillende mails
+                {
+                    MailsOfToday.Add(currentDay.MailPerson1); //als ze ja hebben gezegd
+                }
+                else
+                {
+                    MailsOfToday.Add(currentDay.MailPerson2); //als ze ja hebben gezegd
+                }
+            }
             // Voeg alle keuzes van de huidige dag toe aan ChoicesOfToday
             MailsOfToday.AddRange(currentDay.mail);
         }
@@ -75,7 +88,7 @@ public class MailManager : MonoBehaviour
         if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count) // Controleer of er nog dagen over zijn
         {
             IsShowingButtonsForToday = false;
-            GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
+            // GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
             ChoiceManager.instance.CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayMails(); // Toon de keuzes voor de nieuwe dag
             return false;

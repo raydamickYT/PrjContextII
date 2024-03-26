@@ -15,6 +15,7 @@ public class PlayerStateHandler : MonoBehaviour
     public PlayerSettings PS;
     public Image FadeImage;
     public float FadeTime = 1;
+    public bool canEndDay = false;
 
     void Awake()
     {
@@ -54,6 +55,16 @@ public class PlayerStateHandler : MonoBehaviour
     void Update()
     {
         playerFsm.OnUpdate();
+        if (canEndDay)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("day ended");
+                GameManager.instance.EndDay();
+                StartCoroutine(FadeToBlack(1));
+                canEndDay = false;
+            }
+        }
     }
 
     void LateUpdate()
@@ -111,14 +122,9 @@ public class PlayerStateHandler : MonoBehaviour
         if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
         {
             PopUpText.SetActive(true); //laat een pop up zien (mis in een aparte manager als er meer ui bijkomt)
+            canEndDay = true;
             if (!ChoiceManager.instance.ChoicesLeft)
             {
-                if (Input.GetKey(KeyCode.E))
-                {
-                    Debug.Log("day ended");
-                    GameManager.instance.EndDay();
-                    StartCoroutine(FadeToBlack(1));
-                }
             }
         }
     }
@@ -127,6 +133,7 @@ public class PlayerStateHandler : MonoBehaviour
         if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
         {
             PopUpText.SetActive(false);
+            canEndDay = false;
         }
     }
 }

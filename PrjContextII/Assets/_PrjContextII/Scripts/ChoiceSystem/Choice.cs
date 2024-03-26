@@ -27,6 +27,8 @@ public class ChoiceDay
 {
     public List<Choice> choices; // Een lijst met keuzes voor de dag
     public List<Mail> mail; //lijst met mails voor die dag
+    public Mail MailPerson1;
+    public Mail MailPerson2;
     public Book book;
 
 }
