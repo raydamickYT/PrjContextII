@@ -8,6 +8,7 @@ public class TasksScreen : State
     private bool isShowingButtons = false;
     private Button BackButton;
     private List<Button> Tasks = new();
+    private bool HasPlayedSound = false;
     private bool isHoveringOverScreen;
 
     public TasksScreen(FSM<State> _fSM, Canvas _tasks) : base(_fSM)
@@ -42,6 +43,11 @@ public class TasksScreen : State
             isShowingButtons = true;
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
+
+        if (!HasPlayedSound)
+        {
+            VoiceOvers.Instance.PlayTasks();
+        }
         GetButtons();
     }
 

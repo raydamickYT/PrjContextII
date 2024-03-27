@@ -849,7 +849,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3488,7 +3488,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9745,7 +9745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.260216}
+  m_AnchoredPosition: {x: 0, y: 115.25996}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -19021,8 +19021,37 @@ MonoBehaviour:
       Data3: -62987368
       Data4: -486550667
     Path: event:/VoiceOvers/VoiceOverGood
+  VoiceOverMail:
+    Guid:
+      Data1: -618565421
+      Data2: 1090399361
+      Data3: -1150889851
+      Data4: -1007616936
+    Path: event:/VoiceOvers/VoiceOverMail
+  VoiceOverTasks:
+    Guid:
+      Data1: 1163504817
+      Data2: 1338674779
+      Data3: 1827862443
+      Data4: -774166412
+    Path: event:/VoiceOvers/VoiceOverTasks
+  VoiceOverDesktop:
+    Guid:
+      Data1: 128428252
+      Data2: 1257661240
+      Data3: -800586333
+      Data4: -244355921
+    Path: event:/VoiceOvers/VoiceOverDesktop
+  VoiceOverMap:
+    Guid:
+      Data1: -1592755986
+      Data2: 1270006085
+      Data3: 1243039878
+      Data4: -1338631255
+    Path: event:/VoiceOvers/VoiceOverMap
   IntroHasBeenPlayed: 0
   VoiceOverHasBeenPlayed: 0
+  IsPlaying: 0
 --- !u!1 &1582350139
 GameObject:
   m_ObjectHideFlags: 0
@@ -21874,7 +21903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0004961389, y: 0.99939775, z: 0.030711979, w: 0.016144842}
+  m_LocalRotation: {x: -0.0004961399, y: 0.99939775, z: 0.030711979, w: 0.016144875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

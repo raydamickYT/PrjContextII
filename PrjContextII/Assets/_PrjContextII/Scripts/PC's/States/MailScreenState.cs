@@ -7,7 +7,7 @@ public class MailScreenState : State
 {
     public GameObject mailContentPanel; // Verwijs naar het paneel dat de mailinhoud toont
     private Button BackButton;
-    private bool ButtonsActive = false;
+    private bool HasPlayedSound = false;
     private List<Button> mails = new();
     private bool isHoveringOverScreen;
 
@@ -26,6 +26,11 @@ public class MailScreenState : State
             MailManager.instance.IsShowingButtonsForToday = true;
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));
+
+        if (!HasPlayedSound)
+        {
+            VoiceOvers.Instance.PlayMail();
+        }
         GetButtons();
     }
 

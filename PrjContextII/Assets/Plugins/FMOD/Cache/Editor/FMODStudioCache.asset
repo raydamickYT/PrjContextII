@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471580937755908
+  lastModified: 638471603171803324
   FileSizes:
   - Name: Desktop
-    Value: 1370
+    Value: 1524
   Exists: 1
 --- !u!114 &-5840775957420622477
 MonoBehaviour:
@@ -73,7 +73,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 10048
+  Length: 8548
+--- !u!114 &-4830038659020901210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverMap
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverMap
+  Guid:
+    Data1: -1592755986
+    Data2: 1270006085
+    Data3: 1243039878
+    Data4: -1338631255
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7076
 --- !u!114 &-2890454279335272109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,13 +207,44 @@ MonoBehaviour:
   - {fileID: -5840775957420622477}
   - {fileID: 3899341778934948019}
   - {fileID: 3180231189647864482}
+  - {fileID: 766523034786800314}
+  - {fileID: 4108167407806978910}
+  - {fileID: 6235111478179288903}
+  - {fileID: -4830038659020901210}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471580937755908
+  cacheTime: 638471603171803324
   cacheVersion: 131609
+--- !u!114 &766523034786800314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverTasks
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverTasks
+  Guid:
+    Data1: 1163504817
+    Data2: 1338674779
+    Data3: 1827862443
+    Data4: -774166412
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5644
 --- !u!114 &975557524991936144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,10 +260,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471580937735869
+  lastModified: 638471603171783307
   FileSizes:
   - Name: Desktop
-    Value: 7416704
+    Value: 7698336
   Exists: 1
 --- !u!114 &1708824071230166813
 MonoBehaviour:
@@ -287,7 +345,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 21976
+  Length: 19976
 --- !u!114 &3899341778934948019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,3 +373,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 14700
+--- !u!114 &4108167407806978910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverMail
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverMail
+  Guid:
+    Data1: -618565421
+    Data2: 1090399361
+    Data3: -1150889851
+    Data4: -1007616936
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
+--- !u!114 &6235111478179288903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverDesktop
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverDesktop
+  Guid:
+    Data1: 128428252
+    Data2: 1257661240
+    Data3: -800586333
+    Data4: -244355921
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5800

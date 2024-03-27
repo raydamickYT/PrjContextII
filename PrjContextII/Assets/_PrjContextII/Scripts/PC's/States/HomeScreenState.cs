@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class HomeScreenState : State
 {
     private Button MailButton, mapButton, tasksButton;
-    private ChoiceManager choiceManagerInstance;
     private bool isHoveringOverScreen = false, PopHasBeenShown = false;
     // private ComputerManager manager;
 
@@ -120,15 +119,6 @@ public class HomeScreenState : State
     {
         // Initialiseer UI
         Button[] Buttons = ScreenCanvas.GetComponentsInChildren<Button>(true);
-
-        if (ChoiceManager.instance != null)
-        {
-            choiceManagerInstance = ChoiceManager.instance;
-        }
-        else
-        {
-            Debug.LogWarning("ChoiceManager Instance bestaat niet");
-        }
 
         //vind de popup 1 keer
         if (MailButton == null)

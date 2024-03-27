@@ -23,6 +23,10 @@ public class PlayerMovement : State
 
     public override void OnEnter()
     {
+        if (!HasPlayedSound)
+        {
+            VoiceOvers.Instance.PlayDesktop();
+        }
         if (mainCam == null)
         {
             Init();
@@ -95,6 +99,8 @@ public class PlayerMovement : State
     }
 
     bool isHoveringOverScreen = false;
+
+    public bool HasPlayedSound { get; private set; }
 
     void RayCastToUI()
     {

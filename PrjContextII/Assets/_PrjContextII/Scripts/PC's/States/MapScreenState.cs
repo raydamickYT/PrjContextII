@@ -8,6 +8,8 @@ public class MapScreenState : State
 {
     public Button BackButton { get; private set; }
     public GameObject MapScreen;
+    private bool HasPlayedSound = false;
+
 
     public MapScreenState(FSM<State> _fSM, Canvas _map) : base(_fSM)
     {
@@ -26,6 +28,10 @@ public class MapScreenState : State
         ScreenCanvas.enabled = true;
         // computerManager.SwitchScreenMaterial(computerManager.MapScreenMaterial);
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MapScreen"));
+        if (!HasPlayedSound)
+        {
+            VoiceOvers.Instance.Playmap();
+        }
         GetButtons();
     }
 
