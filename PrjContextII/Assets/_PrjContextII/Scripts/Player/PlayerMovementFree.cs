@@ -54,14 +54,20 @@ public class PlayerMovementFree : State
             if (((1 << hitInfo.collider.gameObject.layer) & PS.ComputerLayerMask) != 0)
             {
                 // Debug.Log("hij ziet de computer");
+                PlayerFSM.PopUpText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     PS.Anim.enabled = true;
                     PS.Anim.SetTrigger("AwayFromComp");
 
                     PlayerFSM.SwitchPlayerState(typeof(PlayerMovement));
+                    PlayerFSM.PopUpText.SetActive(false);
                 }
             }
+        }
+        else
+        {
+            PlayerFSM.PopUpText.SetActive(false);
         }
     }
 

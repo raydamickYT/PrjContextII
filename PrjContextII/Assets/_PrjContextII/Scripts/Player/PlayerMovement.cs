@@ -26,6 +26,7 @@ public class PlayerMovement : State
       if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayDesktop();
+            HasPlayedSound = true;
         }
         if (mainCam == null)
         {

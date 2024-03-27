@@ -11,7 +11,7 @@ public class MaterialChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (MaterialManager.Instance != null)
+        if (MaterialManager.Instance != null && BuildingVariants != null)
         {
             MaterialManager.Instance.SubscribeToAction(ReplaceBuildingMeshes);
         }

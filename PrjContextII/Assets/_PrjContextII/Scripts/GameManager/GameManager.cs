@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
-        currentDayIndex = Days.Count;
-        Debug.Log(Days.Count);
+        // currentDayIndex = Days.Count;
+        // Debug.Log(Days.Count);
 
         if (currentDayIndex >= Days.Count) //laatste dag
         {

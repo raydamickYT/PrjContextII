@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI; // Zorg ervoor dat je de UI namespace gebruikt voor toegang tot UI componenten
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting.Dependencies.Sqlite;
 
 
 public class ChoiceManager : MonoBehaviour
@@ -93,11 +94,22 @@ public class ChoiceManager : MonoBehaviour
             {
                 currentChoice.prefabChanger.ChangeGameObject();
             }
-            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter + GameManager.instance.GoodBadIncrement, -1f, 1f);
+
+            if (GameManager.instance.GoodOrBadMeter < 1)
+            {
+                GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter + GameManager.instance.GoodBadIncrement, -1f, 1f);
+            }
+            else
+            {
+                Debug.Log("speler zit op de rand");
+            }
         }
         else
         {
-            GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter - GameManager.instance.GoodBadIncrement, -1f, 1f);
+            if (GameManager.instance.GoodOrBadMeter > -1)
+            {
+                GameManager.instance.GoodOrBadMeter = Mathf.Clamp(GameManager.instance.GoodOrBadMeter - GameManager.instance.GoodBadIncrement, -1f, 1f);
+            }
         }
 
 

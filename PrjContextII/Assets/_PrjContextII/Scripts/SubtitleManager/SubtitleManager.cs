@@ -11,6 +11,7 @@ public class SubtitleManager : MonoBehaviour
     public List<SubtitleInfo> subtitleInfos = new();
     public Text SubText;
     public Image TekstVak;
+    private bool lala = false;
     void Awake()
     {
         if (Instance == null)
@@ -56,6 +57,11 @@ public class SubtitleManager : MonoBehaviour
         textRectTransform.sizeDelta = new Vector2(textRectTransform.sizeDelta.x, preferredHeight);
 
         TekstVak.rectTransform.sizeDelta = new Vector2(textRectTransform.sizeDelta.x + 20, textRectTransform.sizeDelta.y + 20);
+        if (!lala)
+        {
+            TekstVak.rectTransform.position += new Vector3(0, -50, 0);
+            lala = true;
+        }
     }
     IEnumerator IntroWaiting(SubtitleInfo subtitleInfo)
     {

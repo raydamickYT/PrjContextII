@@ -31,6 +31,7 @@ public class MapScreenState : State
       if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.Playmap();
+            HasPlayedSound = true;
         }
         GetButtons();
     }

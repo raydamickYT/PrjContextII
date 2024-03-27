@@ -30,6 +30,7 @@ public class MailScreenState : State
         if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayMail();
+            HasPlayedSound = true;
         }
         GetButtons();
     }

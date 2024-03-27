@@ -47,6 +47,7 @@ public class TasksScreen : State
        if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayTasks();
+            HasPlayedSound = true;
         }
         GetButtons();
     }
