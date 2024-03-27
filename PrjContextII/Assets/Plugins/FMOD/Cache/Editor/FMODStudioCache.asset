@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471619256250177
+  lastModified: 638471662575355352
   FileSizes:
   - Name: Desktop
-    Value: 1524
+    Value: 1564
   Exists: 1
 --- !u!114 &-5840775957420622477
 MonoBehaviour:
@@ -211,13 +211,41 @@ MonoBehaviour:
   - {fileID: 4108167407806978910}
   - {fileID: 6235111478179288903}
   - {fileID: -4830038659020901210}
+  - {fileID: 159265142036407196}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471619256250177
+  cacheTime: 638471662575355352
   cacheVersion: 131609
+--- !u!114 &159265142036407196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverEndingDay1
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverEndingDay1
+  Guid:
+    Data1: -1202966209
+    Data2: 1334270940
+    Data3: 1132410520
+    Data4: 1182883051
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5404
 --- !u!114 &766523034786800314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,10 +288,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471619256250177
+  lastModified: 638471662575345367
   FileSizes:
   - Name: Desktop
-    Value: 7698336
+    Value: 7753632
   Exists: 1
 --- !u!114 &1708824071230166813
 MonoBehaviour:
