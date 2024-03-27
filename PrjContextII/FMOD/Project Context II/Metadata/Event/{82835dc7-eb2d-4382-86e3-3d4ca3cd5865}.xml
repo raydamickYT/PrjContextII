@@ -89,6 +89,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{07da4cfc-472d-4a74-aa9e-a4c6d27ac30c}" />
 	<object class="SingleSound" id="{301ae70f-a077-4f5f-9874-5c329d319bc2}">
+		<property name="start">
+			<value>4</value>
+		</property>
 		<property name="length">
 			<value>17.975999999999999</value>
 		</property>
