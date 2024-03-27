@@ -842,7 +842,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3481,7 +3481,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7669,14 +7669,14 @@ MonoBehaviour:
         houses so people can live in them again. To achieve this we would like a
         budget of 5 Million euros.
     - MailTitle: Introduction Cleo
-      MailSender: CleoUtrecht@Umail.com
+      MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Hello, my name is Cleo, I am currently running for mayor for Utrecht.
         It is my mission to ensure that the culture in Utrecht stays protected so
         the people can keep living their lives. I look forward to working with you
         and I expect great things.
     - MailTitle: Introduction Alex
-      MailSender: AlexUtrecht@Umail.com
+      MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
       MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
         stays steady for a promising future. Let us make sure Utrecht becomes a place
@@ -7693,8 +7693,8 @@ MonoBehaviour:
       MailContent: 
     book:
       Day: 'Day 1:'
-      DayText1: 
-      DayText2: 
+      DayText1: Today is the first day of the new job.
+      DayText2: I wonder how it will go.
   - choices:
     - choiceName: New Housing
       choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
@@ -7720,14 +7720,14 @@ MonoBehaviour:
         replace and old appartment block with brand new housing for family's. This
         would make the area safer and allow for more green space in Utrecht.
     - MailTitle: Plans for Utrecht
-      MailSender: CleoUtrecht@Umail.com
+      MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Today there was a meeting where we discussed which of our plans
         would be set in motion first if I would to become mayor. I would like to
         invite you to discuss these plans when that happens. Hopefully we will meet
         soon.
     - MailTitle: Support for Elections
-      MailSender: AlexUtrecht@Umail.com
+      MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
       MailContent: For a while I have been working on a project to ensure the workers
         in Utrecht will be treated fairly but I am afraid it might not get realised
@@ -7751,9 +7751,9 @@ MonoBehaviour:
       MailReceiver: 
       MailContent: 
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 2:'
+      DayText1: I wonder which mayor fits the best for the city.
+      DayText2: Both contenders seem very caring about Utrecht.
   - choices:
     - choiceName: Transportatie Utrecht
       choiceText: Will you shift the focus of transportation from the central train
@@ -7781,14 +7781,17 @@ MonoBehaviour:
       MailReceiver: 
       MailContent: 
     MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: Great Thanks
+      MailSender: Alex@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Your actions have resulted in my election as a mayor. I would
+        like to thank you for this and I will do everything to make Utrecht a great
+        city.
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 3: '
+      DayText1: The city has chosen their mayor. I look forward to working with them.
+      DayText2: It seems like there are a lot of problems surrounding housing in
+        Utrecht.
   - choices:
     - choiceName: Waste in the Canals
       choiceText: Will you pressure polluting company's to reduce waste?
@@ -7828,19 +7831,23 @@ MonoBehaviour:
         makes it so we have to increase our prices because every meter takes longer
         to drive!
     MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: Culture Trampled
+      MailSender: Cleo@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: All these roads in the city had resulted in destrucion of several
+        pieces of important cultures in Utrecht. How did it come to this and why
+        couldn't you have chosen a better option?
     MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: Great Connectivity
+      MailSender: Alex@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Great work on the matter of transport in Utrecht. This way the
+        city has become more connected for both the people and companys.
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 4: '
+      DayText1: The city is improving every day, It feels great to do good for the
+        city!
+      DayText2: I wonder what tomorrow has in store for me.
   - choices:
     - choiceName: Printing Money
       choiceText: Will you allow the Bank of Utrecht to print more money to prevent
@@ -7884,66 +7891,109 @@ MonoBehaviour:
       MailContent: The Dom tower has been turned into a company's plaything, Is this
         really the direction you want the city to go in?
     MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: Worries
+      MailSender: Cleo@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Lately you have been acting strange and making weird descicions.
+        If this continues I am very worried about the future of Utrecht. You can
+        always talk to me if there is something bothering you or if you are being
+        pressured by someone or something. Stay Safe.
     MailPerson2:
       MailTitle: 
       MailSender: 
       MailReceiver: 
       MailContent: 
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 5: '
+      DayText1: Maybe the situation surrounding the Dom tower could have been handled
+        better.
+      DayText2: Next time I will put more consideration into the choices I make!
   - choices:
     - choiceName: Skyscrapers
-      choiceText: Will you allow the building of skyscrapers in utrecht?
+      choiceText: All homes will be replaced with skycrapers for a more profitable
+        Utrecht.
       prefabChanger: {fileID: 0}
     - choiceName: Equal Taxes
       choiceText: Taxes will be based on the average income of the city and will
         be the same for everyone.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    - MailTitle: (No Title)
-      MailSender: Unkown
+    - MailTitle: New Leadership
+      MailSender: CEOOfUtrecht@Umail.com
       MailReceiver: You
-      MailContent: 
+      MailContent: 'As you might have heard already I have aquired the city of Utrecht
+        and will lead it into a wealthy future. The only reason this could have been
+        achieved is through your help. I want to thank you for your service and invite
+        you to my mansion to discuss some imporant matters regarding the anti capitalism
+        movement.
+
+'
+    - MailTitle: Better Buildings
+      MailSender: ConstructionUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 'All these houses that serve no purpose to the economy are finaly
+        going to get replaced by some actual usefull commercial construction. '
     MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: The Death Of Utrecht
+      MailSender: Cleo@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: Utrecht and its people have been stripped of everything they held
+        dear. Corporations are stepping on the city for their own gain while the
+        rest of us suffer. Everything I try to do is being sabotaged but I will not
+        give up Utrecht to these corporations!
     MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: Stolen Wealth
+      MailSender: Alex@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: All the wealth of Utrecht has been stolen by this CEO Of Utrecht
+        guy. Every single company is owned by him and all profits of the entire city
+        go directly to his bank account. Utrecht seems like a lost cause and I will
+        be stepping down as mayor. We have failed Utrecht.
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 6: '
+      DayText1: I caused pain to thousands of people in Utrecht. The Economy is starting
+        to crumble.
+      DayText2: What have I done? Why didn't it turn out better? Where did it all
+        go wrong?
   - choices: []
-    mail: []
+    mail:
+    - MailTitle: Taking Out The Trash
+      MailSender: CEOOfUtrecht@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: The members of the anti capitalism movement and any individuals
+        with the same way of thinking have been disposed of. This should set a clear
+        example of what happens when you go against us. Long Live Utrecht.
+    - MailTitle: Promotion
+      MailSender: YourBoss@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: 'Since you were put in this function Utrecht has been transformed
+        into a beautiful utopia. To reward you and to put your talent to use we will
+        be sending you to Amsterdam. We hope that you can show us your amazing work
+        there as well. '
+    - MailTitle: (No Title)
+      MailSender: Unknown
+      MailReceiver: You@Umail.com
+      MailContent: I hope you realise this was all your fault.
     MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: The Death Of Cleo
+      MailSender: CleoReceptionist@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: This mail is here to inform you that the mayor Cleo has passed
+        away after a car crash.
     MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
+      MailTitle: 'Utrecht '
+      MailSender: Alex@Umail.com
+      MailReceiver: You@Umail.com
+      MailContent: No matter where I go all I see are companys with connections to
+        the CEO Of Utrecht. I am currently residing in Munchen where I have met a
+        group of people who are willing to find out what is going on in Europe right
+        now. There seems to be anwser to this monopoly which growing at an expenential
+        rate every single second.
     book:
-      Day: 'Day ...: '
-      DayText1: 
-      DayText2: 
+      Day: 'Day 7: '
+      DayText1: I finaly got a promotion!
+      DayText2: Now I can leave this sad place and live somewhere better.
+  Result: 0
 --- !u!1001 &752982468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22139,7 +22189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0010558, y: 0.99773127, z: 0.06535611, w: 0.01611792}
+  m_LocalRotation: {x: -0.0010558026, y: 0.99773127, z: 0.06535611, w: 0.016117958}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
