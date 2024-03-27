@@ -28,7 +28,7 @@ public class MapScreenState : State
         ScreenCanvas.enabled = true;
         // computerManager.SwitchScreenMaterial(computerManager.MapScreenMaterial);
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MapScreen"));
-        if (!HasPlayedSound)
+      if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.Playmap();
         }

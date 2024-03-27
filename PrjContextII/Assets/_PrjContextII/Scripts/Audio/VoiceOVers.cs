@@ -29,12 +29,13 @@ public class VoiceOvers : MonoBehaviour
         PlayIntro();
     }
 
-    public void QueueVoiceOver(FMODUnity.EventReference eventReference)
+    public void QueueVoiceOver(FMODUnity.EventReference eventReference, string EventName)
     {
         eventQueue.Enqueue(eventReference);
         if (!IsPlaying)
         {
             PlayNextInQueue();
+            SubtitleManager.Instance.PlaySubtitle(EventName);
         }
     }
 
@@ -44,6 +45,7 @@ public class VoiceOvers : MonoBehaviour
         {
             IsPlaying = true;
             FMODUnity.EventReference nextEvent = eventQueue.Dequeue();
+
             FMOD.Studio.EventInstance eventInstance = FMODUnity.RuntimeManager.CreateInstance(nextEvent);
 
             //set pos
@@ -65,6 +67,7 @@ public class VoiceOvers : MonoBehaviour
             yield return null;
         } while (state != FMOD.Studio.PLAYBACK_STATE.STOPPED);
 
+        SubtitleManager.Instance.StopSubtitles();
         IsPlaying = false;
         PlayNextInQueue();
     }
@@ -72,7 +75,7 @@ public class VoiceOvers : MonoBehaviour
     {
         if (!IntroHasBeenPlayed)
         {
-            QueueVoiceOver(VoiceOverIntro);
+            QueueVoiceOver(VoiceOverIntro, "Intro");
         }
         IntroHasBeenPlayed = true;
     }
@@ -83,11 +86,11 @@ public class VoiceOvers : MonoBehaviour
         {
             if (GameManager.instance.GoodOrBadMeter < 0)
             {
-                QueueVoiceOver(VoiceOverBad);
+                QueueVoiceOver(VoiceOverBad, "Bad");
             }
             else
             {
-                QueueVoiceOver(VoiceOverGood);
+                QueueVoiceOver(VoiceOverGood, "Good");
             }
             VoiceOverHasBeenPlayed = true;
         }
@@ -96,21 +99,21 @@ public class VoiceOvers : MonoBehaviour
     public void PlayDesktop()
     {
         Debug.Log("queued sound");
-        QueueVoiceOver(VoiceOverDesktop);
+        QueueVoiceOver(VoiceOverDesktop, "Desktop");
     }
 
     public void PlayTasks()
     {
-        QueueVoiceOver(VoiceOverTasks);
+        QueueVoiceOver(VoiceOverTasks, "Tasks");
     }
 
     public void PlayMail()
     {
-        QueueVoiceOver(VoiceOverMail);
+        QueueVoiceOver(VoiceOverMail, "Mail");
     }
 
     public void Playmap()
     {
-        QueueVoiceOver(VoiceOverMap);
+        QueueVoiceOver(VoiceOverMap, "Map");
     }
 }

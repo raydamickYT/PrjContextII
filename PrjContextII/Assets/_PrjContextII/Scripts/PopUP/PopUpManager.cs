@@ -14,7 +14,10 @@ public class PopUpManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        MailAudioManager.Instance.PlayMail += PlayAnim;
+        if (MailAudioManager.Instance != null)
+        {
+            MailAudioManager.Instance.PlayMail += PlayAnim;
+        }
     }
 
     private void PlayAnim(bool Choice)
