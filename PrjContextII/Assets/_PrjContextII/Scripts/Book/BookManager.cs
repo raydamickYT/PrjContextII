@@ -48,6 +48,7 @@ public class BookManager : MonoBehaviour
     }
     public void DisplayDays()
     {
+        // Index++; // alleen aan zetten als je het boek wilt testen
         if (Index <= Days.Count)
         {
             Text Day = Days[Index];

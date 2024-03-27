@@ -27,7 +27,7 @@ public class MailScreenState : State
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));
 
-        if (!HasPlayedSound)
+        if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayMail();
         }

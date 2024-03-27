@@ -849,7 +849,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3310,6 +3310,7 @@ RectTransform:
   m_Children:
   - {fileID: 242722714}
   - {fileID: 1537089858}
+  - {fileID: 741047195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3488,7 +3489,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3873,7 +3874,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6940,7 +6941,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8000,6 +8001,85 @@ MonoBehaviour:
       Day: 'Day 7: '
       DayText1: I finaly got a promotion!
       DayText2: Now I can leave this sad place and live somewhere better.
+--- !u!1 &741047194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741047195}
+  - component: {fileID: 741047197}
+  - component: {fileID: 741047196}
+  m_Layer: 5
+  m_Name: Subtitles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &741047195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741047194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 304287508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 140.31}
+  m_SizeDelta: {x: 1297.3, y: 301.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &741047196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741047194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c0202996051ce6948b10468c1627cd70, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 141
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Subtitles:'
+--- !u!222 &741047197
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741047194}
+  m_CullTransparentMesh: 1
 --- !u!1001 &752982468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9745,7 +9825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.26052}
+  m_AnchoredPosition: {x: 0, y: 117.960724}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -17564,6 +17644,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomPrefab1
       objectReference: {fileID: 0}
+    - target: {fileID: 1779148053012029837, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779148053012029837, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700798748942853332, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700798748942853332, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2703341707255580601, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -17644,6 +17740,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.85
       objectReference: {fileID: 0}
+    - target: {fileID: 4511057807045203060, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511057807045203060, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4546561998755281298, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -17663,6 +17767,14 @@ PrefabInstance:
     - target: {fileID: 5102397358519398646, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243478639253724082, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243478639253724082, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5243478639253724082, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -17687,6 +17799,14 @@ PrefabInstance:
     - target: {fileID: 6159751177314871642, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448230902134590680, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448230902134590680, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6448230902134590680, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -17735,6 +17855,14 @@ PrefabInstance:
     - target: {fileID: 6769753445690891488, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833058982124183434, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833058982124183434, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6833058982124183434, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -19507,6 +19635,7 @@ Transform:
   - {fileID: 1971131174}
   - {fileID: 1135496500}
   - {fileID: 928920201}
+  - {fileID: 2124874842}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1666247599
@@ -22527,6 +22656,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121451779}
   m_CullTransparentMesh: 1
+--- !u!1 &2124874841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124874842}
+  - component: {fileID: 2124874843}
+  m_Layer: 0
+  m_Name: SubTitles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124874842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124874841}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1659211641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124874843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124874841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520420b01bb3d7f4cb57fbfee87b153b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleInfos:
+  - SubName: Intro
+    Subtitles: "Here, you\u2019ll have the power of the city at your fingertips.
+      we trust you make the \u201Cright\u201D decisions."
+  - SubName: Good
+    Subtitles: "you did an AMAZING job on your first day, we trust you\u2019ll be
+      cooperative throughout the rest of our collaboration."
+  - SubName: Bad
+    Subtitles: "You delivered some questionable work yesterday, it was only your
+      first day, so mistakes were to be expected. We hope you\u2019ll be more\u2026
+      Cooperative throughout the rest of our collaboration.\r"
+  - SubName: Desktop
+    Subtitles: "welcome to your desk, this\u2019ll be your most important place from
+      now on. "
+  - SubName: Map
+    Subtitles: "\r\nwelcome to your map, here you\u2019ll be able to see the changes
+      you\u2019ve made to the city\r\n"
+  - SubName: Mail
+    Subtitles: "Welcome to your mail, here you\u2019ll find important information"
+  - SubName: Tasks
+    Subtitles: "welcome to your tasks, here you\u2019ll find the choices you have
+      to make. You only get one chance to make a choice, so make sure you read everything
+      else first."
+  SubText: {fileID: 741047196}
 --- !u!1001 &4855750115780429400
 PrefabInstance:
   m_ObjectHideFlags: 0

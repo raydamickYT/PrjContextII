@@ -44,7 +44,7 @@ public class TasksScreen : State
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
 
-        if (!HasPlayedSound)
+       if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayTasks();
         }

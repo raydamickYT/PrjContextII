@@ -23,7 +23,7 @@ public class PlayerMovement : State
 
     public override void OnEnter()
     {
-        if (!HasPlayedSound)
+      if (!HasPlayedSound && VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayDesktop();
         }
