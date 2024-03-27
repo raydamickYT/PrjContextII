@@ -10,6 +10,7 @@ public class SubtitleManager : MonoBehaviour
     public static SubtitleManager Instance;
     public List<SubtitleInfo> subtitleInfos = new();
     public Text SubText;
+    public Image TekstVak;
     void Awake()
     {
         if (Instance == null)
@@ -32,10 +33,9 @@ public class SubtitleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (!SubText.gameObject.activeSelf)
-                    {
-                        SubText.gameObject.SetActive(true);
-                    }
+                    Debug.Log(SubText.gameObject.activeSelf);
+                    TekstVak.gameObject.SetActive(true);
+
                     DisplayText(item.Subtitles);
                 }
             }
@@ -44,7 +44,7 @@ public class SubtitleManager : MonoBehaviour
 
     public void StopSubtitles()
     {
-        SubText.gameObject.SetActive(false);
+        TekstVak.gameObject.SetActive(false);
     }
     public void DisplayText(string Text)
     {
@@ -55,18 +55,12 @@ public class SubtitleManager : MonoBehaviour
         RectTransform textRectTransform = SubText.rectTransform;
         textRectTransform.sizeDelta = new Vector2(textRectTransform.sizeDelta.x, preferredHeight);
 
-        // Pas de ankerpositie aan zodat de tekst aan de bovenkant blijft vastzitten
-        // textRectTransform.pivot = new Vector2(0, 0);
-        // textRectTransform.anchorMin = new Vector2(0, 0);
-        // textRectTransform.anchorMax = new Vector2(0, 0);
+        TekstVak.rectTransform.sizeDelta = new Vector2(textRectTransform.sizeDelta.x + 20, textRectTransform.sizeDelta.y + 20);
     }
     IEnumerator IntroWaiting(SubtitleInfo subtitleInfo)
     {
         yield return new WaitForSeconds(6.5f);
-        if (!SubText.gameObject.activeSelf)
-        {
-            SubText.gameObject.SetActive(true);
-        }
+        TekstVak.gameObject.SetActive(true);
         DisplayText(subtitleInfo.Subtitles);
     }
 }

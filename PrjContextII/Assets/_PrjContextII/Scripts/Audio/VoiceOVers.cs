@@ -11,7 +11,7 @@ public class VoiceOvers : MonoBehaviour
     public FMODUnity.EventReference VoiceOverIntro;
     public FMODUnity.EventReference VoiceOverBad, VoiceOverGood, VoiceOverMail, VoiceOverTasks, VoiceOverDesktop, VoiceOverMap, EndingDay1;
     public bool IntroHasBeenPlayed = false, VoiceOverHasBeenPlayed = false, IsPlaying = false;
-
+    private Queue<string> TempText = new();
     private void Awake()
     {
         if (Instance == null)
@@ -23,6 +23,7 @@ public class VoiceOvers : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,16 +33,17 @@ public class VoiceOvers : MonoBehaviour
     public void QueueVoiceOver(FMODUnity.EventReference eventReference, string EventName)
     {
         eventQueue.Enqueue(eventReference);
-        if (!IsPlaying)
+        TempText.Enqueue(EventName);
+
+        if (!IsPlaying) //maar hij speelt niet de volgende als deze waar is.
         {
             PlayNextInQueue();
-            SubtitleManager.Instance.PlaySubtitle(EventName);
         }
     }
 
     private void PlayNextInQueue()
     {
-        if (eventQueue.Count > 0)
+        if (eventQueue.Count > 0) //dus alleen als hij op meer dan 0 staat speelt hij iets
         {
             IsPlaying = true;
             FMODUnity.EventReference nextEvent = eventQueue.Dequeue();
@@ -54,16 +56,21 @@ public class VoiceOvers : MonoBehaviour
 
             eventInstance.start();
             eventInstance.release();
+
+            string Text = TempText.Dequeue();
+            SubtitleManager.Instance.PlaySubtitle(Text);
+
             StartCoroutine(WaitForEventToFinish(eventInstance));
         }
     }
     private IEnumerator WaitForEventToFinish(FMOD.Studio.EventInstance instance)
     {
+        // SubtitleManager.Instance.PlaySubtitle(TempText);
+
         FMOD.Studio.PLAYBACK_STATE state;
         do
         {
             instance.getPlaybackState(out state);
-            Debug.Log(state);
             yield return null;
         } while (state != FMOD.Studio.PLAYBACK_STATE.STOPPED);
 
@@ -98,7 +105,6 @@ public class VoiceOvers : MonoBehaviour
 
     public void PlayDesktop()
     {
-        Debug.Log("queued sound");
         QueueVoiceOver(VoiceOverDesktop, "Desktop");
     }
 
