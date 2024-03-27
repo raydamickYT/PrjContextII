@@ -22,7 +22,7 @@ public class MailScreenState : State
         ScreenCanvas.enabled = true;
         if (!MailManager.instance.IsShowingButtonsForToday)
         {
-            mails = MailManager.instance.DisplayMailButtons();
+            MailManager.instance.DisplayMailButtons();
             MailManager.instance.IsShowingButtonsForToday = true;
         }
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("MailScreen"));

@@ -853,7 +853,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -290}
+  m_FollowOffset: {x: 0, y: 2.5, z: -199.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3210,6 +3210,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1254403500955801305, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+      propertyPath: Child
+      value: 
+      objectReference: {fileID: 903242159}
     - target: {fileID: 1650095793140968427, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3304,13 +3308,17 @@ PrefabInstance:
       objectReference: {fileID: 3347069611335303252, guid: 761c0d8632c89b84b95224f4b6220455, type: 3}
     m_RemovedComponents:
     - {fileID: 7603090960968784545, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+    - {fileID: 4025540222871405418, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
     m_RemovedGameObjects:
     - {fileID: 39783950807147513, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 937568363019323682, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1504812738}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3943511127532191356, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 903242160}
   m_SourcePrefab: {fileID: 100100000, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
 --- !u!4 &282998563 stripped
 Transform:
@@ -3720,7 +3728,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3786,9 +3794,9 @@ MonoBehaviour:
   - m_Height: 219.4
     m_Radius: 95
   - m_Height: 2.5
-    m_Radius: 290
-  - m_Height: -137
-    m_Radius: 220
+    m_Radius: 199.5
+  - m_Height: -67.46
+    m_Radius: 89.3
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 396319721}
@@ -3803,7 +3811,7 @@ Transform:
   m_GameObject: {fileID: 313805222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -225.10727, y: 3.8957982, z: 185.93472}
+  m_LocalPosition: {x: -222.18404, y: 3.8957982, z: 95.48193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4105,7 +4113,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4122,7 +4130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396319720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00006962083, y: 0.9998603, z: -0.0043096617, w: 0.016152332}
+  m_LocalRotation: {x: 0.00010119981, y: 0.99985, z: -0.0062644766, w: 0.016152127}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7971,37 +7979,43 @@ MonoBehaviour:
         empty houses in the Utrecht North district.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Welcome
+    - HasBeenDisplayed: 0
+      MailTitle: Welcome
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Welcome to the company, you will be in charge to lead utrecht
         and make choices for a better future. Good luck!
-    - MailTitle: Houses Utrecht North
+    - HasBeenDisplayed: 0
+      MailTitle: Houses Utrecht North
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: In the Northern district of Utrecht there have been a lot of houses
         that have been degrading for a while now. We would like to renovate these
         houses so people can live in them again. To achieve this we would like a
         budget of 5 Million euros.
-    - MailTitle: Introduction Cleo
+    - HasBeenDisplayed: 0
+      MailTitle: Introduction Cleo
       MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Hello, my name is Cleo, I am currently running for mayor for Utrecht.
         It is my mission to ensure that the culture in Utrecht stays protected so
         the people can keep living their lives. I look forward to working with you
         and I expect great things.
-    - MailTitle: Introduction Alex
+    - HasBeenDisplayed: 0
+      MailTitle: Introduction Alex
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
       MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
         stays steady for a promising future. Let us make sure Utrecht becomes a place
         for everyone.
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
       MailContent: 
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
@@ -8022,33 +8036,38 @@ MonoBehaviour:
         Mayor.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Running start
+    - HasBeenDisplayed: 0
+      MailTitle: Running start
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
       MailContent: The Situation regarding the empty houses in the Utrecht North
         Districht has been a difficult topic for a while but you have resolved it
         quickly and efficiently. Great job and keep going!
-    - MailTitle: New Housing
+    - HasBeenDisplayed: 0
+      MailTitle: New Housing
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: We at Woningcorporatie Utrecht would like to get clearance to
         replace and old appartment block with brand new housing for family's. This
         would make the area safer and allow for more green space in Utrecht.
-    - MailTitle: Plans for Utrecht
+    - HasBeenDisplayed: 0
+      MailTitle: Plans for Utrecht
       MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Today there was a meeting where we discussed which of our plans
         would be set in motion first if I would to become mayor. I would like to
         invite you to discuss these plans when that happens. Hopefully we will meet
         soon.
-    - MailTitle: Support for Elections
+    - HasBeenDisplayed: 0
+      MailTitle: Support for Elections
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
       MailContent: For a while I have been working on a project to ensure the workers
         in Utrecht will be treated fairly but I am afraid it might not get realised
         if I don't get elected as mayor. I would like to ask you for support during
         this campain and to meet to discuss the project.
-    - MailTitle: Restaurant Closed
+    - HasBeenDisplayed: 0
+      MailTitle: Restaurant Closed
       MailSender: UtrechtWestResident@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Lately there have been a few restaurants needing to close due
@@ -8056,11 +8075,13 @@ MonoBehaviour:
         about the future of our food culture if this keeps up but hopefully when
         Cleo becomes mayor the problem might get resolved.
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
       MailContent: 
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
@@ -8075,7 +8096,8 @@ MonoBehaviour:
         station for a better connected city centre?
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: Connectivity
+    - HasBeenDisplayed: 0
+      MailTitle: Connectivity
       MailSender: UtrechtOV@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Since last year we have experienced a lack of ways to explore
@@ -8083,7 +8105,8 @@ MonoBehaviour:
         demands a lot of attention towards the central train station but we would
         like to ask that this could be changed so our budget would be more focused
         on the city centre.
-    - MailTitle: Rent Increases
+    - HasBeenDisplayed: 0
+      MailTitle: Rent Increases
       MailSender: ResidentUtrechtSouth@gmail.com
       MailReceiver: You@Umail.com
       MailContent: This is outrageous! We just got told that the rent will be increasing
@@ -8091,11 +8114,13 @@ MonoBehaviour:
         rent with more than half my income. I expect you to do something about this
         horrible situation!
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
       MailContent: 
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: Great Thanks
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
@@ -8116,20 +8141,23 @@ MonoBehaviour:
         Tower instead of the usual company?
       prefabChanger: {fileID: 1504812739}
     mail:
-    - MailTitle: Dirty Water
+    - HasBeenDisplayed: 0
+      MailTitle: Dirty Water
       MailSender: WaterManagementUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Our canals are getting more and more polluted due to company's
         throwing their waste into them. This is leading to an unhealthy city and
         will damage the environment. We have come to you to request that the company's
         that are polluting will be punished.
-    - MailTitle: So Much Noise
+    - HasBeenDisplayed: 0
+      MailTitle: So Much Noise
       MailSender: ResidentUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: Why are there so many cars in the city lately? This problem didn't
         exist before but suddenly all I hear is the noise of cars all around my house!
         Make our streets car free again!
-    - MailTitle: A Better Dom Tower
+    - HasBeenDisplayed: 0
+      MailTitle: A Better Dom Tower
       MailSender: McDonalds@Umail.com
       MailReceiver: You@Umail.com
       MailContent: For the last couple of years the company behind the resoration
@@ -8137,7 +8165,8 @@ MonoBehaviour:
         is not adequate and we ask of you to allow us to take over this job as a
         trusted company. We simply have better technology and more money to spend
         on the tower.
-    - MailTitle: Traffic
+    - HasBeenDisplayed: 0
+      MailTitle: Traffic
       MailSender: TaxiUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: While there are more roads now in the entire city this has just
@@ -8146,6 +8175,7 @@ MonoBehaviour:
         makes it so we have to increase our prices because every meter takes longer
         to drive!
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: Culture Trampled
       MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
@@ -8153,6 +8183,7 @@ MonoBehaviour:
         pieces of important cultures in Utrecht. How did it come to this and why
         couldn't you have chosen a better option?
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: Great Connectivity
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
@@ -8173,39 +8204,45 @@ MonoBehaviour:
         that cause the resident to move?
       prefabChanger: {fileID: 282998565}
     mail:
-    - MailTitle: Recession
+    - HasBeenDisplayed: 0
+      MailTitle: Recession
       MailSender: BankOfUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: 'With the way that the economy seems to be going we are worried
         that we will be entering a recession very soon. We ask of you to raise the
         amount of money we are allowed to print to combat this. It will put a halt
         on the recession and give us time to fight the underlying problems. '
-    - MailTitle: Chased Out Of Our Homes!
+    - HasBeenDisplayed: 0
+      MailTitle: Chased Out Of Our Homes!
       MailSender: UtrechtResidentA@Umail.com
       MailReceiver: You@Umail.com
       MailContent: The USVB has been targeting houses in our street to be replaced
         with office buildings. We will not stand for this as this is the home our
         grandparents grew up in!
-    - MailTitle: Stop the USVB!
+    - HasBeenDisplayed: 0
+      MailTitle: Stop the USVB!
       MailSender: UtrechtResidentB@Umail.com
       MailReceiver: You@Umail.com
       MailContent: The USVB is a corporation that builds commercial property for
         other corporations. I have nothing against that but they have been destroying
         culturaly important property to make this come true. You need to stop watching
         as they destroy our Utrecht and make sure our streets stay safe!
-    - MailTitle: Troublesome Residents
+    - HasBeenDisplayed: 0
+      MailTitle: Troublesome Residents
       MailSender: USVB@Umail.com
       MailReceiver: You@Umail.com
       MailContent: We at the USVB have been constructing commercial buildings since
         1987 and every time it has lead to amazing economical growth in the areas.
         We ask of you to explain that there are more than enough houses in the suburban
         areas of Utrecht and that the precious space of the city should be used properly.
-    - MailTitle: (No Title)
+    - HasBeenDisplayed: 0
+      MailTitle: (No Title)
       MailSender: Unknown
       MailReceiver: You@Umail.com
       MailContent: The Dom tower has been turned into a company's plaything, Is this
         really the direction you want the city to go in?
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: Worries
       MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
@@ -8214,6 +8251,7 @@ MonoBehaviour:
         always talk to me if there is something bothering you or if you are being
         pressured by someone or something. Stay Safe.
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: 
       MailSender: 
       MailReceiver: 
@@ -8233,7 +8271,8 @@ MonoBehaviour:
         be the same for everyone.
       prefabChanger: {fileID: 0}
     mail:
-    - MailTitle: New Leadership
+    - HasBeenDisplayed: 0
+      MailTitle: New Leadership
       MailSender: CEOOfUtrecht@Umail.com
       MailReceiver: You
       MailContent: 'As you might have heard already I have aquired the city of Utrecht
@@ -8243,12 +8282,14 @@ MonoBehaviour:
         movement.
 
 '
-    - MailTitle: Better Buildings
+    - HasBeenDisplayed: 0
+      MailTitle: Better Buildings
       MailSender: ConstructionUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: 'All these houses that serve no purpose to the economy are finaly
         going to get replaced by some actual usefull commercial construction. '
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: The Death Of Utrecht
       MailSender: Cleo@Umail.com
       MailReceiver: You@Umail.com
@@ -8257,6 +8298,7 @@ MonoBehaviour:
         rest of us suffer. Everything I try to do is being sabotaged but I will not
         give up Utrecht to these corporations!
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: Stolen Wealth
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
@@ -8272,30 +8314,35 @@ MonoBehaviour:
         go wrong?
   - choices: []
     mail:
-    - MailTitle: Taking Out The Trash
+    - HasBeenDisplayed: 0
+      MailTitle: Taking Out The Trash
       MailSender: CEOOfUtrecht@Umail.com
       MailReceiver: You@Umail.com
       MailContent: The members of the anti capitalism movement and any individuals
         with the same way of thinking have been disposed of. This should set a clear
         example of what happens when you go against us. Long Live Utrecht.
-    - MailTitle: Promotion
+    - HasBeenDisplayed: 0
+      MailTitle: Promotion
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
       MailContent: 'Since you were put in this function Utrecht has been transformed
         into a beautiful utopia. To reward you and to put your talent to use we will
         be sending you to Amsterdam. We hope that you can show us your amazing work
         there as well. '
-    - MailTitle: (No Title)
+    - HasBeenDisplayed: 0
+      MailTitle: (No Title)
       MailSender: Unknown
       MailReceiver: You@Umail.com
       MailContent: I hope you realise this was all your fault.
     MailPerson1:
+      HasBeenDisplayed: 0
       MailTitle: The Death Of Cleo
       MailSender: CleoReceptionist@Umail.com
       MailReceiver: You@Umail.com
       MailContent: This mail is here to inform you that the mayor Cleo has passed
         away after a car crash.
     MailPerson2:
+      HasBeenDisplayed: 0
       MailTitle: 'Utrecht '
       MailSender: Alex@Umail.com
       MailReceiver: You@Umail.com
@@ -9517,6 +9564,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f8fd19084e72064dac2ea63fcb184ca, type: 3}
   m_PrefabInstance: {fileID: 18893397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &903242158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3943511127532191356, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+  m_PrefabInstance: {fileID: 282998562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903242159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6084692447737179361, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+  m_PrefabInstance: {fileID: 282998562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903242160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903242158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40360af256394c488ca6e233b861323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingVariants: []
 --- !u!4 &909259852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7527863893299349242, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
@@ -10386,7 +10456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.26043}
+  m_AnchoredPosition: {x: 0, y: 115.261116}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -15063,7 +15133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -290}
+  m_FollowOffset: {x: 0, y: 2.5, z: -199.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -18844,7 +18914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 2.5, z: -290}
+  m_FollowOffset: {x: 0, y: 2.5, z: -199.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -19463,7 +19533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1537089858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27441,7 +27511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0004961389, y: 0.99939775, z: 0.030711979, w: 0.016144842}
+  m_LocalRotation: {x: -0.0004645731, y: 0.9994559, z: 0.028758004, w: 0.016145777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28043,7 +28113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0010558, y: 0.99773127, z: 0.06535611, w: 0.01611792}
+  m_LocalRotation: {x: -0.0010242843, y: 0.99785715, z: 0.063405335, w: 0.016119927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

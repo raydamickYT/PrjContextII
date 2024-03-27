@@ -36,6 +36,7 @@ public class ChoiceDay
 [System.Serializable]
 public class Mail
 {
+    public bool HasBeenDisplayed = false;
     public string MailTitle;
     public string MailSender, MailReceiver;
     [Tooltip("This is where you enter you mail's content"), TextArea]
