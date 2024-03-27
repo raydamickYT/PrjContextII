@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisableMovementForCompState : State
 {
     private FSM<State> fsm;
-
+    public bool IsActive = false;
     public DisableMovementForCompState(FSM<State> _fsm) : base(_fsm)
     {
         fsm = _fsm;
@@ -19,6 +19,7 @@ public class DisableMovementForCompState : State
             Cursor.visible = false;
         }
         Cursor.SetCursor(PS.ComputerArrow, Vector2.zero, CursorMode.ForceSoftware);
+        IsActive = true;
     }
 
     public override void OnUpdate()
@@ -39,6 +40,7 @@ public class DisableMovementForCompState : State
         Cursor.SetCursor(PS.CursorArrow, Vector2.zero, CursorMode.ForceSoftware);
         Debug.Log("exiting");
         Cursor.visible = true;
+        IsActive = false;
     }
 }
 

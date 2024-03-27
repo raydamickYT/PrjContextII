@@ -11,6 +11,8 @@ public class PlayerStateHandler : MonoBehaviour
     public Animator anim;
     public Camera mainCam;
     private readonly FSM<State> playerFsm = new();
+    [HideInInspector]
+    public DisableMovementForCompState disableMovementForCompState;
     public GameObject Screen, PopUpText;
     public PlayerSettings PS;
     public Image FadeImage;
@@ -76,10 +78,11 @@ public class PlayerStateHandler : MonoBehaviour
     {
         playerFsm.computerManager = ComputerManager.instance;
         playerFsm.playerSettings = this.PS;
+        disableMovementForCompState = new(playerFsm);
         playerFsm.AddState(new PlayerMovement(this, playerFsm));
         playerFsm.AddState(new PlayerMovementFree(this, playerFsm));
         playerFsm.AddState(new ComputerInteract(this, playerFsm));
-        playerFsm.AddState(new DisableMovementForCompState(playerFsm));
+        playerFsm.AddState(disableMovementForCompState);
         playerFsm.AddState(new DisableMovementState(playerFsm));
         playerFsm.SwitchState(typeof(PlayerMovement));
     }

@@ -79,8 +79,6 @@ public class LoginState : State
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("LoginScreen"));
 
         //check even of dit scherm al niet eerder al deze elementen heeft gevonden.
-
-
     }
 
     public override void OnUpdate()
@@ -96,10 +94,13 @@ public class LoginState : State
             if (inputSelect > 1) inputSelect = 0;
             SelectInputField();
         }
-        if (Input.anyKeyDown)
+        if (PlayerStateHandler.Instance.disableMovementForCompState.IsActive)
         {
-            //doe muziek.
-            Keyboard.Instance.KeyboardClicks?.Invoke();
+            if (Input.anyKeyDown)
+            {
+                //doe muziek.
+                Keyboard.Instance.KeyboardClicks?.Invoke();
+            }
         }
     }
     public override void OnLateUpdate()
