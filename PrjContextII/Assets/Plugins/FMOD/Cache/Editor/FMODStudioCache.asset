@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471662575355352
+  lastModified: 638471721195436008
   FileSizes:
   - Name: Desktop
-    Value: 1564
+    Value: 1748
   Exists: 1
 --- !u!114 &-5840775957420622477
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5300
+--- !u!114 &-3353201898981063006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/LoudBang
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/LoudBang
+  Guid:
+    Data1: 1440584016
+    Data2: 1215678250
+    Data3: -307632993
+    Data4: 1396261613
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2890454279335272109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +209,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 429888
+--- !u!114 &-974143214755763087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FinalSong/StopLoop
+  m_EditorClassIdentifier: 
+  Name: StopLoop
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1135267672
+    data2: 3789552081
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,12 +263,15 @@ MonoBehaviour:
   - {fileID: 6235111478179288903}
   - {fileID: -4830038659020901210}
   - {fileID: 8920837963703956522}
+  - {fileID: 5391987259583833458}
+  - {fileID: -3353201898981063006}
+  - {fileID: 6326100100352646586}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471681600486465
+  cacheTime: 638471721195436008
   cacheVersion: 131609
 --- !u!114 &766523034786800314
 MonoBehaviour:
@@ -261,10 +315,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471681600486465
+  lastModified: 638471721195415993
   FileSizes:
   - Name: Desktop
-    Value: 7784384
+    Value: 9282208
   Exists: 1
 --- !u!114 &1708824071230166813
 MonoBehaviour:
@@ -401,6 +455,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4100
+--- !u!114 &5391987259583833458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/FinalSong
+  m_EditorClassIdentifier: 
+  Path: event:/Music/FinalSong
+  Guid:
+    Data1: 447106536
+    Data2: 1208253760
+    Data3: 1159512712
+    Data4: -1063001376
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -974143214755763087}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 117363
 --- !u!114 &6235111478179288903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +510,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6600
+--- !u!114 &6326100100352646586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PoweringDown
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PoweringDown
+  Guid:
+    Data1: 294270355
+    Data2: 1204580999
+    Data3: -947663955
+    Data4: -1090453256
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1468
 --- !u!114 &8920837963703956522
 MonoBehaviour:
   m_ObjectHideFlags: 0

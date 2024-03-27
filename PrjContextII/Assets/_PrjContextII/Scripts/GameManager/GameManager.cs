@@ -29,11 +29,14 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
-        if (currentDayIndex > Days.Count)
+        currentDayIndex = Days.Count;
+        Debug.Log(Days.Count);
+
+        if (currentDayIndex >= Days.Count) //laatste dag
         {
             //einde spel
             GameEnded = true;
-            Finale.Instance.DestroyScreens();
+            Finale.Instance.StartFinale();
         }
         else
         {

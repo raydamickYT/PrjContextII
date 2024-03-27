@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_PrjContextII/Scenes/Belangrijk/StartScreen.unity
+    guid: b5e437897c8c72948afe669b08372153
+  - enabled: 1
+    path: Assets/_PrjContextII/Scenes/Belangrijk/Scene Kamer.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
