@@ -68,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 710682d64394caf4d9f1013f8d50da51, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -134,8 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d850652b924394a8c7e1ec480eb0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choice:
+    choiceName: 
+    choiceText: 
+    prefabChanger: {fileID: 0}
   TaskTekst: test
-  TaskPrefab: {fileID: 6298878988905189230, guid: f78e578c4191a4e41a1cfe33c61bd4d8, type: 3}
 --- !u!1 &8821456818484164080
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +205,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c0202996051ce6948b10468c1627cd70, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0

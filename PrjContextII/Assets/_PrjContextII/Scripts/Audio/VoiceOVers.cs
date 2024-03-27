@@ -9,7 +9,7 @@ public class VoiceOvers : MonoBehaviour
     public static VoiceOvers Instance;
     private Queue<FMODUnity.EventReference> eventQueue = new Queue<FMODUnity.EventReference>();
     public FMODUnity.EventReference VoiceOverIntro;
-    public FMODUnity.EventReference VoiceOverBad, VoiceOverGood, VoiceOverMail, VoiceOverTasks, VoiceOverDesktop, VoiceOverMap;
+    public FMODUnity.EventReference VoiceOverBad, VoiceOverGood, VoiceOverMail, VoiceOverTasks, VoiceOverDesktop, VoiceOverMap, EndingDay1;
     public bool IntroHasBeenPlayed = false, VoiceOverHasBeenPlayed = false, IsPlaying = false;
 
     private void Awake()
@@ -115,5 +115,9 @@ public class VoiceOvers : MonoBehaviour
     public void Playmap()
     {
         QueueVoiceOver(VoiceOverMap, "Map");
+    }
+    public void PlayEndingDay1()
+    {
+        QueueVoiceOver(EndingDay1, "EndingDay1");
     }
 }

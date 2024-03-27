@@ -141,6 +141,10 @@ public class ChoiceManager : MonoBehaviour
             {
                 currentChoice = null;
                 ChoicesLeft = false;
+                if (VoiceOvers.Instance != null)
+                {
+                    VoiceOvers.Instance.PlayEndingDay1();
+                }
             }
             // AdvanceToNextDay();
             // Debug.LogWarning("Geen choices meer voor vandaag. voor logic uit(die is er nog niet)");

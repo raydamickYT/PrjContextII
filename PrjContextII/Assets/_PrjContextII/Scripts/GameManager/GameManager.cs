@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         currentDayIndex++; // Ga naar de volgende dag
         AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
+
         if (VoiceOvers.Instance != null)
         {
             VoiceOvers.Instance.PlayGoodBad();
