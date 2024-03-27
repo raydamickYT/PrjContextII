@@ -42,11 +42,38 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471549271150959
+  lastModified: 638471579711445372
   FileSizes:
   - Name: Desktop
-    Value: 1122
+    Value: 1370
   Exists: 1
+--- !u!114 &-5840775957420622477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverGood
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverGood
+  Guid:
+    Data1: 1071885877
+    Data2: 1089591782
+    Data3: -62987368
+    Data4: -486550667
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6048
 --- !u!114 &-2890454279335272109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +177,15 @@ MonoBehaviour:
   - {fileID: -1188733922688384639}
   - {fileID: 1708824071230166813}
   - {fileID: -8695552522844070648}
+  - {fileID: -5840775957420622477}
+  - {fileID: 3899341778934948019}
+  - {fileID: 3180231189647864482}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471549271150959
+  cacheTime: 638471579711445372
   cacheVersion: 131609
 --- !u!114 &975557524991936144
 MonoBehaviour:
@@ -172,10 +202,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471549271130943
+  lastModified: 638471579711435618
   FileSizes:
   - Name: Desktop
-    Value: 7062816
+    Value: 7416704
   Exists: 1
 --- !u!114 &1708824071230166813
 MonoBehaviour:
@@ -231,3 +261,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3180231189647864482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverBad
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverBad
+  Guid:
+    Data1: -2105319993
+    Data2: 1132653357
+    Data3: 1279124358
+    Data4: 1700318627
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 17976
+--- !u!114 &3899341778934948019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/VoiceOverIntro
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/VoiceOverIntro
+  Guid:
+    Data1: -1390587016
+    Data2: 1209164594
+    Data3: 716219068
+    Data4: -507379484
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14700

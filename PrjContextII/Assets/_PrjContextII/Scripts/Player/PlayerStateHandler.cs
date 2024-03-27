@@ -84,7 +84,7 @@ public class PlayerStateHandler : MonoBehaviour
         playerFsm.AddState(new ComputerInteract(this, playerFsm));
         playerFsm.AddState(disableMovementForCompState);
         playerFsm.AddState(new DisableMovementState(playerFsm));
-        playerFsm.SwitchState(typeof(PlayerMovement));
+        playerFsm.SwitchState(typeof(ComputerInteract));
     }
 
     public void SwitchPlayerState(System.Type newState)

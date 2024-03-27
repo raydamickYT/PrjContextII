@@ -5,14 +5,12 @@ using UnityEngine;
 public class PlayerMovementFree : State
 {
     // private Camera MainCam;
-    private LayerMask computerLayermask;
     private PlayerStateHandler PlayerFSM;
     private float speed;
 
 
     public PlayerMovementFree(PlayerStateHandler _fsm, FSM<State> _fSM) : base(_fSM)
     {
-        computerLayermask = LayerMask.GetMask("Computer");
         PlayerFSM = _fsm;
     }
 

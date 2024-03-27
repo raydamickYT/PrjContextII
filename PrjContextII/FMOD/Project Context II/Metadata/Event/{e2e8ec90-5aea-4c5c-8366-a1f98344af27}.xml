@@ -60,7 +60,7 @@
 			<destination>{53fa64fa-91d5-436d-a981-5c133ffa7293}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{06659666-aa85-4f95-bea8-735eb87f4cb2}</destination>
+			<destination>{cec53a17-3fa0-43ab-abec-124ee5efda7d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{50ad8af7-ba04-4588-bada-6dd5b9ba549e}" />
@@ -133,6 +133,9 @@
 		<property name="length">
 			<value>429.88799999999998</value>
 		</property>
+		<relationship name="fadeInCurve">
+			<destination>{07a1fddd-74e5-4a4b-b8aa-d8c280f14006}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{1d0581cb-4ef2-498b-a605-c023a9a9c952}</destination>
 		</relationship>
@@ -201,6 +204,14 @@
 			<destination>{30417542-4499-4883-a023-329dbd1c98cf}</destination>
 		</relationship>
 	</object>
+	<object class="FadeCurve" id="{07a1fddd-74e5-4a4b-b8aa-d8c280f14006}">
+		<relationship name="startPoint">
+			<destination>{0b879b1d-559f-487a-a74c-f6636ba14c44}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{11d50e82-0a4d-49c0-8af5-e95d75f479c5}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{6f8d1c43-270f-40c1-a865-02372182de64}">
 		<relationship name="effects">
 			<destination>{9d4aa843-1440-4c4c-b7f2-ffba59096f93}</destination>
@@ -258,6 +269,25 @@
 		</property>
 		<property name="value">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{0b879b1d-559f-487a-a74c-f6636ba14c44}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.2547189</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{11d50e82-0a4d-49c0-8af5-e95d75f479c5}">
+		<property name="position">
+			<value>0.5</value>
+		</property>
+		<property name="value">
+			<value>1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{9d4aa843-1440-4c4c-b7f2-ffba59096f93}" />

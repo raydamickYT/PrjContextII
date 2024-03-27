@@ -3873,7 +3873,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7274,7 +7274,7 @@ Transform:
   m_GameObject: {fileID: 693200524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -117.774, y: 2.887, z: -47.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8721,7 +8721,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580412887}
   m_HandleRect: {fileID: 1580412886}
   m_Direction: 2
-  m_Value: -0.00000450108
+  m_Value: 0.0000029124637
   m_Size: 0.75353736
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9272,7 +9272,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.04093931, y: -0.7543897, z: 0.04726387, w: 0.6534419}
-  m_LocalPosition: {x: 0.28917432, y: -0.32827902, z: 0.044749975}
+  m_LocalPosition: {x: -0.71961236, y: -0.32827902, z: -5.1897583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9513,7 +9513,7 @@ Transform:
   m_GameObject: {fileID: 988850215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.826966, y: 6.429279, z: -5.8193994}
+  m_LocalPosition: {x: 9.86399, y: 6.429279, z: -7.5647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9745,7 +9745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.26041}
+  m_AnchoredPosition: {x: 0, y: 115.260216}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -11458,6 +11458,7 @@ Transform:
   - {fileID: 693200525}
   - {fileID: 855212036}
   - {fileID: 91258381}
+  - {fileID: 1580819253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1078704459
@@ -16058,7 +16059,7 @@ Transform:
   m_GameObject: {fileID: 1244257122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.411, y: 3.26, z: 2.707}
+  m_LocalPosition: {x: 2.42, y: 3.26, z: 7.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18955,6 +18956,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580412885}
   m_CullTransparentMesh: 1
+--- !u!1 &1580819252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580819253}
+  - component: {fileID: 1580819254}
+  m_Layer: 0
+  m_Name: 3D VoiceOvers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1580819253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580819252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -117.774, y: 2.887, z: -47.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1066017738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580819254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580819252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c31d4f399323344828c90a9b681abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceOverIntro:
+    Guid:
+      Data1: -1390587016
+      Data2: 1209164594
+      Data3: 716219068
+      Data4: -507379484
+    Path: event:/VoiceOvers/VoiceOverIntro
+  VoiceOverBad:
+    Guid:
+      Data1: -2105319993
+      Data2: 1132653357
+      Data3: 1279124358
+      Data4: 1700318627
+    Path: event:/VoiceOvers/VoiceOverBad
+  VoiceOverGood:
+    Guid:
+      Data1: 1071885877
+      Data2: 1089591782
+      Data3: -62987368
+      Data4: -486550667
+    Path: event:/VoiceOvers/VoiceOverGood
+  IntroHasBeenPlayed: 0
+  VoiceOverHasBeenPlayed: 0
 --- !u!1 &1582350139
 GameObject:
   m_ObjectHideFlags: 0
@@ -20934,7 +21002,7 @@ Transform:
   m_GameObject: {fileID: 1860194389}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7541544, z: -0, w: 0.65669715}
-  m_LocalPosition: {x: -125.4, y: 1.6900003, z: -42.084003}
+  m_LocalPosition: {x: -125.24, y: 1.6900003, z: -42.106}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21806,7 +21874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0004961399, y: 0.99939775, z: 0.030711979, w: 0.016144875}
+  m_LocalRotation: {x: -0.0004961389, y: 0.99939775, z: 0.030711979, w: 0.016144842}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
