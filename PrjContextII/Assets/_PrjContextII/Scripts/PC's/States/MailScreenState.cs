@@ -31,7 +31,7 @@ public class MailScreenState : State
 
     public override void OnUpdate()
     {
-        // Update inlogscherm logica, bijv. inlogpoging
+        base.OnUpdate();
     }
     public override void OnLateUpdate()
     {

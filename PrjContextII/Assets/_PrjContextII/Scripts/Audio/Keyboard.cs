@@ -9,8 +9,11 @@ public class Keyboard : MonoBehaviour
     public static Keyboard Instance;
     [SerializeField]
     private FMODUnity.EventReference KeyboardAction;
+    [SerializeField]
+    private FMODUnity.EventReference MouseAction;
 
     public Action KeyboardClicks;
+    public Action MouseClicks;
     private void Awake()
     {
         if (Instance == null)
@@ -26,6 +29,7 @@ public class Keyboard : MonoBehaviour
     void Start()
     {
         KeyboardClicks += InvokeAudio;
+        MouseClicks += InvokeAudio2;
     }
 
     // Update is called once per frame
@@ -36,5 +40,9 @@ public class Keyboard : MonoBehaviour
     private void InvokeAudio()
     {
         RuntimeManager.PlayOneShot(KeyboardAction, transform.position);
+    }
+    private void InvokeAudio2()
+    {
+        RuntimeManager.PlayOneShot(MouseAction, transform.position);
     }
 }

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8695552522844070648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/MouseClick
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/MouseClick
+  Guid:
+    Data1: -848566986
+    Data2: 1157689704
+    Data3: 140435884
+    Data4: 1495412482
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6495406971186899281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471538570832309
+  lastModified: 638471549271150959
   FileSizes:
   - Name: Desktop
-    Value: 1070
+    Value: 1122
   Exists: 1
 --- !u!114 &-2890454279335272109
 MonoBehaviour:
@@ -122,12 +149,13 @@ MonoBehaviour:
   - {fileID: -1711713709312770753}
   - {fileID: -1188733922688384639}
   - {fileID: 1708824071230166813}
+  - {fileID: -8695552522844070648}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471538570832309
+  cacheTime: 638471549271150959
   cacheVersion: 131609
 --- !u!114 &975557524991936144
 MonoBehaviour:
@@ -144,10 +172,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471538570812290
+  lastModified: 638471549271130943
   FileSizes:
   - Name: Desktop
-    Value: 7060448
+    Value: 7062816
   Exists: 1
 --- !u!114 &1708824071230166813
 MonoBehaviour:

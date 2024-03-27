@@ -44,7 +44,7 @@ public class MailManager : MonoBehaviour
             // Debug.Log(currentDayIndex);
             ChoiceDay currentDay = GameManager.instance.Days[GameManager.instance.currentDayIndex]; //alle mails zitten in de game manager
             // Debug.Log("current day" + GameManager.instance.currentDayIndex);
-            if (GameManager.instance.currentDayIndex > 0) 
+            if (GameManager.instance.currentDayIndex > 1) 
             {
                 //hier nu logic voor de verschillende keuzes
                 if (ChoiceManager.instance.FirstChoiceMade.Value) //vanaf dag 2 verschillende mails

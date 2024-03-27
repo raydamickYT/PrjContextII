@@ -64,7 +64,7 @@ public class HomeScreenState : State
     }
     public override void OnUpdate()
     {
-
+        base.OnUpdate();
     }
 
     public void SwitchToMailScreen()

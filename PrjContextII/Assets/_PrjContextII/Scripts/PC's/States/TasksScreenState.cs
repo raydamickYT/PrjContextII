@@ -44,6 +44,11 @@ public class TasksScreen : State
         computerManager.SwitchScreenMaterial(computerManager.GetMaterialByName("TaskScreen"));
         GetButtons();
     }
+
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
+    }
     public override void OnLateUpdate()
     {
         RayCastToUI();

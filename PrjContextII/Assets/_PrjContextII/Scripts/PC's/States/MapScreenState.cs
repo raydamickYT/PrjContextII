@@ -31,7 +31,7 @@ public class MapScreenState : State
 
     public override void OnUpdate()
     {
-        // Update inlogscherm logica, bijv. inlogpoging
+        base.OnUpdate();
     }
 
     public override void OnExit()

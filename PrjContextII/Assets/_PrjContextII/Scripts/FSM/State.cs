@@ -12,7 +12,16 @@ public abstract class State
         FSM = _fSM;
     }
     public virtual void OnEnter() { }
-    public virtual void OnUpdate() { }
+    public virtual void OnUpdate()
+    {
+        if (PlayerStateHandler.Instance.disableMovementForCompState.IsActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Keyboard.Instance.MouseClicks?.Invoke();
+            }
+        }
+    }
     public virtual void OnLateUpdate() { }
     public virtual void OnExit() { }
 }
