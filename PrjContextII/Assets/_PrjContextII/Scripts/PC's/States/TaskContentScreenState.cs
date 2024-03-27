@@ -22,7 +22,10 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
     {
         thisObject.SetActive(true);
         SetupCanvas();
-        GetButtons();
+        if (YesButton == null)
+        {
+            GetButtons();
+        }
     }
 
     public override void OnUpdate()
@@ -84,7 +87,10 @@ public class TaskContentScreenState : State, IStateWithExtraInfo
                         NoButton.onClick.AddListener(() => ExecuteChoice(true)); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
 
                     }
-                    NoButton.onClick.AddListener(() => ExecuteChoice(false)); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
+                    else
+                    {
+                        NoButton.onClick.AddListener(() => ExecuteChoice(false)); //verander de bool naar true of false afhankelijk van welke impact de keuze moet hebben.
+                    }
                     break;
 
                 default:

@@ -58,6 +58,10 @@ public class MaterialChanger : MonoBehaviour
             Debug.LogWarning(this.gameObject.name + " GameObject is out of bounds. Index: " + PrefabIndex + "buildingvariants length" + BuildingVariants.Length);
         }
     }
+    void OnDestroy()
+    {
+        MaterialManager.Instance.UnsubscribeFromAction(ReplaceBuildingMeshes);
+    }
 
 
 }

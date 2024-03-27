@@ -89,7 +89,6 @@ public class MailManager : MonoBehaviour
         {
             IsShowingButtonsForToday = false;
             // GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
-            ChoiceManager.instance.CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayMails();
             
             

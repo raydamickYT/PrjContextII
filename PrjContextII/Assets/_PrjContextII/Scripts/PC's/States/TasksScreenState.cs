@@ -26,8 +26,6 @@ public class TasksScreen : State
         //maak hier een reference aan de gamemanager
         if (!ChoiceManager.instance.ChoicesLeft)
         {
-            Debug.Log("we zijn door de choices heen vandaag");
-
             isShowingButtons = false; //verandert dus alleen als de result wordt geupdate in de GameManager.
             return;
             // isShowingButtons = true;

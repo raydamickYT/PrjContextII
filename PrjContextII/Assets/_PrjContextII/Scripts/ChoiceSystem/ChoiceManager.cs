@@ -67,15 +67,16 @@ public class ChoiceManager : MonoBehaviour
         {
             CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayChoices(); // Toon de keuzes voor de nieuwe dag
-
             // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
         }
     }
     public void MakeChoice(bool choiceMade)
     {
-        if (!FirstChoiceMade.HasValue)
+        Debug.Log("choice made");
+        if (FirstChoiceMade.HasValue && GameManager.instance.currentDayIndex == 2)
         {
             FirstChoiceMade = choiceMade;
+            Debug.Log("bij deze keuze kies je je burgemeester");
         }
         FloatRange range = DetermineRange(GameManager.instance.GoodOrBadMeter);
 
