@@ -7487,7 +7487,8 @@ MonoBehaviour:
     - MailTitle: Welcome
       MailSender: YourBoss@Umail.com
       MailReceiver: You@Umail.com
-      MailContent: 
+      MailContent: Welcome to the company, you will be in charge to lead utrecht
+        and make choices for a better future. Good luck!
     - MailTitle: Houses Utrecht North
       MailSender: WoningcorporatieUtrecht@Umail.com
       MailReceiver: You@Umail.com
@@ -7508,19 +7509,9 @@ MonoBehaviour:
       MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
         stays steady for a promising future. Let us make sure Utrecht becomes a place
         for everyone.
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
     book:
-      Day: 'Day ...: '
-      DayText: 
+      Day: 'Day 1:'
+      DayText: 34323333333333333333333333333333333333333333333333344444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666677777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888888889999999999999999999999999999999999999999
   - choices:
     - choiceName: New Housing
       choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
@@ -7566,19 +7557,9 @@ MonoBehaviour:
         to the amount of fast food chains popping up in our neighbourhood. I am concerend
         about the future of our food culture if this keeps up but hopefully when
         Cleo becomes mayor the problem might get resolved.
-    MailPerson1:
-      MailTitle: CLeo
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: Teo
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
+      DayText: 1234234234324324
   - choices:
     - choiceName: Transportatie Utrecht
       choiceText: Will you shift the focus of transportation from the central train
@@ -7600,16 +7581,6 @@ MonoBehaviour:
         by 15% this year and by 20% the year after that. At this rate I will be paying
         rent with more than half my income. I expect you to do something about this
         horrible situation!
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
     book:
       Day: 'Day ...: '
       DayText: 
@@ -7651,16 +7622,6 @@ MonoBehaviour:
         to be an efficient way to get from place A to B but nowadays the busy roads
         makes it so we have to increase our prices because every meter takes longer
         to drive!
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
     book:
       Day: 'Day ...: '
       DayText: 
@@ -7706,16 +7667,6 @@ MonoBehaviour:
       MailReceiver: You@Umail.com
       MailContent: The Dom tower has been turned into a company's plaything, Is this
         really the direction you want the city to go in?
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
     book:
       Day: 'Day ...: '
       DayText: 
@@ -7732,26 +7683,14 @@ MonoBehaviour:
       MailSender: 
       MailReceiver: 
       MailContent: 
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
+    - MailTitle: (No Title)
+      MailSender: Unkown
+      MailReceiver: You
       MailContent: 
     book:
       Day: 'Day ...: '
       DayText: 
-  - choices:
-    - choiceName: Vervuiling kanalen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Restauratie Domtoren
-      choiceText: 
-      prefabChanger: {fileID: 0}
+  - choices: []
     mail: []
     MailPerson1:
       MailTitle: 
@@ -7766,93 +7705,6 @@ MonoBehaviour:
     book:
       Day: 'Day ...: '
       DayText: 
-  - choices:
-    - choiceName: Bewoners Verdedigen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Geld Printen
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    book:
-      Day: 'Day ...: '
-      DayText: 
-  - choices:
-    - choiceName: Hoogbouw wet
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    - choiceName: Belasting
-      choiceText: 
-      prefabChanger: {fileID: 0}
-    mail: []
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    book:
-      Day: 'Day 2:'
-      DayText: Dit is dag 2 niet langer dan dit
-  - choices: []
-    mail: []
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    book:
-      Day: 'Day 3: '
-      DayText: Niet meer dan dit, want da zou te veel zijn hahahahahahha
-  - choices: []
-    mail: []
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    book:
-      Day: 'Day 4:'
-      DayText: Hoe gaat het dan? niet heel goed he? nee...
-  - choices: []
-    mail: []
-    MailPerson1:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    MailPerson2:
-      MailTitle: 
-      MailSender: 
-      MailReceiver: 
-      MailContent: 
-    book:
-      Day: 'Day 5:'
-      DayText: Idk tegen wie ik aan het praten ben :(
   Result: 0
 --- !u!1001 &752982468
 PrefabInstance:
@@ -18133,7 +17985,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994093724}
   m_HandleRect: {fileID: 1994093723}
   m_Direction: 0
-  m_Value: -1.6846846
+  m_Value: -1.5225226
   m_Size: 0.9999875
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21121,7 +20973,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1582350141}
   m_HandleRect: {fileID: 1582350140}
   m_Direction: 2
-  m_Value: 0.99999905
+  m_Value: 0.99999833
   m_Size: 0.37783822
   m_NumberOfSteps: 0
   m_OnValueChanged:
