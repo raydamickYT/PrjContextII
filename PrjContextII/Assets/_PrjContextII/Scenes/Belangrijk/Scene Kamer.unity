@@ -853,7 +853,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3206,6 +3206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 87844509}
     m_Modifications:
+    - target: {fileID: 997548205748651443, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1650095793140968427, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3217,6 +3221,10 @@ PrefabInstance:
     - target: {fileID: 2766356418298519168, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619038139224127781, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5766688597664318870, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3309,6 +3317,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5766688597664318870, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
   m_PrefabInstance: {fileID: 282998562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &282998564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1254403500955801305, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+  m_PrefabInstance: {fileID: 282998562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c467a7263f6164fb888f9bddc5e507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &282998565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3573364892068267628, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
+  m_PrefabInstance: {fileID: 282998562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c467a7263f6164fb888f9bddc5e507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285360313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,7 +3720,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4075,7 +4105,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7213,7 +7243,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 21.946, y: 18.593}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7939,7 +7969,7 @@ MonoBehaviour:
     - choiceName: Budget
       choiceText: Will you give Woningcorporatie Utrecht The budget to renovate the
         empty houses in the Utrecht North district.
-      prefabChanger: {fileID: 1651734909}
+      prefabChanger: {fileID: 0}
     mail:
     - MailTitle: Welcome
       MailSender: YourBoss@Umail.com
@@ -7984,7 +8014,7 @@ MonoBehaviour:
     - choiceName: New Housing
       choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
         the appartment block with new housing?
-      prefabChanger: {fileID: 0}
+      prefabChanger: {fileID: 282998565}
     - choiceName: New Mayor
       choiceText: The Election for mayor is going smooth, Cleo is currently in the
         lead but you can change the outcome by promoting Alex through the company.
@@ -8084,7 +8114,7 @@ MonoBehaviour:
     - choiceName: Restoration Dom Tower
       choiceText: Will you allow McDonalds to take over the restoration of the Dom
         Tower instead of the usual company?
-      prefabChanger: {fileID: 0}
+      prefabChanger: {fileID: 1504812739}
     mail:
     - MailTitle: Dirty Water
       MailSender: WaterManagementUtrecht@Umail.com
@@ -8139,9 +8169,9 @@ MonoBehaviour:
         an eventual recession?
       prefabChanger: {fileID: 0}
     - choiceName: Protect Residents
-      choiceText: Will you deny any corpotate buildings being built in the city that
-        cause the resident to move?
-      prefabChanger: {fileID: 0}
+      choiceText: Will you allow any corpotate buildings being built in the city
+        that cause the resident to move?
+      prefabChanger: {fileID: 282998565}
     mail:
     - MailTitle: Recession
       MailSender: BankOfUtrecht@Umail.com
@@ -8197,7 +8227,7 @@ MonoBehaviour:
     - choiceName: Skyscrapers
       choiceText: All homes will be replaced with skycrapers for a more profitable
         Utrecht.
-      prefabChanger: {fileID: 0}
+      prefabChanger: {fileID: 282998564}
     - choiceName: Equal Taxes
       choiceText: Taxes will be based on the average income of the city and will
         be the same for everyone.
@@ -9332,7 +9362,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580412887}
   m_HandleRect: {fileID: 1580412886}
   m_Direction: 2
-  m_Value: -0.01871258
+  m_Value: -0.00000450108
   m_Size: 0.75353736
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10356,7 +10386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 117.41764}
+  m_AnchoredPosition: {x: 0, y: 115.26043}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -20234,17 +20264,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646966125}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1651734909 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7375051039985561287, guid: 8056352bcabace64c8ec1322ece9ad4c, type: 3}
-  m_PrefabInstance: {fileID: 282998562}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c467a7263f6164fb888f9bddc5e507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1658793533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1484819979796037250, guid: 472cd0c7dfc05134382f7f2c832a3268, type: 3}
@@ -27422,7 +27441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983011570}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0004961399, y: 0.99939775, z: 0.030711979, w: 0.016144875}
+  m_LocalRotation: {x: -0.0004961389, y: 0.99939775, z: 0.030711979, w: 0.016144842}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28024,7 +28043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095891409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0010558026, y: 0.99773127, z: 0.06535611, w: 0.016117958}
+  m_LocalRotation: {x: -0.0010558, y: 0.99773127, z: 0.06535611, w: 0.01611792}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
