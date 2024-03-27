@@ -59,22 +59,15 @@ public class ChoiceManager : MonoBehaviour
         }
     }
 
-    public bool AdvanceNextDay()
+    public void AdvanceNextDay()
     {
         // currentDayIndex += 1;
         if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
         {
             CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
             DisplayChoices(); // Toon de keuzes voor de nieuwe dag
-            return false;
 
             // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
-        }
-        else
-        {
-            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
-            return true;
-            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
         }
     }
     public void MakeChoice(bool choiceMade)

@@ -12,7 +12,6 @@ public class BookManager : MonoBehaviour
     void Awake()
     {
         Days = FindObjectsStartingWith();
-        Debug.Log(Days.Count);
     }
     // Start is called before the first frame update
     void Start()
@@ -79,22 +78,14 @@ public class BookManager : MonoBehaviour
         }
     }
 
-    public bool AdvanceNextDay()
+    public void AdvanceNextDay()
     {
         Index = GameManager.instance.currentDayIndex;
         if (GameManager.instance.currentDayIndex < Days.Count) // Controleer of er nog dagen over zijn
         {
             DisplayDays();
 
-            return false;
-
-            // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
-        }
-        else
-        {
-            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
-            return true;
-            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
+           // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
         }
     }
 }

@@ -27,7 +27,7 @@ public class TasksScreen : State
         {
             Debug.Log("we zijn door de choices heen vandaag");
 
-            isShowingButtons = GameManager.instance.Result; //verandert dus alleen als de result wordt geupdate in de GameManager.
+            isShowingButtons = false; //verandert dus alleen als de result wordt geupdate in de GameManager.
             return;
             // isShowingButtons = true;
 
