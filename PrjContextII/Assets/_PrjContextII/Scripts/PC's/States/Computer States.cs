@@ -96,6 +96,11 @@ public class LoginState : State
             if (inputSelect > 1) inputSelect = 0;
             SelectInputField();
         }
+        if (Input.anyKeyDown)
+        {
+            //doe muziek.
+            Keyboard.Instance.KeyboardClicks?.Invoke();
+        }
     }
     public override void OnLateUpdate()
     {
@@ -164,7 +169,7 @@ public class LoginState : State
         // Implementeer hier logica voor het verifiëren van de inloggegevens
         // en schakel over naar de volgende staat indien succesvol.
     }
-    
+
     public override void OnExit()
     {
         // Opruimen van inlogscherm

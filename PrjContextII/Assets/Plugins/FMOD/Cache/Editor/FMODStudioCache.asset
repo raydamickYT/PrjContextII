@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638471521552845240
+  lastModified: 638471538570832309
   FileSizes:
   - Name: Desktop
-    Value: 1018
+    Value: 1070
   Exists: 1
 --- !u!114 &-2890454279335272109
 MonoBehaviour:
@@ -121,12 +121,13 @@ MonoBehaviour:
   - {fileID: 2823194327356995108}
   - {fileID: -1711713709312770753}
   - {fileID: -1188733922688384639}
+  - {fileID: 1708824071230166813}
   EditorParameters: []
   MasterBanks:
   - {fileID: 975557524991936144}
   StringsBanks:
   - {fileID: -6495406971186899281}
-  cacheTime: 638471521552845240
+  cacheTime: 638471538570832309
   cacheVersion: 131609
 --- !u!114 &975557524991936144
 MonoBehaviour:
@@ -143,11 +144,38 @@ MonoBehaviour:
   Path: FMOD/Project Context II/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638471521552830863
+  lastModified: 638471538570812290
   FileSizes:
   - Name: Desktop
-    Value: 7023616
+    Value: 7060448
   Exists: 1
+--- !u!114 &1708824071230166813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/KeyClicks
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/KeyClicks
+  Guid:
+    Data1: 1763795284
+    Data2: 1234263020
+    Data3: 781456524
+    Data4: 576116169
+  Banks:
+  - {fileID: 975557524991936144}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2823194327356995108
 MonoBehaviour:
   m_ObjectHideFlags: 0
