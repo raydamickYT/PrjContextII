@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public float GoodOrBadMeter = 0, GoodBadBorder = 0.2f, GoodBadIncrement = 0.2f;
     public List<ChoiceDay> Days; // Een lijst met alle dagen en hun keuzes
     public Action AdvanceTheDay;
+    public bool GameEnded = false;
 
     public static BoxCollider computerCollider;
     private void Awake()
@@ -28,20 +29,22 @@ public class GameManager : MonoBehaviour
 
     public void EndDay()
     {
-        currentDayIndex++; // Ga naar de volgende dag
-        AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
-
-        if (VoiceOvers.Instance != null)
+        if (currentDayIndex > Days.Count)
         {
-            VoiceOvers.Instance.PlayGoodBad();
+            //einde spel
+            GameEnded = true;
+            Finale.Instance.DestroyScreens();
         }
-        // if (Result) //pakt de laatste return (kan dus zijn dat je dit toch nog moet veranderen naar een action)
-        // {
-        //     //einde game
-        // }
-        // else
-        // {
-        //     //niks, de dagen gaan door
-        // }
+        else
+        {
+            currentDayIndex++; // Ga naar de volgende dag
+            AdvanceTheDay.Invoke(); //hier later iets mee doen. als de result true is dan einde game.
+
+            if (VoiceOvers.Instance != null)
+            {
+                VoiceOvers.Instance.PlayGoodBad();
+            }
+        }
+
     }
 }

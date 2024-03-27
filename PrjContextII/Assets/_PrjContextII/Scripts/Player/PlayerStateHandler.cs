@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -125,9 +126,18 @@ public class PlayerStateHandler : MonoBehaviour
         if ((PS.BedLayerMask.value & (1 << other.gameObject.layer)) != 0)
         {
             PopUpText.SetActive(true); //laat een pop up zien (mis in een aparte manager als er meer ui bijkomt)
-            canEndDay = true;
             if (!ChoiceManager.instance.ChoicesLeft)
             {
+                canEndDay = true;
+            }
+        }
+
+
+        if (other.gameObject.tag == "Ending")
+        {
+            if (GameManager.instance.GameEnded)
+            {
+                Debug.Log("start ending");
             }
         }
     }
