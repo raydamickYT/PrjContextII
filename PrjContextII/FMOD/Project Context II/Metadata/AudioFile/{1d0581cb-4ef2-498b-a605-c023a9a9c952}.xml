@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1d0581cb-4ef2-498b-a605-c023a9a9c952}">
+		<property name="assetPath">
+			<value>Opzetje city manager Background MET FILTER.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>429.88799999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1b63c3d1-d459-4f6a-b28b-346567701d51}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -43,8 +43,8 @@ public class MailManager : MonoBehaviour
         {
             // Debug.Log(currentDayIndex);
             ChoiceDay currentDay = GameManager.instance.Days[GameManager.instance.currentDayIndex]; //alle mails zitten in de game manager
-            Debug.Log("current day" + GameManager.instance.currentDayIndex);
-            if (GameManager.instance.currentDayIndex > 0)
+            // Debug.Log("current day" + GameManager.instance.currentDayIndex);
+            if (GameManager.instance.currentDayIndex > 0) 
             {
                 //hier nu logic voor de verschillende keuzes
                 if (ChoiceManager.instance.FirstChoiceMade.Value) //vanaf dag 2 verschillende mails
@@ -82,7 +82,7 @@ public class MailManager : MonoBehaviour
         return createdButtons; // Retourneer de lijst met aangemaakte knoppen
     }
 
-    public bool AdvanceNextDay() //call deze als de speler laat zien dat ze naar de volgende dag willen
+    public void AdvanceNextDay() //call deze als de speler laat zien dat ze naar de volgende dag willen
     {
         // currentDayIndex += 1;
         if (GameManager.instance.currentDayIndex < GameManager.instance.Days.Count) // Controleer of er nog dagen over zijn
@@ -90,17 +90,13 @@ public class MailManager : MonoBehaviour
             IsShowingButtonsForToday = false;
             // GameManager.instance.currentDayIndex++; // Ga naar de volgende dag
             ChoiceManager.instance.CurrentChoiceIndex = 0; // Reset de keuze-index voor de nieuwe dag
-            DisplayMails(); // Toon de keuzes voor de nieuwe dag
-            return false;
-
+            DisplayMails();
+            
+            
+             // Toon de keuzes voor de nieuwe dag
             // Debug.Log("Overgegaan naar dag: " + (currentDayIndex + 1)); // Houd er rekening mee dat currentDayIndex 0-gebaseerd is
         }
-        else
-        {
-            Debug.Log("Alle dagen voltooid. Spel is afgelopen of ga naar een eindscherm.");
-            return true;
-            // Hier kun je logica toevoegen om het spel te beëindigen of naar een eindscherm te gaan
-        }
+
     }
 
 
