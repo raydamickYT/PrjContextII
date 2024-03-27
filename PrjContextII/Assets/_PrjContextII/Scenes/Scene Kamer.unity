@@ -3815,7 +3815,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4204,6 +4204,64 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2282360102704243023, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
   m_PrefabInstance: {fileID: 1460076764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &444023777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444023778}
+  - component: {fileID: 444023779}
+  m_Layer: 0
+  m_Name: MailAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444023778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444023777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855212036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444023779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444023777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5ae8cd310da664989a2a16a437c099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MailGood:
+    Guid:
+      Data1: 1322391402
+      Data2: 1119493785
+      Data3: 1558100628
+      Data4: -1991468115
+    Path: event:/SFX/MailGood
+  MailBad:
+    Guid:
+      Data1: -2096453323
+      Data2: 1206035053
+      Data3: -683650651
+      Data4: 450764825
+    Path: event:/SFX/MailBad
 --- !u!1 &452294784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,6 +6731,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &644619058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644619059}
+  - component: {fileID: 644619062}
+  - component: {fileID: 644619061}
+  - component: {fileID: 644619060}
+  - component: {fileID: 644619063}
+  m_Layer: 5
+  m_Name: Popup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &644619059
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644619058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1715420889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &644619060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644619058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6adb11cb6d0a3149a116ce83371354c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTime: 2
+--- !u!114 &644619061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644619058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c6a4176768bd416459ebdaf27012bf0e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &644619062
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644619058}
+  m_CullTransparentMesh: 1
+--- !u!95 &644619063
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644619058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a027680542214de4fbf43bd1c961769a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &646341680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8729481983154552519, guid: 0804593fa439dfb41af8a625d0de2a34, type: 3}
@@ -6824,7 +6993,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 21.946, y: 18.593}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7132,6 +7301,69 @@ Transform:
   - {fileID: 155099191}
   m_Father: {fileID: 1975876473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693200524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693200525}
+  - component: {fileID: 693200526}
+  m_Layer: 0
+  m_Name: 3D Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693200525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693200524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1066017738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &693200526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693200524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -488051568
+      Data2: 1281121002
+      Data3: -106862973
+      Data4: 665797763
+    Path: event:/Music/Background Music 3D
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &696616049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7509,9 +7741,20 @@ MonoBehaviour:
       MailContent: This is Alex, I am running for mayor to ensure the growth of Utrecht
         stays steady for a promising future. Let us make sure Utrecht becomes a place
         for everyone.
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day 1:'
-      DayText: 34323333333333333333333333333333333333333333333333344444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555556666666666666666666666666666666666666666666666677777777777777777777777777777777777777777777777778888888888888888888888888888888888888888888888888889999999999999999999999999999999999999999
+      DayText1: 
+      DayText2: 
   - choices:
     - choiceName: New Housing
       choiceText: Will you give clearance to allow Woningcorporatie Utrecht to replace
@@ -7557,9 +7800,20 @@ MonoBehaviour:
         to the amount of fast food chains popping up in our neighbourhood. I am concerend
         about the future of our food culture if this keeps up but hopefully when
         Cleo becomes mayor the problem might get resolved.
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 1234234234324324
+      DayText1: 
+      DayText2: 
   - choices:
     - choiceName: Transportatie Utrecht
       choiceText: Will you shift the focus of transportation from the central train
@@ -7581,9 +7835,20 @@ MonoBehaviour:
         by 15% this year and by 20% the year after that. At this rate I will be paying
         rent with more than half my income. I expect you to do something about this
         horrible situation!
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
+      DayText1: 
+      DayText2: 
   - choices:
     - choiceName: Waste in the Canals
       choiceText: Will you pressure polluting company's to reduce waste?
@@ -7622,9 +7887,20 @@ MonoBehaviour:
         to be an efficient way to get from place A to B but nowadays the busy roads
         makes it so we have to increase our prices because every meter takes longer
         to drive!
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
+      DayText1: 
+      DayText2: 
   - choices:
     - choiceName: Printing Money
       choiceText: Will you allow the Bank of Utrecht to print more money to prevent
@@ -7667,9 +7943,20 @@ MonoBehaviour:
       MailReceiver: You@Umail.com
       MailContent: The Dom tower has been turned into a company's plaything, Is this
         really the direction you want the city to go in?
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
+      DayText1: 
+      DayText2: 
   - choices:
     - choiceName: Skyscrapers
       choiceText: Will you allow the building of skyscrapers in utrecht?
@@ -7687,9 +7974,20 @@ MonoBehaviour:
       MailSender: Unkown
       MailReceiver: You
       MailContent: 
+    MailPerson1:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
+    MailPerson2:
+      MailTitle: 
+      MailSender: 
+      MailReceiver: 
+      MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
+      DayText1: 
+      DayText2: 
   - choices: []
     mail: []
     MailPerson1:
@@ -7704,8 +8002,8 @@ MonoBehaviour:
       MailContent: 
     book:
       Day: 'Day ...: '
-      DayText: 
-  Result: 0
+      DayText1: 
+      DayText2: 
 --- !u!1001 &752982468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8427,7 +8725,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580412887}
   m_HandleRect: {fileID: 1580412886}
   m_Direction: 2
-  m_Value: -0.00000450108
+  m_Value: -0.018882561
   m_Size: 0.75353736
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8540,6 +8838,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3ecd1ce57ce4c44bf201b8448dda67, type: 3}
+--- !u!1 &855212035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855212036}
+  m_Layer: 0
+  m_Name: Mail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855212036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855212035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 444023778}
+  m_Father: {fileID: 1066017738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &865548251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7527863893299349242, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
@@ -9419,7 +9749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.26054}
+  m_AnchoredPosition: {x: 0, y: 117.43752}
   m_SizeDelta: {x: 0, y: 467.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1018610580
@@ -11127,7 +11457,10 @@ Transform:
   m_LocalPosition: {x: -4.7400565, y: 1.3957982, z: 4.0859976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1872911648}
+  - {fileID: 693200525}
+  - {fileID: 855212036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1078704459
@@ -15803,6 +16136,7 @@ MonoBehaviour:
   PS: {fileID: 11400000, guid: f4f34279cd32fd247b889e95bf75b124, type: 2}
   FadeImage: {fileID: 242722715}
   FadeTime: 1
+  canEndDay: 0
 --- !u!136 &1244257128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17985,7 +18319,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994093724}
   m_HandleRect: {fileID: 1994093723}
   m_Direction: 0
-  m_Value: -1.5225226
+  m_Value: -1.6846846
   m_Size: 0.9999875
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19724,6 +20058,7 @@ RectTransform:
   - {fileID: 1306483900}
   - {fileID: 34817112}
   - {fileID: 1349374049}
+  - {fileID: 644619059}
   m_Father: {fileID: 1936176055}
   m_LocalEulerAnglesHint: {x: 5.547, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20735,6 +21070,69 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4076008093276223439, guid: d4d3c47bc7e09fb4f807b7bab789c4b6, type: 3}
   m_PrefabInstance: {fileID: 4855750115780429400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1872911647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872911648}
+  - component: {fileID: 1872911649}
+  m_Layer: 0
+  m_Name: 2D Ambience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1872911648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872911647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1066017738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872911649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872911647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -201638023
+      Data2: 1164020183
+      Data3: 698461354
+      Data4: -528485668
+    Path: event:/Music/Background Ambience
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1875486724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7527863893299349242, guid: 8b2eeba393e097e48a891f4f22b925a7, type: 3}
@@ -20973,7 +21371,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1582350141}
   m_HandleRect: {fileID: 1582350140}
   m_Direction: 2
-  m_Value: 0.99999833
+  m_Value: 0.99999905
   m_Size: 0.37783822
   m_NumberOfSteps: 0
   m_OnValueChanged:
